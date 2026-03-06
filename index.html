@@ -587,14 +587,16 @@
     .org-grid .org-card:nth-child(3n)::after   { background: linear-gradient(to right, var(--blue), var(--blue-mid)); }
 
     .org-logo-wrap {
-      height: 56px;
+      height: 80px;
       display: flex;
       align-items: center;
       margin-bottom: 22px;
+      border-radius: 8px;
+      overflow: hidden;
     }
     .org-logo-wrap img {
-      max-height: 44px;
-      max-width: 180px;
+      max-height: 56px;
+      max-width: 200px;
       width: auto;
       object-fit: contain;
       transition: opacity 0.2s;
@@ -603,10 +605,15 @@
     /* Light logos need a dark pill background */
     .org-logo-wrap.dark-bg {
       background: #1a1a2e;
-      border-radius: 8px;
-      padding: 8px 14px;
-      height: auto !important;
-      min-height: unset;
+      padding: 0 20px;
+      height: 80px;
+      width: 100%;
+      justify-content: center;
+    }
+    .org-logo-wrap.dark-bg img {
+      max-height: 56px;
+      width: auto;
+      max-width: 240px;
     }
 
     /* fallback icon wrap (AIF) */
@@ -1379,8 +1386,8 @@
 
       <!-- Armenian Symphony Orchestra -->
       <div class="org-card">
-        <div class="org-logo-wrap dark-bg" style="padding:16px 20px; display:block;">
-          <img src="logos/armsymphony.png" alt="Armenian State Symphony Orchestra" style="width:100%; height:auto; display:block;">
+        <div class="org-logo-wrap dark-bg">
+          <img src="logos/armsymphony.png" alt="Armenian State Symphony Orchestra">
         </div>
         <div class="org-name">Armenian State Symphony Orchestra</div>
         <p style="font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--red); margin-bottom:12px;">Rev Lebaredian · Board Member</p>
