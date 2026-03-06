@@ -544,20 +544,26 @@
     .org-card.tfa::after  { background: linear-gradient(to right, var(--us-blue), var(--blue-mid)); }
 
     .org-logo-wrap {
-      height: 52px;
+      height: 56px;
       display: flex;
       align-items: center;
       margin-bottom: 22px;
     }
     .org-logo-wrap img {
       max-height: 44px;
-      max-width: 160px;
+      max-width: 180px;
       width: auto;
       object-fit: contain;
-      filter: grayscale(0%);
       transition: opacity 0.2s;
     }
     .org-card:hover .org-logo-wrap img { opacity: 0.85; }
+    /* Light logos need a dark pill background */
+    .org-logo-wrap.dark-bg {
+      background: #1a1a2e;
+      border-radius: 8px;
+      padding: 8px 14px;
+      height: auto;
+    }
 
     /* fallback icon wrap (AIF) */
     .org-icon-wrap {
@@ -1154,7 +1160,7 @@
 
       <!-- TUMO -->
       <div class="org-card tumo">
-        <div class="org-logo-wrap">
+        <div class="org-logo-wrap dark-bg">
           <img src="logos/tumo.png" alt="TUMO">
         </div>
         <div class="org-name">TUMO</div>
@@ -1242,7 +1248,7 @@
 
       <!-- YerevaNN -->
       <div class="org-card">
-        <div class="org-logo-wrap">
+        <div class="org-logo-wrap dark-bg">
           <img src="logos/yerevan.svg" alt="YerevaNN">
         </div>
         <div class="org-name">YerevaNN</div>
