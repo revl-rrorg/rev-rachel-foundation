@@ -73,9 +73,59 @@
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
-    .nav-logo .accent { color: var(--orange); }
+    .nav-logo-mark {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      flex-shrink: 0;
+    }
+    .nav-logo-mark span {
+      display: block;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--red);
+      transition: width 0.3s ease;
+    }
+    .nav-logo-mark span:nth-child(1) { width: 18px; }
+    .nav-logo-mark span:nth-child(2) { width: 12px; }
+    .nav-logo-mark span:nth-child(3) { width: 6px; }
+    .nav-logo:hover .nav-logo-mark span:nth-child(1) { width: 6px; }
+    .nav-logo:hover .nav-logo-mark span:nth-child(3) { width: 18px; }
+    .nav-logo-text {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+    .nav-logo-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-weight: 400;
+      color: #ffffff;
+      letter-spacing: 0.03em;
+      line-height: 1;
+    }
+    .nav-logo-name .logo-amp {
+      font-style: italic;
+      color: var(--orange);
+      margin: 0 1px;
+    }
+    .nav-logo-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255,255,255,0.15);
+      margin: 2px 0;
+    }
+    .nav-logo-sub {
+      font-family: 'Inter', sans-serif;
+      font-size: 6.5px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      line-height: 1;
+    }
 
     .nav-links {
       display: flex;
@@ -992,10 +1042,14 @@
   <!-- NAV -->
   <nav>
     <a class="nav-logo" href="#">
-      <svg width="160" height="36" viewBox="0 0 200 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <text x="0" y="22" font-family="Cormorant Garamond, serif" font-size="20" font-weight="400" fill="#ffffff" letter-spacing="1">Rev <tspan font-style="italic" fill="#F2A800">&amp;</tspan> Rachel</text>
-        <text x="0" y="34" font-family="Inter, sans-serif" font-size="7" font-weight="600" fill="rgba(255,255,255,0.38)" letter-spacing="4">FOUNDATION</text>
-      </svg>
+      <div class="nav-logo-mark">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="nav-logo-text">
+        <div class="nav-logo-name">Rev <span class="logo-amp">&amp;</span> Rachel</div>
+        <div class="nav-logo-divider"></div>
+        <div class="nav-logo-sub">Foundation</div>
+      </div>
     </a>
     <ul class="nav-links">
       <li><a href="#mission">Mission</a></li>
@@ -1536,10 +1590,12 @@
   <div class="flag-bar"></div>
   <footer>
     <div class="footer-logo">
-      <svg width="160" height="40" viewBox="0 0 200 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <text x="0" y="22" font-family="Cormorant Garamond, serif" font-size="20" font-weight="400" fill="#ffffff" letter-spacing="1">Rev <tspan font-style="italic" fill="#F2A800">&amp;</tspan> Rachel</text>
-        <text x="0" y="34" font-family="Inter, sans-serif" font-size="7" font-weight="600" fill="rgba(255,255,255,0.3)" letter-spacing="4">FOUNDATION</text>
-      </svg>
+      <div class="nav-logo-mark" style="margin-bottom:10px;">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="nav-logo-name" style="font-size:20px; margin-bottom:6px;">Rev <span class="logo-amp">&amp;</span> Rachel</div>
+      <div class="nav-logo-divider" style="margin-bottom:6px;"></div>
+      <div class="nav-logo-sub" style="font-size:7.5px; letter-spacing:0.3em;">Foundation</div>
     </div>
     <p>© 2025 Rev &amp; Rachel Foundation. All rights reserved.</p>
     <div class="footer-flags">🇦🇲 🇺🇸</div>
