@@ -66,6 +66,7 @@
       background: rgba(6, 11, 25, 0.96);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(242, 168, 0, 0.18);
+      border-top: 2px solid var(--red);
     }
 
     .nav-logo {
@@ -177,7 +178,7 @@
       letter-spacing: -0.02em;
       margin-bottom: 28px;
     }
-    .hero h1 .line-accent { color: var(--orange); }
+    .hero h1 .line-accent { color: var(--red); }
     .hero h1 .line-blue   { color: #7BAEFF; }
 
     .hero-desc {
@@ -283,7 +284,7 @@
       width: 28px;
       height: 3px;
       border-radius: 2px;
-      background: var(--orange);
+      background: var(--red);
       flex-shrink: 0;
     }
     .eyebrow p {
@@ -291,7 +292,7 @@
       font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--orange);
+      color: var(--red);
     }
     .eyebrow.dark p { color: var(--blue-mid); }
     .eyebrow.dark .eyebrow-line { background: var(--blue-mid); }
@@ -388,7 +389,7 @@
     .mission-quote {
       margin-top: 48px;
       padding: 28px 32px;
-      border-left: 3px solid var(--orange);
+      border-left: 3px solid var(--red);
       background: rgba(255,255,255,0.04);
       border-radius: 0 6px 6px 0;
     }
@@ -402,7 +403,7 @@
       display: block;
       margin-top: 12px;
       font-size: 0.78rem;
-      color: var(--orange);
+      color: var(--red);
       font-style: normal;
       font-weight: 600;
       letter-spacing: 0.08em;
@@ -426,7 +427,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.75rem;
       font-weight: 800;
-      color: rgba(242,168,0,0.25);
+      color: rgba(200,16,46,0.4);
       line-height: 1;
       flex-shrink: 0;
       width: 40px;
@@ -517,7 +518,7 @@
       position: absolute;
       bottom: 0; left: 0; right: 0;
       height: 4px;
-      background: linear-gradient(to right, var(--blue), var(--blue-mid));
+      background: linear-gradient(to right, var(--red), #FF4D6A);
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.3s;
@@ -638,7 +639,7 @@
       position: absolute;
       width: 600px; height: 600px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(242,168,0,0.12) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(200,16,46,0.15) 0%, transparent 70%);
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       pointer-events: none;
@@ -661,7 +662,7 @@
     .stat-box {
       background: rgba(255,255,255,0.06);
       padding: 44px 24px 36px;
-      border-top: 3px solid var(--orange);
+      border-top: 3px solid var(--red);
       transition: background 0.2s;
     }
     .stat-box:hover { background: rgba(255,255,255,0.1); }
@@ -674,7 +675,7 @@
       letter-spacing: -0.04em;
       margin-bottom: 6px;
     }
-    .stat-num .accent { color: var(--orange); }
+    .stat-num .accent { color: var(--red); }
     .stat-label {
       color: rgba(255,255,255,0.5);
       font-size: 0.75rem;
@@ -701,11 +702,11 @@
     .story-icon {
       width: 44px; height: 44px;
       border-radius: 10px;
-      background: rgba(242,168,0,0.15);
+      background: rgba(200,16,46,0.12);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--orange);
+      color: var(--red);
       margin-bottom: 18px;
     }
     .story-icon svg { width: 22px; height: 22px; }
@@ -851,13 +852,13 @@
     .contact-icon {
       width: 36px; height: 36px;
       border-radius: 8px;
-      background: rgba(242,168,0,0.12);
+      background: rgba(200,16,46,0.12);
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
-    .contact-icon svg { width: 16px; height: 16px; color: var(--orange); }
+    .contact-icon svg { width: 16px; height: 16px; color: var(--red); }
 
     .contact-form { display: flex; flex-direction: column; gap: 16px; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
