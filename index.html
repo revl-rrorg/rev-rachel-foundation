@@ -516,7 +516,7 @@
     /* ════════════════════════════════════
        ORGANIZATIONS — COAF grid approach
     ════════════════════════════════════ */
-    #organizations { background: #F0EDE8; }
+    #organizations { background: #1C2B3A; }
 
     .org-header {
       display: grid;
@@ -560,12 +560,17 @@
 
     .org-card {
       background: var(--white);
-      border-radius: 12px;
+      border-radius: 14px;
       padding: 36px 32px 40px;
       transition: transform 0.25s, box-shadow 0.25s;
       position: relative;
       overflow: hidden;
-      border: 1px solid rgba(0,40,104,0.07);
+      border: none;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.18), 0 1px 4px rgba(0,0,0,0.1);
+    }
+    .org-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.28), 0 2px 8px rgba(0,0,0,0.12);
     }
     .org-card::after {
       content: '';
@@ -1271,8 +1276,8 @@
   <section id="organizations">
     <div class="org-header">
       <div>
-        <div class="eyebrow dark"><div class="eyebrow-line"></div><p>Who We Support</p></div>
-        <h2 class="section-title">Our <em>partner</em><br>organizations</h2>
+        <div class="eyebrow dark"><div class="eyebrow-line"></div><p style="color:rgba(255,255,255,0.5);">Who We Support</p></div>
+        <h2 class="section-title" style="color:var(--white);">Our <em>partner</em><br>organizations</h2>
       </div>
       <div class="org-filter">
         <button class="filter-btn active">All</button>
