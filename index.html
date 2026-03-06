@@ -579,12 +579,12 @@
       box-shadow: 0 24px 60px rgba(0,40,104,0.12);
     }
 
-    /* TUMO card — orange accent */
-    .org-card.tumo::after { background: linear-gradient(to right, #FF6B00, var(--orange)); }
-    /* COAF card — red accent */
-    .org-card.coaf::after { background: linear-gradient(to right, var(--red), #FF4D6A); }
-    /* TFA card — blue accent */
-    .org-card.tfa::after  { background: linear-gradient(to right, var(--us-blue), var(--blue-mid)); }
+    /* Column 1 — orange (TUMO orange) */
+    .org-grid .org-card:nth-child(3n+1)::after { background: linear-gradient(to right, #E8800A, var(--orange)); }
+    /* Column 2 — red */
+    .org-grid .org-card:nth-child(3n+2)::after { background: linear-gradient(to right, var(--red), #FF4D6A); }
+    /* Column 3 — blue */
+    .org-grid .org-card:nth-child(3n)::after   { background: linear-gradient(to right, var(--blue), var(--blue-mid)); }
 
     .org-logo-wrap {
       height: 56px;
@@ -648,8 +648,11 @@
       padding: 3px 9px;
       border-radius: 100px;
     }
-    .org-card.tumo .org-tag { color: #CC5500; background: rgba(255,107,0,0.1); }
-    .org-card.coaf .org-tag { color: var(--red); background: rgba(200,16,46,0.08); }
+    /* Column 1 — orange tags */
+    .org-grid .org-card:nth-child(3n+1) .org-tag { color: #B86200; background: rgba(242,168,0,0.12); }
+    /* Column 2 — red tags */
+    .org-grid .org-card:nth-child(3n+2) .org-tag { color: var(--red); background: rgba(200,16,46,0.08); }
+    /* Column 3 — blue tags (default, already blue) */
 
     .org-desc {
       color: var(--gray);
@@ -669,8 +672,11 @@
       text-decoration: none;
       transition: gap 0.2s, color 0.2s;
     }
-    .org-card.tumo .org-link { color: #CC5500; }
-    .org-card.coaf .org-link { color: var(--red); }
+    /* Column 1 — orange links */
+    .org-grid .org-card:nth-child(3n+1) .org-link { color: #B86200; }
+    /* Column 2 — red links */
+    .org-grid .org-card:nth-child(3n+2) .org-link { color: var(--red); }
+    /* Column 3 — blue links (default) */
     .org-link:hover { gap: 10px; }
     .org-link svg { width: 14px; height: 14px; transition: transform 0.2s; }
     .org-link:hover svg { transform: translateX(3px); }
