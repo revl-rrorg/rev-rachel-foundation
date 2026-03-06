@@ -1025,32 +1025,100 @@
     /* ════════════════════════════════════
        RESPONSIVE
     ════════════════════════════════════ */
+    /* ── Hamburger button ── */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      margin-left: auto;
+      background: none;
+      border: none;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.25s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── Mobile drawer ── */
+    .nav-mobile-drawer {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: #0D1B2A;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      z-index: 999;
+      padding: 16px 0 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+    .nav-mobile-drawer.open { display: block; }
+    .nav-mobile-drawer a {
+      display: block;
+      padding: 14px 28px;
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .nav-mobile-drawer a.nav-cta {
+      margin: 16px 28px 0;
+      display: inline-block;
+      background: var(--orange);
+      color: var(--dark);
+      border-radius: 4px;
+      padding: 12px 24px;
+      border: none;
+    }
+    .nav-mobile-drawer .drawer-flags {
+      display: flex;
+      gap: 8px;
+      padding: 16px 28px 0;
+    }
+
     @media (max-width: 1024px) {
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
       .impact-stories { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 900px) {
-      nav { padding: 0 24px; }
-      section { padding: 72px 24px; }
-      #mission { grid-template-columns: 1fr; gap: 48px; }
+      nav { padding: 0 20px; }
+      section { padding: 60px 20px; }
+      #mission { grid-template-columns: 1fr; gap: 40px; }
       .mission-left { position: static; }
       #armenia { grid-template-columns: 1fr; }
-      .armenia-photo { min-height: 320px; }
-      .armenia-content { padding: 72px 24px; }
+      .armenia-photo { min-height: 280px; }
+      .armenia-content { padding: 56px 24px; }
       .org-grid { grid-template-columns: 1fr 1fr; }
-      .org-header { grid-template-columns: 1fr; gap: 24px; }
-      .org-filter { justify-content: flex-start; }
-      #contact { grid-template-columns: 1fr; gap: 48px; }
-      .hero { padding: 0 24px; }
-      .hero-scroll { left: 24px; }
+      #contact { grid-template-columns: 1fr; gap: 40px; }
+      .hero { padding: 0 20px; }
       footer { grid-template-columns: 1fr; text-align: center; }
       .footer-flags { justify-content: center; }
       footer p { text-align: center; }
-      .impact-ticker { flex-wrap: wrap; }
-      .ticker-item { flex: 1 1 50%; min-width: 160px; }
     }
     @media (max-width: 600px) {
+      nav { height: 56px; padding: 0 16px; }
       .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-logo-name { font-size: 15px; }
+      .nav-logo-sub { font-size: 5px; letter-spacing: 0.22em; }
+      .flag-bar { height: 2px; }
+      section { padding: 48px 16px; }
+      .hero { min-height: calc(100vh - 56px); padding: 0 16px; }
+      .hero h1 { font-size: clamp(2rem, 10vw, 3.5rem); }
+      .hero-sub { font-size: 0.9rem; }
       .org-grid { grid-template-columns: 1fr; }
       .stats-grid { grid-template-columns: 1fr 1fr; }
       .armenia-values { grid-template-columns: 1fr; }
@@ -1058,9 +1126,17 @@
       .value-item:nth-child(even) { padding-left: 0; }
       .form-row { grid-template-columns: 1fr; }
       .impact-stories { grid-template-columns: 1fr; }
-      .logos-strip { flex-direction: column; align-items: flex-start; }
-      .logo-items { justify-content: flex-start; }
+      .logos-strip { flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px 20px; }
+      .logo-items { justify-content: flex-start; gap: 20px; flex-wrap: wrap; }
       .hero-bg-letter { display: none; }
+      .section-title { font-size: clamp(1.8rem, 8vw, 2.8rem); }
+      .pillar { padding: 24px 20px; }
+      .org-card { padding: 24px 20px; }
+      .impact-inner { padding: 60px 16px; }
+      .armenia-content { padding: 48px 16px; }
+      #about .about-inner > div { padding: 0 !important; }
+      .logos-strip { border-radius: 0; }
+      footer { padding: 48px 16px 32px; gap: 32px; }
     }
   </style>
 </head>
@@ -1093,7 +1169,24 @@
         <span style="font-size:1.15rem;line-height:1;" title="United States">🇺🇸</span>
       </li>
     </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- Mobile drawer -->
+  <div class="nav-mobile-drawer" id="mobileDrawer">
+    <a href="#mission" class="drawer-link">Mission</a>
+    <a href="#organizations" class="drawer-link">Partners</a>
+    <a href="#impact" class="drawer-link">Impact</a>
+    <a href="#about" class="drawer-link">About</a>
+    <a href="#armenia" class="drawer-link">Armenia</a>
+    <a href="#contact" class="nav-cta drawer-link">Connect</a>
+    <div class="drawer-flags">
+      <span style="font-size:1.3rem;">🇦🇲</span>
+      <span style="font-size:1.3rem;">🇺🇸</span>
+    </div>
+  </div>
 
   <!-- ══════════ HERO ══════════ -->
   <section class="hero" id="home">
@@ -1681,13 +1774,14 @@
         target.style.display = '';
         window.scrollTo(0, 0);
       }
-      // Update active nav link
       document.querySelectorAll('.nav-links a').forEach(a => {
         a.classList.toggle('nav-active', a.getAttribute('href') === '#' + id || (id === 'home' && a.getAttribute('href') === '#'));
       });
+      // Close mobile drawer
+      closeMobileMenu();
     }
 
-    // Intercept all nav links
+    // Desktop nav links
     document.querySelectorAll('.nav-links a, .nav-logo').forEach(a => {
       a.addEventListener('click', e => {
         const href = a.getAttribute('href') || '#';
@@ -1697,6 +1791,30 @@
           showSection(id || 'home');
         }
       });
+    });
+
+    // Mobile drawer links
+    document.querySelectorAll('.drawer-link').forEach(a => {
+      a.addEventListener('click', e => {
+        const href = a.getAttribute('href') || '#';
+        const id = href.replace('#', '') || 'home';
+        if (sections.includes(id)) {
+          e.preventDefault();
+          showSection(id);
+        }
+      });
+    });
+
+    // Hamburger toggle
+    const hamburger = document.getElementById('hamburger');
+    const drawer = document.getElementById('mobileDrawer');
+    function closeMobileMenu() {
+      hamburger.classList.remove('open');
+      drawer.classList.remove('open');
+    }
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      drawer.classList.toggle('open');
     });
 
     // On load, show home only
