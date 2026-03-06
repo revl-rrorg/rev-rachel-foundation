@@ -6,54 +6,85 @@
   <title>Rev & Rachel Foundation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --gold: #C8973A;
-      --gold-light: #E5B86A;
-      --gold-dark: #9A6F20;
-      --red: #B5261E;
-      --blue: #1A3A5C;
-      --blue-light: #2A5F8F;
-      --off-white: #F8F5EF;
-      --warm-gray: #6B6560;
-      --dark: #1C1A18;
+      /* ── Armenian Flag ── */
+      --arm-red:    #D90012;
+      --arm-blue:   #003087;
+      --arm-orange: #F2A800;
+
+      /* ── American Flag ── */
+      --us-red:  #BF0A30;
+      --us-blue: #002868;
+
+      /* ── Working Palette ── */
+      --red:        #C8102E;   /* unified red */
+      --blue:       #002868;   /* deep patriotic navy */
+      --blue-mid:   #1B4F9C;   /* mid blue for gradients */
+      --orange:     #F2A800;   /* Armenian orange / main accent */
+      --orange-lt:  #FFB92E;
+      --dark:       #060B19;
+      --dark-2:     #0E1525;
+      --gray:       #4B5563;
+      --gray-lt:    #9CA3AF;
+      --off-white:  #F4F6FF;
+      --white:      #FFFFFF;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: var(--off-white);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--white);
       color: var(--dark);
       overflow-x: hidden;
     }
 
-    /* ─── NAV ─────────────────────────────────────────────── */
+    /* ════════════════════════════════════
+       FLAG BAR — Armenian (R/B/O) + USA (R/W/B)
+    ════════════════════════════════════ */
+    .flag-bar {
+      height: 7px;
+      background: linear-gradient(
+        to right,
+        var(--arm-red)    0%   16.6%,
+        var(--arm-blue)   16.6% 33.2%,
+        var(--arm-orange) 33.2% 50%,
+        var(--us-red)     50%   66.6%,
+        var(--white)      66.6% 83.2%,
+        var(--us-blue)    83.2% 100%
+      );
+    }
+
+    /* ════════════════════════════════════
+       NAV — TUMO-inspired: bold, minimal, sticky
+    ════════════════════════════════════ */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      z-index: 100;
+      z-index: 200;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 20px 60px;
-      background: rgba(28,26,24,0.92);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(200,151,58,0.2);
+      padding: 0 56px;
+      height: 68px;
+      background: rgba(6, 11, 25, 0.96);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(242, 168, 0, 0.18);
     }
 
     .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
-      font-weight: 400;
-      color: var(--gold-light);
-      letter-spacing: 0.05em;
+      font-family: 'Syne', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
       text-decoration: none;
+      color: var(--white);
     }
-    .nav-logo span { color: #fff; font-weight: 300; }
+    .nav-logo .accent { color: var(--orange); }
 
     .nav-links {
       display: flex;
@@ -61,72 +92,132 @@
       list-style: none;
     }
     .nav-links a {
-      color: rgba(255,255,255,0.75);
+      color: rgba(255,255,255,0.65);
       text-decoration: none;
-      font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.12em;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--gold-light); }
+    .nav-links a:hover { color: var(--orange); }
 
-    /* ─── HERO ────────────────────────────────────────────── */
+    .nav-cta {
+      background: var(--orange);
+      color: var(--dark) !important;
+      padding: 8px 20px;
+      font-weight: 700 !important;
+      letter-spacing: 0.08em !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--orange-lt) !important; color: var(--dark) !important; }
+
+    /* ════════════════════════════════════
+       HERO — TUMO-style: full-bleed, bold type
+    ════════════════════════════════════ */
     .hero {
       min-height: 100vh;
-      background:
-        linear-gradient(160deg, rgba(26,58,92,0.82) 0%, rgba(28,26,24,0.72) 60%),
-        url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Tatev_monastery_in_2020.jpg/1280px-Tatev_monastery_in_2020.jpg') center/cover no-repeat;
+      position: relative;
       display: flex;
       align-items: center;
-      padding: 0 60px;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(0,40,104,0.88) 0%, rgba(6,11,25,0.80) 55%, rgba(200,16,46,0.35) 100%),
+        url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Tatev_monastery_in_2020.jpg/1280px-Tatev_monastery_in_2020.jpg') center/cover no-repeat;
+      padding: 0 56px;
+    }
+
+    /* big decorative letter — TUMO signature element */
+    .hero-bg-letter {
+      position: absolute;
+      right: -40px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(220px, 30vw, 440px);
+      line-height: 1;
+      color: rgba(255,255,255,0.04);
+      user-select: none;
+      pointer-events: none;
+      letter-spacing: -0.05em;
     }
 
     .hero-inner {
-      max-width: 720px;
-      padding-top: 80px;
+      max-width: 740px;
+      padding-top: 68px;
+      position: relative;
+      z-index: 1;
     }
 
-    .hero-eyebrow {
-      display: flex;
+    .hero-badge {
+      display: inline-flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 28px;
+      gap: 10px;
+      background: rgba(242,168,0,0.15);
+      border: 1px solid rgba(242,168,0,0.35);
+      border-radius: 100px;
+      padding: 6px 16px 6px 10px;
+      margin-bottom: 36px;
     }
-    .hero-eyebrow span {
-      display: block;
-      height: 1px;
-      width: 48px;
-      background: var(--gold);
+    .hero-badge-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--orange);
+      animation: pulse 2s infinite;
     }
-    .hero-eyebrow p {
-      color: var(--gold-light);
-      font-size: 0.75rem;
-      letter-spacing: 0.22em;
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
+    }
+    .hero-badge span {
+      color: var(--orange-lt);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      font-weight: 500;
     }
 
     .hero h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3rem, 6vw, 5.5rem);
-      font-weight: 300;
-      color: #fff;
-      line-height: 1.08;
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(3rem, 6.5vw, 6rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
       margin-bottom: 28px;
     }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--gold-light);
-    }
+    .hero h1 .line-accent { color: var(--orange); }
+    .hero h1 .line-blue   { color: #7BAEFF; }
 
     .hero-desc {
-      color: rgba(255,255,255,0.78);
-      font-size: 1.08rem;
-      line-height: 1.7;
+      color: rgba(255,255,255,0.72);
+      font-size: 1.1rem;
+      line-height: 1.75;
       max-width: 560px;
+      margin-bottom: 48px;
+      font-weight: 400;
+    }
+
+    .hero-flags {
+      display: flex;
+      align-items: center;
+      gap: 10px;
       margin-bottom: 44px;
     }
+    .hero-flags .flag-chip {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 4px;
+      padding: 6px 12px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.7);
+      font-weight: 500;
+    }
+    .flag-chip .fi { font-size: 1rem; }
 
     .hero-cta {
       display: flex;
@@ -134,467 +225,911 @@
       flex-wrap: wrap;
     }
     .btn-primary {
-      background: var(--gold);
+      background: var(--orange);
       color: var(--dark);
-      padding: 14px 32px;
+      padding: 15px 36px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
+      font-weight: 700;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       text-decoration: none;
-      transition: background 0.2s, transform 0.2s;
+      border-radius: 4px;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
-    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+    .btn-primary:hover { background: var(--orange-lt); transform: translateY(-2px); }
 
     .btn-outline {
-      border: 1px solid rgba(255,255,255,0.4);
-      color: rgba(255,255,255,0.9);
-      padding: 14px 32px;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.88);
+      padding: 15px 36px;
       font-size: 0.82rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       text-decoration: none;
+      border-radius: 4px;
       transition: border-color 0.2s, color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
-    .btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); }
+    .btn-outline:hover { border-color: var(--orange); color: var(--orange); }
 
-    /* ─── SECTION COMMON ──────────────────────────────────── */
-    section { padding: 100px 60px; }
-
-    .section-eyebrow {
+    /* scroll indicator */
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 56px;
       display: flex;
       align-items: center;
       gap: 12px;
+      color: rgba(255,255,255,0.35);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .hero-scroll-line {
+      width: 36px;
+      height: 1px;
+      background: rgba(255,255,255,0.25);
+    }
+
+    /* ════════════════════════════════════
+       SECTION COMMONS
+    ════════════════════════════════════ */
+    section { padding: 100px 56px; }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       margin-bottom: 20px;
     }
-    .section-eyebrow span {
-      display: block;
-      height: 1px;
-      width: 40px;
-      background: var(--gold);
+    .eyebrow-line {
+      width: 28px;
+      height: 3px;
+      border-radius: 2px;
+      background: var(--orange);
+      flex-shrink: 0;
     }
-    .section-eyebrow p {
-      color: var(--gold-dark);
+    .eyebrow p {
       font-size: 0.72rem;
+      font-weight: 700;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      font-weight: 600;
+      color: var(--orange);
     }
+    .eyebrow.dark p { color: var(--blue-mid); }
+    .eyebrow.dark .eyebrow-line { background: var(--blue-mid); }
+    .eyebrow.light p { color: rgba(255,255,255,0.5); }
+    .eyebrow.light .eyebrow-line { background: var(--orange); }
 
     h2.section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.2rem, 4vw, 3.6rem);
-      font-weight: 300;
-      line-height: 1.15;
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.025em;
       color: var(--dark);
-      max-width: 680px;
     }
+    h2.section-title em {
+      font-style: italic;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 300;
+      color: var(--blue-mid);
+    }
+    h2.section-title.white { color: var(--white); }
+    h2.section-title.white em { color: var(--orange); }
 
-    h2.section-title em { font-style: italic; color: var(--blue); }
-
-    .section-sub {
-      color: var(--warm-gray);
+    .section-body {
+      color: var(--gray);
       font-size: 1rem;
-      line-height: 1.75;
-      max-width: 600px;
-      margin-top: 20px;
+      line-height: 1.78;
+      max-width: 580px;
+      margin-top: 18px;
+    }
+    .section-body.light { color: rgba(255,255,255,0.6); }
+
+    /* ════════════════════════════════════
+       STATS TICKER — COAF-inspired impact bar
+    ════════════════════════════════════ */
+    .impact-ticker {
+      background: var(--blue);
+      padding: 0;
+      overflow: hidden;
+      display: flex;
+    }
+    .ticker-item {
+      flex: 1;
+      padding: 36px 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+    }
+    .ticker-item:last-child { border-right: none; }
+    .ticker-item::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--orange);
+    }
+    .ticker-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+    .ticker-num .accent { color: var(--orange); }
+    .ticker-label {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-top: 6px;
     }
 
-    /* ─── MISSION ─────────────────────────────────────────── */
+    /* ════════════════════════════════════
+       MISSION — TFA-inspired: clean, purposeful
+    ════════════════════════════════════ */
     #mission {
       background: var(--dark);
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
-      align-items: center;
+      align-items: start;
+      padding: 100px 56px;
     }
 
-    .mission-text h2 { color: #fff; }
-    .mission-text .section-sub { color: rgba(255,255,255,0.62); }
-    .mission-text .section-eyebrow p { color: var(--gold-light); }
-    .mission-text .section-eyebrow span { background: var(--gold-light); }
+    .mission-left { position: sticky; top: 100px; }
+    .mission-left .section-body { color: rgba(255,255,255,0.58); }
 
-    .pillars {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-    .pillar {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(200,151,58,0.2);
+    .mission-quote {
+      margin-top: 48px;
       padding: 28px 32px;
-      border-left: 3px solid var(--gold);
+      border-left: 3px solid var(--orange);
+      background: rgba(255,255,255,0.04);
+      border-radius: 0 6px 6px 0;
     }
-    .pillar-icon { width: 44px; height: 44px; margin-bottom: 16px; color: var(--gold); }
-    .pillar-icon svg { width: 100%; height: 100%; }
-    .pillar h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.3rem;
-      font-weight: 400;
-      color: var(--gold-light);
-      margin-bottom: 8px;
+    .mission-quote p {
+      font-size: 1.05rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
     }
-    .pillar p { color: rgba(255,255,255,0.6); font-size: 0.88rem; line-height: 1.6; }
+    .mission-quote cite {
+      display: block;
+      margin-top: 12px;
+      font-size: 0.78rem;
+      color: var(--orange);
+      font-style: normal;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+    }
 
-    /* ─── ORGANIZATIONS ───────────────────────────────────── */
+    .pillars { display: flex; flex-direction: column; gap: 3px; }
+
+    .pillar {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      padding: 32px 36px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      transition: background 0.2s;
+      cursor: default;
+    }
+    .pillar:hover { background: rgba(242,168,0,0.07); }
+
+    .pillar-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: rgba(242,168,0,0.25);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 40px;
+    }
+
+    .pillar-content h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .pillar-tag {
+      display: inline-block;
+      background: rgba(242,168,0,0.15);
+      color: var(--orange);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-bottom: 10px;
+    }
+    .pillar-content p {
+      color: rgba(255,255,255,0.52);
+      font-size: 0.88rem;
+      line-height: 1.65;
+    }
+
+    /* ════════════════════════════════════
+       ORGANIZATIONS — COAF grid approach
+    ════════════════════════════════════ */
     #organizations { background: var(--off-white); }
 
     .org-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: end;
+      margin-bottom: 64px;
+    }
+    .org-filter {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end;
       align-items: flex-end;
-      margin-bottom: 60px;
-      gap: 32px;
+      gap: 10px;
       flex-wrap: wrap;
+    }
+    .filter-btn {
+      padding: 8px 20px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1.5px solid rgba(0,40,104,0.2);
+      background: transparent;
+      color: var(--gray);
+      border-radius: 100px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--blue);
+      color: var(--white);
+      border-color: var(--blue);
     }
 
     .org-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 2px;
+      gap: 20px;
     }
 
     .org-card {
-      background: #fff;
-      padding: 44px 36px;
+      background: var(--white);
+      border-radius: 12px;
+      padding: 36px 32px 40px;
       transition: transform 0.25s, box-shadow 0.25s;
-      border-bottom: 3px solid transparent;
       position: relative;
       overflow: hidden;
+      border: 1px solid rgba(0,40,104,0.07);
     }
-    .org-card::before {
+    .org-card::after {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--gold);
+      bottom: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(to right, var(--blue), var(--blue-mid));
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.3s;
     }
-    .org-card:hover::before { transform: scaleX(1); }
-    .org-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.1); z-index: 1; }
+    .org-card:hover::after { transform: scaleX(1); }
+    .org-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(0,40,104,0.12);
+    }
 
-    .org-icon { width: 48px; height: 48px; margin-bottom: 20px; color: var(--blue); }
-    .org-icon svg { width: 100%; height: 100%; }
+    /* TUMO card — orange accent */
+    .org-card.tumo::after { background: linear-gradient(to right, #FF6B00, var(--orange)); }
+    /* COAF card — red accent */
+    .org-card.coaf::after { background: linear-gradient(to right, var(--red), #FF4D6A); }
+    /* TFA card — blue accent */
+    .org-card.tfa::after  { background: linear-gradient(to right, var(--us-blue), var(--blue-mid)); }
+
+    .org-icon-wrap {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      background: var(--off-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+      color: var(--blue);
+      transition: background 0.2s;
+    }
+    .org-card:hover .org-icon-wrap { background: rgba(0,40,104,0.08); }
+    .org-card.tumo .org-icon-wrap { color: #FF6B00; }
+    .org-card.coaf .org-icon-wrap { color: var(--red); }
+    .org-card.tfa  .org-icon-wrap { color: var(--us-blue); }
+
+    .org-icon-wrap svg { width: 26px; height: 26px; }
+
     .org-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 600;
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
       color: var(--dark);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+    .org-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-bottom: 16px;
     }
     .org-tag {
       display: inline-block;
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
+      font-size: 0.63rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--gold-dark);
-      background: rgba(200,151,58,0.1);
-      padding: 3px 10px;
-      border-radius: 2px;
-      margin-bottom: 16px;
+      color: var(--blue-mid);
+      background: rgba(27,79,156,0.1);
+      padding: 3px 9px;
+      border-radius: 100px;
     }
+    .org-card.tumo .org-tag { color: #CC5500; background: rgba(255,107,0,0.1); }
+    .org-card.coaf .org-tag { color: var(--red); background: rgba(200,16,46,0.08); }
+
     .org-desc {
-      color: var(--warm-gray);
-      font-size: 0.9rem;
-      line-height: 1.65;
+      color: var(--gray);
+      font-size: 0.88rem;
+      line-height: 1.68;
+      margin-bottom: 22px;
     }
     .org-link {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      margin-top: 20px;
       color: var(--blue);
-      font-size: 0.8rem;
-      font-weight: 600;
+      font-size: 0.78rem;
+      font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       text-decoration: none;
-      transition: color 0.2s, gap 0.2s;
+      transition: gap 0.2s, color 0.2s;
     }
-    .org-link:hover { color: var(--gold-dark); gap: 10px; }
+    .org-card.tumo .org-link { color: #CC5500; }
+    .org-card.coaf .org-link { color: var(--red); }
+    .org-link:hover { gap: 10px; }
+    .org-link svg { width: 14px; height: 14px; transition: transform 0.2s; }
+    .org-link:hover svg { transform: translateX(3px); }
 
-    /* ─── IMPACT ──────────────────────────────────────────── */
+    /* ════════════════════════════════════
+       IMPACT — deep blue, COAF-style story stats
+    ════════════════════════════════════ */
     #impact {
-      background: var(--blue);
-      text-align: center;
-      padding: 100px 60px;
+      background: linear-gradient(135deg, var(--blue) 0%, #0C2866 60%, #1A0A3C 100%);
+      padding: 100px 56px;
+      position: relative;
+      overflow: hidden;
     }
-    #impact .section-eyebrow { justify-content: center; }
-    #impact .section-eyebrow p { color: var(--gold-light); }
-    #impact .section-eyebrow span { background: var(--gold-light); }
-    #impact h2 { color: #fff; max-width: 100%; text-align: center; margin: 0 auto 60px; }
+
+    .impact-glow {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(242,168,0,0.12) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .impact-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+    .impact-inner .section-title { max-width: 700px; margin: 0 auto 70px; }
 
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 2px;
-      max-width: 1000px;
-      margin: 0 auto;
+      gap: 3px;
+      max-width: 1100px;
+      margin: 0 auto 70px;
     }
     .stat-box {
-      background: rgba(255,255,255,0.07);
-      padding: 44px 28px;
-      border-top: 2px solid var(--gold);
+      background: rgba(255,255,255,0.06);
+      padding: 44px 24px 36px;
+      border-top: 3px solid var(--orange);
+      transition: background 0.2s;
     }
+    .stat-box:hover { background: rgba(255,255,255,0.1); }
     .stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3.5rem;
-      font-weight: 300;
-      color: var(--gold-light);
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.5rem, 4vw, 3.8rem);
+      font-weight: 800;
+      color: var(--white);
       line-height: 1;
-      margin-bottom: 8px;
+      letter-spacing: -0.04em;
+      margin-bottom: 6px;
     }
+    .stat-num .accent { color: var(--orange); }
     .stat-label {
-      color: rgba(255,255,255,0.65);
-      font-size: 0.82rem;
-      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
+      font-weight: 500;
     }
 
-    /* ─── ARMENIA SECTION ─────────────────────────────────── */
-    #armenia {
-      background:
-        linear-gradient(to right, rgba(248,245,239,0.97) 55%, rgba(248,245,239,0.6) 100%),
-        url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Ararat_plain_seen_from_Khor_Virap.jpg/1280px-Ararat_plain_seen_from_Khor_Virap.jpg') right center/cover no-repeat;
+    /* Three-column impact stories — COAF signature */
+    .impact-stories {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: left;
     }
-    #armenia .section-sub { max-width: 520px; }
+    .story-card {
+      background: rgba(255,255,255,0.06);
+      border-radius: 10px;
+      padding: 32px 28px;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .story-icon {
+      width: 44px; height: 44px;
+      border-radius: 10px;
+      background: rgba(242,168,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--orange);
+      margin-bottom: 18px;
+    }
+    .story-icon svg { width: 22px; height: 22px; }
+    .story-card h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .story-card p {
+      font-size: 0.86rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.65;
+    }
+
+    /* ════════════════════════════════════
+       ARMENIA — split with Armenia photo
+    ════════════════════════════════════ */
+    #armenia {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      min-height: 640px;
+    }
+    .armenia-content {
+      background: var(--off-white);
+      padding: 100px 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .armenia-photo {
+      background:
+        linear-gradient(to left, rgba(6,11,25,0.15) 0%, rgba(6,11,25,0.6) 100%),
+        url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Ararat_plain_seen_from_Khor_Virap.jpg/1280px-Ararat_plain_seen_from_Khor_Virap.jpg') center/cover no-repeat;
+      position: relative;
+    }
+    .armenia-photo-caption {
+      position: absolute;
+      bottom: 32px;
+      left: 32px;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      font-style: italic;
+    }
 
     .armenia-values {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      margin-top: 56px;
-    }
-    .value-item { border-top: 1px solid rgba(200,151,58,0.4); padding-top: 24px; }
-    .value-item h4 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.15rem;
-      color: var(--blue);
-      margin-bottom: 8px;
-    }
-    .value-item p { font-size: 0.87rem; color: var(--warm-gray); line-height: 1.6; }
-
-    /* ─── CONTACT ─────────────────────────────────────────── */
-    #contact {
-      background: var(--dark);
-      display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
+      gap: 0;
+      margin-top: 48px;
     }
-    #contact h2 { color: #fff; }
-    #contact .section-sub { color: rgba(255,255,255,0.62); }
-    #contact .section-eyebrow p { color: var(--gold-light); }
-    #contact .section-eyebrow span { background: var(--gold-light); }
-
-    .contact-form { display: flex; flex-direction: column; gap: 16px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .form-group { display: flex; flex-direction: column; gap: 6px; }
-    .form-group label { color: rgba(255,255,255,0.5); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; }
-    .form-group input,
-    .form-group textarea,
-    .form-group select {
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: #fff;
-      padding: 12px 16px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.92rem;
-      outline: none;
-      transition: border-color 0.2s;
-      resize: none;
+    .value-item {
+      padding: 20px 0 20px;
+      border-top: 1px solid rgba(0,40,104,0.12);
     }
-    .form-group input:focus,
-    .form-group textarea:focus,
-    .form-group select:focus { border-color: var(--gold); }
-    .form-group textarea { min-height: 120px; }
-    .form-group select option { background: var(--dark); }
+    .value-item:nth-child(odd) { padding-right: 24px; border-right: 1px solid rgba(0,40,104,0.12); }
+    .value-item:nth-child(even) { padding-left: 24px; }
 
-    .btn-submit {
-      background: var(--gold);
-      color: var(--dark);
-      border: none;
-      padding: 16px 36px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.82rem;
+    .value-item h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.9rem;
       font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: background 0.2s;
-      align-self: flex-start;
+      color: var(--dark);
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
     }
-    .btn-submit:hover { background: var(--gold-light); }
+    .value-item p {
+      font-size: 0.84rem;
+      color: var(--gray);
+      line-height: 1.62;
+    }
 
-    /* ─── FOOTER ──────────────────────────────────────────── */
-    footer {
-      background: #111;
-      padding: 48px 60px;
+    /* ════════════════════════════════════
+       PARTNER LOGOS strip — COAF & TUMO style
+    ════════════════════════════════════ */
+    .logos-strip {
+      background: var(--white);
+      border-top: 1px solid rgba(0,40,104,0.07);
+      border-bottom: 1px solid rgba(0,40,104,0.07);
+      padding: 36px 56px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-top: 1px solid rgba(200,151,58,0.15);
+      gap: 32px;
       flex-wrap: wrap;
-      gap: 24px;
     }
-    .footer-brand {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      color: var(--gold-light);
+    .logos-label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray-lt);
+      flex-shrink: 0;
     }
-    .footer-brand span { color: rgba(255,255,255,0.5); font-weight: 300; }
+    .logo-items {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      flex: 1;
+      justify-content: flex-end;
+    }
+    .logo-item {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--gray-lt);
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+    .logo-item:hover { color: var(--blue); }
+
+    /* ════════════════════════════════════
+       CONTACT — dark, clean
+    ════════════════════════════════════ */
+    #contact {
+      background: var(--dark-2);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-info .section-body { color: rgba(255,255,255,0.55); }
+
+    .contact-details {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.9rem;
+    }
+    .contact-icon {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: rgba(242,168,0,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon svg { width: 16px; height: 16px; color: var(--orange); }
+
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { display: flex; flex-direction: column; gap: 7px; }
+
+    .form-group label {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      background: rgba(255,255,255,0.05);
+      border: 1.5px solid rgba(255,255,255,0.1);
+      color: var(--white);
+      padding: 13px 16px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.92rem;
+      border-radius: 6px;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+      resize: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: rgba(255,255,255,0.22); }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--orange);
+      background: rgba(242,168,0,0.05);
+    }
+    .form-group textarea { min-height: 120px; }
+    .form-group select option { background: var(--dark-2); }
+
+    .btn-submit {
+      background: var(--orange);
+      color: var(--dark);
+      border: none;
+      padding: 16px 36px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background 0.2s, transform 0.15s;
+      align-self: flex-start;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-submit:hover { background: var(--orange-lt); transform: translateY(-1px); }
+
+    /* ════════════════════════════════════
+       FOOTER
+    ════════════════════════════════════ */
+    footer {
+      background: #050810;
+      padding: 44px 56px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 32px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .footer-logo .accent { color: var(--orange); }
     footer p {
-      color: rgba(255,255,255,0.3);
-      font-size: 0.78rem;
+      color: rgba(255,255,255,0.25);
+      font-size: 0.76rem;
+      text-align: center;
     }
-    .footer-flag { font-size: 1.4rem; }
+    .footer-flags { display: flex; gap: 8px; font-size: 1.4rem; justify-content: flex-end; }
 
-    /* ─── ARMENIAN PATTERN DIVIDER ────────────────────────── */
-    .divider {
-      height: 6px;
-      background: linear-gradient(to right, var(--red), var(--blue), var(--gold));
-    }
-
-    /* ─── RESPONSIVE ──────────────────────────────────────── */
-    @media (max-width: 900px) {
-      nav { padding: 18px 24px; }
-      .nav-links { gap: 20px; }
-      section { padding: 72px 24px; }
-      #mission, #contact { grid-template-columns: 1fr; gap: 48px; }
-      .org-grid { grid-template-columns: 1fr 1fr; }
+    /* ════════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════════ */
+    @media (max-width: 1024px) {
       .stats-grid { grid-template-columns: repeat(2, 1fr); }
-      .armenia-values { grid-template-columns: 1fr 1fr; }
+      .impact-stories { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      section { padding: 72px 24px; }
+      #mission { grid-template-columns: 1fr; gap: 48px; }
+      .mission-left { position: static; }
+      #armenia { grid-template-columns: 1fr; }
+      .armenia-photo { min-height: 320px; }
+      .armenia-content { padding: 72px 24px; }
+      .org-grid { grid-template-columns: 1fr 1fr; }
+      .org-header { grid-template-columns: 1fr; gap: 24px; }
+      .org-filter { justify-content: flex-start; }
+      #contact { grid-template-columns: 1fr; gap: 48px; }
       .hero { padding: 0 24px; }
+      .hero-scroll { left: 24px; }
+      footer { grid-template-columns: 1fr; text-align: center; }
+      .footer-flags { justify-content: center; }
+      footer p { text-align: center; }
+      .impact-ticker { flex-wrap: wrap; }
+      .ticker-item { flex: 1 1 50%; min-width: 160px; }
     }
     @media (max-width: 600px) {
       .nav-links { display: none; }
       .org-grid { grid-template-columns: 1fr; }
       .stats-grid { grid-template-columns: 1fr 1fr; }
       .armenia-values { grid-template-columns: 1fr; }
+      .value-item:nth-child(odd) { padding-right: 0; border-right: none; }
+      .value-item:nth-child(even) { padding-left: 0; }
       .form-row { grid-template-columns: 1fr; }
+      .impact-stories { grid-template-columns: 1fr; }
+      .logos-strip { flex-direction: column; align-items: flex-start; }
+      .logo-items { justify-content: flex-start; }
+      .hero-bg-letter { display: none; }
     }
   </style>
 </head>
 <body>
 
+  <!-- FLAG BAR TOP -->
+  <div class="flag-bar"></div>
+
   <!-- NAV -->
   <nav>
-    <a class="nav-logo" href="#"><span>Rev & Rachel </span>Foundation</a>
+    <a class="nav-logo" href="#"><span class="accent">Rev & Rachel</span> Foundation</a>
     <ul class="nav-links">
       <li><a href="#mission">Mission</a></li>
       <li><a href="#organizations">Partners</a></li>
       <li><a href="#impact">Impact</a></li>
       <li><a href="#armenia">Armenia</a></li>
-      <li><a href="#contact">Connect</a></li>
+      <li><a href="#contact" class="nav-cta">Connect</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
+  <!-- ══════════ HERO ══════════ -->
   <section class="hero" id="home">
+    <div class="hero-bg-letter">RRF</div>
     <div class="hero-inner">
-      <div class="hero-eyebrow">
-        <span></span>
-        <p>Building Armenia's Future</p>
+      <div class="hero-badge">
+        <span class="hero-badge-dot"></span>
+        <span>Building Armenia's Future</span>
       </div>
-      <h1>Investing in<br><em>People, Culture,</em><br>& Innovation</h1>
+      <h1>
+        Investing in<br>
+        <span class="line-accent">People,</span>
+        <span class="line-blue"> Culture</span><br>
+        &amp; Innovation
+      </h1>
       <p class="hero-desc">
-        The Rev & Rachel Foundation supports transformative organizations
-        across education, culture & arts, and technology — strengthening
-        Armenia's capacity for self-determined national growth.
+        The Rev &amp; Rachel Foundation supports transformative organizations across
+        education, culture &amp; arts, and technology — strengthening Armenia's
+        capacity for self-determined national growth.
       </p>
+      <div class="hero-flags">
+        <div class="flag-chip">
+          <span class="fi">🇦🇲</span>
+          <span>Armenia</span>
+        </div>
+        <div class="flag-chip">
+          <span class="fi">🇺🇸</span>
+          <span>United States</span>
+        </div>
+      </div>
       <div class="hero-cta">
-        <a href="#organizations" class="btn-primary">Our Partners</a>
+        <a href="#organizations" class="btn-primary">
+          Our Partners
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
         <a href="#mission" class="btn-outline">Our Mission</a>
       </div>
     </div>
+    <div class="hero-scroll">
+      <span class="hero-scroll-line"></span>
+      <span>Scroll to explore</span>
+    </div>
   </section>
 
-  <div class="divider"></div>
+  <!-- ══════════ IMPACT TICKER ══════════ -->
+  <div class="impact-ticker">
+    <div class="ticker-item">
+      <div class="ticker-num">6<span class="accent">+</span></div>
+      <div class="ticker-label">Partner Organizations</div>
+    </div>
+    <div class="ticker-item">
+      <div class="ticker-num">100<span class="accent">K+</span></div>
+      <div class="ticker-label">Lives Touched</div>
+    </div>
+    <div class="ticker-item">
+      <div class="ticker-num">3</div>
+      <div class="ticker-label">Focus Areas</div>
+    </div>
+    <div class="ticker-item">
+      <div class="ticker-num">∞</div>
+      <div class="ticker-label">Generational Commitment</div>
+    </div>
+  </div>
 
-  <!-- MISSION -->
+  <!-- ══════════ MISSION ══════════ -->
   <section id="mission">
-    <div class="mission-text">
-      <div class="section-eyebrow"><span></span><p>Why We Exist</p></div>
-      <h2 class="section-title" style="color:#fff;">A <em style="color:var(--gold-light)">foundation</em><br>for national building</h2>
-      <p class="section-sub" style="margin-top:20px;">
-        Armenia stands at a defining moment. We believe lasting change happens when
-        exceptional people and institutions are given the resources and networks to
-        realize their full potential. Our foundation channels investment into the
-        pillars that make nations thrive.
+    <div class="mission-left">
+      <div class="eyebrow light"><div class="eyebrow-line"></div><p>Why We Exist</p></div>
+      <h2 class="section-title white">A <em>foundation</em><br>for national<br>building</h2>
+      <p class="section-body light" style="margin-top:18px;">
+        Armenia stands at a defining moment. We believe lasting change happens
+        when exceptional people and institutions are given the resources and
+        networks to realize their full potential.
       </p>
+      <div class="mission-quote">
+        <p>"The diaspora's greatest gift to Armenia is not money — it's belief."</p>
+        <cite>— Our Founding Principle</cite>
+      </div>
     </div>
     <div class="pillars">
       <div class="pillar">
-        <div class="pillar-icon">
-          <!-- Book / Education -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
-            <line x1="8" y1="7" x2="16" y2="7"/>
-            <line x1="8" y1="11" x2="13" y2="11"/>
-          </svg>
+        <div class="pillar-num">01</div>
+        <div class="pillar-content">
+          <span class="pillar-tag">Pillar One</span>
+          <h3>Education</h3>
+          <p>From early learning to higher education and professional development — equipping Armenia's next generation with world-class skills and critical thinking.</p>
         </div>
-        <h3>Education</h3>
-        <p>From early learning to higher education and professional development — equipping Armenia's next generation with world-class skills.</p>
       </div>
       <div class="pillar">
-        <div class="pillar-icon">
-          <!-- Palette / Culture & Arts -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/>
-            <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/>
-            <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/>
-            <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/>
-            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/>
-          </svg>
+        <div class="pillar-num">02</div>
+        <div class="pillar-content">
+          <span class="pillar-tag">Pillar Two</span>
+          <h3>Culture &amp; Arts</h3>
+          <p>Preserving a 3,000-year heritage while creating space for contemporary Armenian expression to reach and inspire global audiences.</p>
         </div>
-        <h3>Culture & Arts</h3>
-        <p>Preserving a 3,000-year heritage while creating space for contemporary Armenian expression to reach global audiences.</p>
       </div>
       <div class="pillar">
-        <div class="pillar-icon">
-          <!-- CPU chip / Technology -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="9" y="9" width="6" height="6" rx="1"/>
-            <rect x="5" y="5" width="14" height="14" rx="2"/>
-            <line x1="9" y1="2" x2="9" y2="5"/>
-            <line x1="15" y1="2" x2="15" y2="5"/>
-            <line x1="9" y1="19" x2="9" y2="22"/>
-            <line x1="15" y1="19" x2="15" y2="22"/>
-            <line x1="2" y1="9" x2="5" y2="9"/>
-            <line x1="2" y1="15" x2="5" y2="15"/>
-            <line x1="19" y1="9" x2="22" y2="9"/>
-            <line x1="19" y1="15" x2="22" y2="15"/>
-          </svg>
+        <div class="pillar-num">03</div>
+        <div class="pillar-content">
+          <span class="pillar-tag">Pillar Three</span>
+          <h3>Technology &amp; Innovation</h3>
+          <p>Positioning Armenia as a hub for innovation, entrepreneurship, and applied research that creates both economic opportunity and national resilience.</p>
         </div>
-        <h3>Technology</h3>
-        <p>Positioning Armenia as a hub for innovation, entrepreneurship, and applied research that creates both opportunity and resilience.</p>
       </div>
     </div>
   </section>
 
-  <!-- ORGANIZATIONS -->
+  <!-- ══════════ PARTNER LOGOS STRIP ══════════ -->
+  <div class="logos-strip">
+    <span class="logos-label">Our Partners</span>
+    <div class="logo-items">
+      <a href="https://tumo.org" target="_blank" class="logo-item">TUMO</a>
+      <a href="https://teachforarmenia.org" target="_blank" class="logo-item">Teach for Armenia</a>
+      <a href="https://coaf.org" target="_blank" class="logo-item">COAF</a>
+      <a href="https://yerevann.com" target="_blank" class="logo-item">YerevaNN</a>
+      <a href="#" class="logo-item">AIF</a>
+      <a href="https://bazoomq.org" target="_blank" class="logo-item">Bazoomq</a>
+    </div>
+  </div>
+
+  <!-- ══════════ ORGANIZATIONS ══════════ -->
   <section id="organizations">
     <div class="org-header">
       <div>
-        <div class="section-eyebrow"><span></span><p>Who We Support</p></div>
+        <div class="eyebrow dark"><div class="eyebrow-line"></div><p>Who We Support</p></div>
         <h2 class="section-title">Our <em>partner</em><br>organizations</h2>
       </div>
-      <p class="section-sub" style="max-width:380px;">
-        We fund and actively participate in organizations that are doing
-        the most consequential work in Armenia today.
-      </p>
+      <div class="org-filter">
+        <button class="filter-btn active">All</button>
+        <button class="filter-btn">Education</button>
+        <button class="filter-btn">Technology</button>
+        <button class="filter-btn">Community</button>
+      </div>
     </div>
     <div class="org-grid">
 
-      <div class="org-card">
-        <div class="org-icon">
-          <!-- Rocket / TUMO -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <!-- TUMO -->
+      <div class="org-card tumo">
+        <div class="org-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
             <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/>
             <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/>
             <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/>
@@ -602,204 +1137,285 @@
           </svg>
         </div>
         <div class="org-name">TUMO</div>
-        <span class="org-tag">Education · Technology</span>
+        <div class="org-tags">
+          <span class="org-tag">Education</span>
+          <span class="org-tag">Technology</span>
+        </div>
         <p class="org-desc">
-          A global network of learning centers where teens develop skills in technology
-          and design through self-directed, project-based education. Born in Yerevan,
-          now inspiring youth across four continents.
+          A global network of after-school learning centers where teens develop
+          skills in technology and design through self-directed, project-based
+          education. Born in Yerevan, now inspiring youth across four continents.
         </p>
-        <a href="https://tumo.org" target="_blank" class="org-link">Visit TUMO →</a>
+        <a href="https://tumo.org" target="_blank" class="org-link">
+          Visit TUMO
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
       </div>
 
-      <div class="org-card">
-        <div class="org-icon">
-          <!-- Graduation cap / Teach for Armenia -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Teach for Armenia -->
+      <div class="org-card tfa">
+        <div class="org-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
             <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
             <path d="M6 12v5c3 3 9 3 12 0v-5"/>
           </svg>
         </div>
         <div class="org-name">Teach for Armenia</div>
-        <span class="org-tag">Education · Leadership</span>
+        <div class="org-tags">
+          <span class="org-tag">Education</span>
+          <span class="org-tag">Leadership</span>
+        </div>
         <p class="org-desc">
-          Placing high-achieving young leaders in under-resourced schools across Armenia,
-          building a diverse movement of educational advocates committed to equity and
-          systemic change.
+          Placing high-achieving young leaders in under-resourced schools across
+          Armenia, building a diverse fellowship of educational advocates committed
+          to equity and systemic change.
         </p>
-        <a href="https://teachforarmenia.org" target="_blank" class="org-link">Visit TFA →</a>
+        <a href="https://teachforarmenia.org" target="_blank" class="org-link">
+          Visit TFA
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
       </div>
 
-      <div class="org-card">
-        <div class="org-icon">
-          <!-- Sprout / COAF -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M7 20h10"/>
-            <path d="M10 20c5.5-2.5.8-6.4 3-10"/>
+      <!-- COAF -->
+      <div class="org-card coaf">
+        <div class="org-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/>
             <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/>
             <path d="M14.1 6a7 7 0 0 1 1.9 4.4c-1.9.1-3.3-.3-4.3-1.2-.9-.8-1.5-2.1-1.7-4.3 2.3.5 3.5 1.3 4.1 1.1z"/>
           </svg>
         </div>
         <div class="org-name">COAF</div>
-        <span class="org-tag">Rural Development · Education</span>
+        <div class="org-tags">
+          <span class="org-tag">Rural Development</span>
+          <span class="org-tag">Education</span>
+        </div>
         <p class="org-desc">
-          The Children of Armenia Fund transforms rural communities through integrated
-          programs in education, health, and economic development — bringing opportunity
-          to Armenia's most vulnerable villages.
+          The Children of Armenia Fund transforms rural communities through
+          integrated programs in education, health, and economic development —
+          bringing opportunity to Armenia's most vulnerable villages.
         </p>
-        <a href="https://coaf.org" target="_blank" class="org-link">Visit COAF →</a>
+        <a href="https://coaf.org" target="_blank" class="org-link">
+          Visit COAF
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
       </div>
 
+      <!-- AIF -->
       <div class="org-card">
-        <div class="org-icon">
-          <!-- Lightbulb / Armenian Innovation Foundation -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <div class="org-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
             <line x1="9" y1="18" x2="15" y2="18"/>
             <line x1="10" y1="22" x2="14" y2="22"/>
             <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"/>
           </svg>
         </div>
         <div class="org-name">Armenian Innovation Foundation</div>
-        <span class="org-tag">Innovation · Ecosystem</span>
+        <div class="org-tags">
+          <span class="org-tag">Innovation</span>
+          <span class="org-tag">Ecosystem</span>
+        </div>
         <p class="org-desc">
           Fueling Armenia's innovation ecosystem by connecting startups, researchers,
           and policymakers — building the infrastructure for a knowledge-based economy
-          that can compete globally.
+          that competes on the world stage.
         </p>
-        <a href="#" class="org-link">Learn More →</a>
+        <a href="#" class="org-link">
+          Learn More
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
       </div>
 
+      <!-- YerevaNN -->
       <div class="org-card">
-        <div class="org-icon">
-          <!-- Neural network / YerevaNN -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <div class="org-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="2"/>
-            <circle cx="4" cy="6" r="2"/>
-            <circle cx="20" cy="6" r="2"/>
-            <circle cx="4" cy="18" r="2"/>
-            <circle cx="20" cy="18" r="2"/>
-            <line x1="6" y1="6" x2="10" y2="11"/>
-            <line x1="18" y1="6" x2="14" y2="11"/>
-            <line x1="6" y1="18" x2="10" y2="13"/>
-            <line x1="18" y1="18" x2="14" y2="13"/>
+            <circle cx="4" cy="6" r="2"/><circle cx="20" cy="6" r="2"/>
+            <circle cx="4" cy="18" r="2"/><circle cx="20" cy="18" r="2"/>
+            <line x1="6" y1="6" x2="10" y2="11"/><line x1="18" y1="6" x2="14" y2="11"/>
+            <line x1="6" y1="18" x2="10" y2="13"/><line x1="18" y1="18" x2="14" y2="13"/>
           </svg>
         </div>
         <div class="org-name">YerevaNN</div>
-        <span class="org-tag">AI Research · Technology</span>
+        <div class="org-tags">
+          <span class="org-tag">AI Research</span>
+          <span class="org-tag">Technology</span>
+        </div>
         <p class="org-desc">
           A world-class deep learning research lab based in Yerevan, producing
-          groundbreaking work in natural language processing and machine learning
-          that puts Armenia on the global AI map.
+          groundbreaking work in NLP and machine learning that puts Armenia
+          firmly on the global AI map.
         </p>
-        <a href="https://yerevann.com" target="_blank" class="org-link">Visit YerevaNN →</a>
+        <a href="https://yerevann.com" target="_blank" class="org-link">
+          Visit YerevaNN
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
       </div>
 
+      <!-- Bazoomq -->
       <div class="org-card">
-        <div class="org-icon">
-          <!-- Globe / Bazoomq -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <div class="org-icon-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="10"/>
             <line x1="2" y1="12" x2="22" y2="12"/>
             <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
           </svg>
         </div>
         <div class="org-name">Bazoomq</div>
-        <span class="org-tag">Technology · Community</span>
+        <div class="org-tags">
+          <span class="org-tag">Technology</span>
+          <span class="org-tag">Community</span>
+        </div>
         <p class="org-desc">
-          A technology-focused platform and community empowering Armenian youth with
-          digital skills, entrepreneurial thinking, and connections to the global
-          tech landscape.
+          A technology-focused platform empowering Armenian youth with digital skills,
+          entrepreneurial thinking, and connections to the global tech landscape.
         </p>
-        <a href="https://bazoomq.org" target="_blank" class="org-link">Visit Bazoomq →</a>
+        <a href="https://bazoomq.org" target="_blank" class="org-link">
+          Visit Bazoomq
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
       </div>
 
     </div>
   </section>
 
-  <div class="divider"></div>
-
-  <!-- IMPACT -->
+  <!-- ══════════ IMPACT ══════════ -->
   <section id="impact">
-    <div class="section-eyebrow" style="justify-content:center;">
-      <span style="background:var(--gold-light)"></span>
-      <p style="color:var(--gold-light)">Our Reach</p>
-    </div>
-    <h2 class="section-title" style="color:#fff; margin:0 auto 60px; text-align:center; max-width:100%;">
-      Building a legacy of <em style="color:var(--gold-light)">measurable impact</em>
-    </h2>
-    <div class="stats-grid">
-      <div class="stat-box">
-        <div class="stat-num">6+</div>
-        <div class="stat-label">Partner Organizations</div>
+    <div class="impact-glow"></div>
+    <div class="impact-inner">
+      <div class="eyebrow light" style="justify-content:center; margin-bottom:16px;">
+        <div class="eyebrow-line"></div>
+        <p>Our Reach</p>
       </div>
-      <div class="stat-box">
-        <div class="stat-num">100K+</div>
-        <div class="stat-label">Lives Touched</div>
+      <h2 class="section-title white">Building a legacy of<br><em>measurable impact</em></h2>
+
+      <div class="stats-grid">
+        <div class="stat-box">
+          <div class="stat-num">6<span class="accent">+</span></div>
+          <div class="stat-label">Partner Organizations</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">100<span class="accent">K+</span></div>
+          <div class="stat-label">Lives Touched</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Focus Areas</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">∞</div>
+          <div class="stat-label">Generational Commitment</div>
+        </div>
       </div>
-      <div class="stat-box">
-        <div class="stat-num">3</div>
-        <div class="stat-label">Focus Areas</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">∞</div>
-        <div class="stat-label">Generational Commitment</div>
+
+      <!-- COAF-inspired impact story cards -->
+      <div class="impact-stories">
+        <div class="story-card">
+          <div class="story-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h4>Empowering Youth</h4>
+          <p>TUMO alone reaches 30,000+ students annually across Yerevan, with expanding centers in rural Armenia — modeling what TFA and COAF continue to scale.</p>
+        </div>
+        <div class="story-card">
+          <div class="story-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+          </div>
+          <h4>Systemic Change</h4>
+          <p>Teach for Armenia fellows serve in 200+ under-resourced schools, with alumni going on to lead educational reform at the policy and institutional level.</p>
+        </div>
+        <div class="story-card">
+          <div class="story-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <h4>Rural Transformation</h4>
+          <p>COAF's SMART centers have transformed 26 villages, delivering integrated health, education, and economic programs to communities once cut off from opportunity.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ARMENIA -->
-  <section id="armenia">
-    <div class="section-eyebrow"><span></span><p>Our Homeland</p></div>
-    <h2 class="section-title">Why <em>Armenia</em><br>matters to us</h2>
-    <p class="section-sub">
-      Armenia is one of the world's oldest civilizations — a culture that has survived
-      against extraordinary odds. Today, it stands at a pivotal crossroads. We believe
-      in its people, its potential, and its future.
-    </p>
-    <div class="armenia-values">
-      <div class="value-item">
-        <h4>Ancient Roots</h4>
-        <p>Over 3,000 years of history, language, and art — a heritage worth protecting and celebrating.</p>
+  <!-- ══════════ ARMENIA ══════════ -->
+  <section id="armenia" style="padding:0;">
+    <div class="armenia-content">
+      <div class="eyebrow"><div class="eyebrow-line"></div><p>Our Homeland</p></div>
+      <h2 class="section-title" style="margin-top:4px;">Why <em>Armenia</em><br>matters to us</h2>
+      <p class="section-body">
+        Armenia is one of the world's oldest civilizations — a culture that has survived
+        against extraordinary odds. Today it stands at a pivotal crossroads. We believe
+        in its people, its potential, and its future.
+      </p>
+      <div class="armenia-values">
+        <div class="value-item">
+          <h4>Ancient Roots</h4>
+          <p>Over 3,000 years of history, language, and art — a heritage worth protecting.</p>
+        </div>
+        <div class="value-item">
+          <h4>Diaspora Power</h4>
+          <p>Millions of Armenians worldwide carry the responsibility of bridging homeland and world.</p>
+        </div>
+        <div class="value-item">
+          <h4>Modern Promise</h4>
+          <p>A generation ready to build world-class institutions, companies, and creative works.</p>
+        </div>
+        <div class="value-item">
+          <h4>Human Capital</h4>
+          <p>Armenia's greatest resource — curious, resilient, committed to excellence.</p>
+        </div>
+        <div class="value-item">
+          <h4>Tech Potential</h4>
+          <p>A growing reputation as a regional tech hub with world-class engineers and researchers.</p>
+        </div>
+        <div class="value-item">
+          <h4>Cultural Vitality</h4>
+          <p>A thriving arts scene and musical tradition that continues to inspire globally.</p>
+        </div>
       </div>
-      <div class="value-item">
-        <h4>Diaspora Power</h4>
-        <p>Millions of Armenians worldwide carry the responsibility and privilege of building bridges between homeland and world.</p>
-      </div>
-      <div class="value-item">
-        <h4>Modern Promise</h4>
-        <p>A generation of talented Armenians ready to build world-class institutions, companies, and creative works.</p>
-      </div>
-      <div class="value-item">
-        <h4>Human Capital</h4>
-        <p>Armenia's greatest resource is its people — curious, resilient, and deeply committed to excellence.</p>
-      </div>
-      <div class="value-item">
-        <h4>Tech Potential</h4>
-        <p>A growing reputation as a regional tech hub with world-class engineers, researchers, and entrepreneurs.</p>
-      </div>
-      <div class="value-item">
-        <h4>Cultural Vitality</h4>
-        <p>A thriving arts scene, rich musical tradition, and architectural legacy that continues to inspire globally.</p>
-      </div>
+    </div>
+    <div class="armenia-photo">
+      <span class="armenia-photo-caption">Mount Ararat seen from Khor Virap, Armenia</span>
     </div>
   </section>
 
-  <div class="divider"></div>
-
-  <!-- CONTACT -->
+  <!-- ══════════ CONTACT ══════════ -->
   <section id="contact">
-    <div>
-      <div class="section-eyebrow"><span></span><p>Get Involved</p></div>
-      <h2 class="section-title" style="color:#fff;">Let's <em style="color:var(--gold-light)">build</em><br>together</h2>
-      <p class="section-sub" style="color:rgba(255,255,255,0.62); margin-top:20px;">
+    <div class="contact-info">
+      <div class="eyebrow light"><div class="eyebrow-line"></div><p>Get Involved</p></div>
+      <h2 class="section-title white" style="margin-top:4px;">Let's <em>build</em><br>together</h2>
+      <p class="section-body light" style="margin-top:18px;">
         Whether you're a partner organization, a potential donor, or someone who
         shares our vision for Armenia — we'd love to hear from you.
       </p>
-      <div style="margin-top:40px; display:flex; flex-direction:column; gap:16px;">
-        <div style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.65); font-size:0.9rem;">
-          <span style="color:var(--gold);">✉</span> hello@rrf.am
+      <div class="contact-details">
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          hello@rrf.am
         </div>
-        <div style="display:flex; align-items:center; gap:14px; color:rgba(255,255,255,0.65); font-size:0.9rem;">
-          <span style="color:var(--gold);">📍</span> Yerevan, Armenia & United States
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+              <circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          Yerevan, Armenia &amp; United States
         </div>
       </div>
     </div>
@@ -833,15 +1449,19 @@
         <label>Message</label>
         <textarea placeholder="Tell us about your idea, organization, or how you'd like to be involved…"></textarea>
       </div>
-      <button type="submit" class="btn-submit">Send Message</button>
+      <button type="submit" class="btn-submit">
+        Send Message
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
     </form>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ══════════ FOOTER ══════════ -->
+  <div class="flag-bar"></div>
   <footer>
-    <div class="footer-brand">Rev & Rachel <span>Foundation</span></div>
-    <p>© 2025 Rev & Rachel Foundation. All rights reserved.</p>
-    <div class="footer-flag">🇦🇲</div>
+    <div class="footer-logo"><span class="accent">Rev &amp; Rachel</span> Foundation</div>
+    <p>© 2025 Rev &amp; Rachel Foundation. All rights reserved.</p>
+    <div class="footer-flags">🇦🇲 🇺🇸</div>
   </footer>
 
 </body>
