@@ -91,6 +91,7 @@
     .nav-logo-mark span:nth-child(1) { width: 18px; }
     .nav-logo-mark span:nth-child(2) { width: 12px; }
     .nav-logo-mark span:nth-child(3) { width: 6px; }
+    .nav-links a.nav-active { color: #fff; opacity: 1; border-bottom: 1px solid var(--orange); padding-bottom: 2px; }
     .nav-logo:hover .nav-logo-mark span:nth-child(1) { width: 6px; }
     .nav-logo:hover .nav-logo-mark span:nth-child(3) { width: 18px; }
     .nav-logo-text {
@@ -1798,5 +1799,39 @@
     <div class="footer-flags">🇦🇲 🇺🇸</div>
   </footer>
 
+  <script>
+    const sections = ['home','mission','organizations','impact','about','armenia','contact'];
+
+    function showSection(id) {
+      sections.forEach(s => {
+        const el = document.getElementById(s);
+        if (el) el.style.display = 'none';
+      });
+      const target = document.getElementById(id);
+      if (target) {
+        target.style.display = '';
+        window.scrollTo(0, 0);
+      }
+      // Update active nav link
+      document.querySelectorAll('.nav-links a').forEach(a => {
+        a.classList.toggle('nav-active', a.getAttribute('href') === '#' + id || (id === 'home' && a.getAttribute('href') === '#'));
+      });
+    }
+
+    // Intercept all nav links
+    document.querySelectorAll('.nav-links a, .nav-logo').forEach(a => {
+      a.addEventListener('click', e => {
+        const href = a.getAttribute('href') || '#';
+        const id = href.replace('#', '') || 'home';
+        if (sections.includes(id) || id === '' || id === '#') {
+          e.preventDefault();
+          showSection(id || 'home');
+        }
+      });
+    });
+
+    // On load, show home only
+    window.addEventListener('DOMContentLoaded', () => showSection('home'));
+  </script>
 </body>
 </html>
