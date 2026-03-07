@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logo Options — Rev & Rachel Foundation</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0A1520; font-family:'Outfit',sans-serif; min-height:100vh; }
+
+  /* ── Header ── */
+  .page-header {
+    background:#0D1B2A;
+    border-bottom:1px solid rgba(255,255,255,0.07);
+    padding:20px 48px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .page-header-logo {
+    font-size:15px; font-weight:600; letter-spacing:0.06em;
+    color:white; text-transform:uppercase;
+  }
+  .page-header-logo span { color:#F2A800; }
+  .back-link {
+    font-size:0.8rem; color:rgba(255,255,255,0.4); text-decoration:none;
+    letter-spacing:0.1em; text-transform:uppercase;
+    border:1px solid rgba(255,255,255,0.12);
+    padding:8px 18px; border-radius:4px;
+    transition:all 0.2s;
+  }
+  .back-link:hover { color:white; border-color:rgba(255,255,255,0.3); }
+
+  /* ── Hero text ── */
+  .page-hero {
+    text-align:center;
+    padding:64px 48px 48px;
+  }
+  .page-hero .eyebrow {
+    font-size:0.72rem; font-weight:500; letter-spacing:0.28em;
+    text-transform:uppercase; color:#D90012; margin-bottom:16px;
+  }
+  .page-hero h1 {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(2rem,4vw,3rem); font-weight:400;
+    color:white; line-height:1.2; margin-bottom:12px;
+  }
+  .page-hero h1 em { color:#D90012; font-style:italic; }
+  .page-hero p {
+    font-size:0.95rem; color:rgba(255,255,255,0.45);
+    max-width:560px; margin:0 auto; line-height:1.7;
+  }
+
+  /* ── Symbol explanation ── */
+  .symbol-note {
+    background:#0D1B2A;
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:12px;
+    padding:28px 36px;
+    max-width:780px;
+    margin:0 auto 64px;
+    display:flex; gap:20px; align-items:flex-start;
+  }
+  .symbol-note svg { flex-shrink:0; margin-top:2px; }
+  .symbol-note-text h3 {
+    font-size:0.85rem; font-weight:600; color:white;
+    letter-spacing:0.06em; text-transform:uppercase; margin-bottom:8px;
+  }
+  .symbol-note-text p {
+    font-size:0.88rem; color:rgba(255,255,255,0.5); line-height:1.7;
+  }
+
+  /* ── Concept grid ── */
+  .concepts {
+    max-width:1200px; margin:0 auto;
+    padding:0 48px 80px;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:28px;
+  }
+  .concept-card {
+    background:#0D1B2A;
+    border:1px solid rgba(255,255,255,0.07);
+    border-radius:16px;
+    overflow:hidden;
+  }
+  .concept-card:hover { border-color:rgba(217,0,18,0.3); }
+  .concept-header {
+    padding:20px 24px 16px;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+    display:flex; align-items:center; gap:14px;
+  }
+  .concept-letter {
+    width:32px; height:32px; border-radius:6px;
+    background:#D90012;
+    display:flex; align-items:center; justify-content:center;
+    font-size:0.85rem; font-weight:700; color:white;
+    flex-shrink:0;
+  }
+  .concept-title {
+    font-size:0.92rem; font-weight:600; color:white;
+    letter-spacing:0.02em;
+  }
+  .concept-desc {
+    font-size:0.78rem; color:rgba(255,255,255,0.38);
+    margin-top:2px;
+  }
+  .concept-preview {
+    padding:36px 24px;
+    display:flex; flex-direction:column; gap:20px;
+    align-items:center;
+  }
+  .dk { background:#0A1520; border-radius:10px; padding:32px 20px; display:flex; align-items:center; justify-content:center; width:100%; }
+  .lt { background:#F4F1EC; border-radius:10px; padding:32px 20px; display:flex; align-items:center; justify-content:center; width:100%; }
+  .preview-label { font-size:0.65rem; color:rgba(255,255,255,0.22); letter-spacing:0.18em; text-transform:uppercase; }
+
+  /* ── Full-width nav row ── */
+  .concept-card.wide { grid-column:1/3; }
+  .concept-card.full { grid-column:1/4; }
+
+  @media(max-width:900px) {
+    .concepts { grid-template-columns:1fr 1fr; padding:0 24px 60px; }
+    .concept-card.wide,.concept-card.full { grid-column:1/3; }
+    .page-hero { padding:48px 24px 36px; }
+    .page-header { padding:16px 24px; }
+    .symbol-note { margin:0 24px 48px; }
+  }
+  @media(max-width:600px) {
+    .concepts { grid-template-columns:1fr; padding:0 16px 48px; }
+    .concept-card.wide,.concept-card.full { grid-column:auto; }
+    .page-header { padding:14px 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="page-header">
+  <div class="page-header-logo">Rev<span>&amp;</span>Rachel <span style="color:rgba(255,255,255,0.3); font-weight:300; margin:0 6px;">|</span> <span style="color:rgba(255,255,255,0.5); font-weight:300;">Logo Review</span></div>
+  <a class="back-link" href="index.html">← Main Site</a>
+</header>
+
+<section class="page-hero">
+  <div class="eyebrow">Brand Identity</div>
+  <h1>Logo Options — <em>Arevakhach</em> Collection</h1>
+  <p>Six concepts combining the Armenian Eternity Sun Cross with the R&amp;R mark. Pick your favorite or mix elements from different options.</p>
+</section>
+
+<div style="max-width:1200px; margin:0 auto; padding:0 48px 48px;">
+  <div class="symbol-note">
+    <svg id="symbolSample" width="52" height="52" viewBox="0 0 52 52"></svg>
+    <div class="symbol-note-text">
+      <h3>The Arevakhach — Աrevakhach (Armenian Sun Cross)</h3>
+      <p>An ancient 8-curved, spiraling emblem representing eternity, the sun, and the cycle of life. One of the oldest Armenian symbols, found throughout medieval monasteries and manuscripts. Its rotating arms evoke constant renewal — a perfect emblem for a foundation investing in Armenia's future.</p>
+    </div>
+  </div>
+</div>
+
+<div class="concepts">
+
+  <!-- A -->
+  <div class="concept-card">
+    <div class="concept-header">
+      <div class="concept-letter">A</div>
+      <div>
+        <div class="concept-title">Symbol + Wordmark</div>
+        <div class="concept-desc">Arevakhach above R&R — stacked, formal</div>
+      </div>
+    </div>
+    <div class="concept-preview">
+      <div class="dk"><svg id="svgA1" width="160" height="180" viewBox="0 0 160 180"></svg></div>
+      <div class="preview-label">Dark background</div>
+      <div class="lt"><svg id="svgA2" width="160" height="180" viewBox="0 0 160 180"></svg></div>
+      <div class="preview-label">Light background</div>
+    </div>
+  </div>
+
+  <!-- B -->
+  <div class="concept-card">
+    <div class="concept-header">
+      <div class="concept-letter">B</div>
+      <div>
+        <div class="concept-title">R ☸ R Serif Inline</div>
+        <div class="concept-desc">Symbol between two serif R's — bold, elegant</div>
+      </div>
+    </div>
+    <div class="concept-preview">
+      <div class="dk"><svg id="svgB1" width="220" height="100" viewBox="0 0 220 100"></svg></div>
+      <div class="preview-label">Dark background</div>
+      <div class="lt"><svg id="svgB2" width="220" height="100" viewBox="0 0 220 100"></svg></div>
+      <div class="preview-label">Light background</div>
+    </div>
+  </div>
+
+  <!-- C -->
+  <div class="concept-card">
+    <div class="concept-header">
+      <div class="concept-letter">C</div>
+      <div>
+        <div class="concept-title">Circular Seal</div>
+        <div class="concept-desc">"REV & RACHEL · FOUNDATION · ARMENIA" ring</div>
+      </div>
+    </div>
+    <div class="concept-preview">
+      <div class="dk"><svg id="svgC1" width="190" height="190" viewBox="0 0 190 190"></svg></div>
+      <div class="preview-label">Seal / stamp style</div>
+      <div class="lt"><svg id="svgC2" width="190" height="190" viewBox="0 0 190 190"></svg></div>
+      <div class="preview-label">Light version</div>
+    </div>
+  </div>
+
+  <!-- D — full width nav lockup -->
+  <div class="concept-card wide">
+    <div class="concept-header">
+      <div class="concept-letter">D</div>
+      <div>
+        <div class="concept-title">Horizontal Nav Lockup</div>
+        <div class="concept-desc">Symbol + REV&RACHEL / FOUNDATION — for website header, email signature, letterhead</div>
+      </div>
+    </div>
+    <div class="concept-preview">
+      <div class="dk" style="padding:28px 36px;"><svg id="svgD1" width="280" height="64" viewBox="0 0 280 64"></svg></div>
+      <div class="preview-label">Dark background (website nav)</div>
+      <div class="lt" style="padding:28px 36px;"><svg id="svgD2" width="280" height="64" viewBox="0 0 280 64"></svg></div>
+      <div class="preview-label">Light background (print / email)</div>
+    </div>
+  </div>
+
+  <!-- E -->
+  <div class="concept-card">
+    <div class="concept-header">
+      <div class="concept-letter">E</div>
+      <div>
+        <div class="concept-title">Bold R&R + Symbol</div>
+        <div class="concept-desc">Large R&R type with symbol above and watermark</div>
+      </div>
+    </div>
+    <div class="concept-preview">
+      <div class="dk"><svg id="svgE1" width="160" height="160" viewBox="0 0 160 160"></svg></div>
+      <div class="preview-label">Dark only</div>
+    </div>
+  </div>
+
+  <!-- F -->
+  <div class="concept-card">
+    <div class="concept-header">
+      <div class="concept-letter">F</div>
+      <div>
+        <div class="concept-title">Icon / Favicon</div>
+        <div class="concept-desc">Arevakhach mark alone — app icon, favicon, social avatar</div>
+      </div>
+    </div>
+    <div class="concept-preview">
+      <div class="dk" style="flex-direction:row; gap:24px; flex-wrap:wrap; justify-content:center;">
+        <div style="text-align:center;">
+          <svg id="svgF1" width="80" height="80" viewBox="0 0 80 80" style="display:block;"></svg>
+          <div class="preview-label" style="margin-top:8px;">80px</div>
+        </div>
+        <div style="text-align:center;">
+          <svg id="svgF2" width="48" height="48" viewBox="0 0 48 48" style="display:block;"></svg>
+          <div class="preview-label" style="margin-top:8px;">48px</div>
+        </div>
+        <div style="text-align:center;">
+          <svg id="svgF3" width="32" height="32" viewBox="0 0 32 32" style="display:block;"></svg>
+          <div class="preview-label" style="margin-top:8px;">32px</div>
+        </div>
+      </div>
+      <div class="preview-label">Scales cleanly at all sizes</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const deg = Math.PI / 180;
+
+function arevPath(cx, cy, r1, r2, n=8, span=30, offset=15) {
+  let d = '';
+  const step = 360 / n;
+  for (let i = 0; i < n; i++) {
+    const base = i * step - 90;
+    const ia1 = base, ia2 = base + span;
+    const oa1 = base + offset, oa2 = base + offset + span;
+    const fi = a => [cx + r1*Math.cos(a*deg), cy + r1*Math.sin(a*deg)];
+    const fo = a => [cx + r2*Math.cos(a*deg), cy + r2*Math.sin(a*deg)];
+    const [ix1,iy1]=fi(ia1), [ix2,iy2]=fi(ia2);
+    const [ox1,oy1]=fo(oa1), [ox2,oy2]=fo(oa2);
+    d += `M${ix1},${iy1} L${ox1},${oy1} A${r2},${r2},0,0,1,${ox2},${oy2} L${ix2},${iy2} A${r1},${r1},0,0,0,${ix1},${iy1} Z `;
+  }
+  return d;
+}
+
+const ns = 'http://www.w3.org/2000/svg';
+function el(tag, attrs, parent, inner) {
+  const e = document.createElementNS(ns, tag);
+  for (const [k,v] of Object.entries(attrs)) e.setAttribute(k,v);
+  if (inner !== undefined) e.innerHTML = inner;
+  if (parent) parent.appendChild(e);
+  return e;
+}
+
+function arev(svg, cx, cy, r1, r2, fill, bg, n=8, span=30, offset=15) {
+  el('path', {d: arevPath(cx,cy,r1,r2,n,span,offset), fill}, svg);
+  el('circle', {cx, cy, r: r1*0.72, fill: bg}, svg);
+  el('circle', {cx, cy, r: r1*0.36, fill}, svg);
+}
+
+function txt(svg, x, y, content, opt={}) {
+  el('text', {
+    x, y,
+    'text-anchor': opt.a||'middle',
+    'font-family': opt.f||'Outfit,sans-serif',
+    'font-size': opt.s||14,
+    'font-weight': opt.w||400,
+    'letter-spacing': opt.ls||0,
+    fill: opt.c||'white'
+  }, svg, content);
+}
+
+// Symbol sample in the note box
+(function(){
+  const s = document.getElementById('symbolSample');
+  arev(s, 26, 26, 9, 24, '#D90012', '#0D1B2A');
+})();
+
+// A: Symbol + stacked wordmark
+function mkA(id, bg, fg, red, amp) {
+  const s = document.getElementById(id);
+  arev(s, 80, 66, 13, 40, red, bg);
+  txt(s, 80, 110, `R<tspan fill="${amp}">&amp;</tspan>R`, {s:32,w:700,c:fg,ls:1});
+  el('line',{x1:44,y1:120,x2:116,y2:120,stroke:fg+'22','stroke-width':1},s);
+  txt(s, 80, 134, 'FOUNDATION', {s:8.5,w:300,c:fg+'55',ls:4.5});
+}
+mkA('svgA1','#0A1520','#fff','#D90012','#F2A800');
+mkA('svgA2','#F4F1EC','#0D1B2A','#C8102E','#C8102E');
+
+// B: R ☸ R inline
+function mkB(id, bg, fg, red) {
+  const s = document.getElementById(id);
+  txt(s, 14, 76, 'R', {a:'start', f:"'Cormorant Garamond',serif", s:76, w:700, c:fg, ls:-2});
+  arev(s, 110, 48, 12, 36, red, bg);
+  txt(s, 206, 76, 'R', {a:'end', f:"'Cormorant Garamond',serif", s:76, w:700, c:fg, ls:-2});
+  txt(s, 110, 96, 'FOUNDATION', {s:7.5, w:300, c:fg+'44', ls:5.5});
+}
+mkB('svgB1','#0A1520','#fff','#D90012');
+mkB('svgB2','#F4F1EC','#0D1B2A','#C8102E');
+
+// C: Circular seal
+function mkC(id, bg, fg, red) {
+  const s = document.getElementById(id);
+  el('circle',{cx:95,cy:95,r:88,stroke:red,'stroke-width':1.5,fill:'none',opacity:0.4},s);
+  el('circle',{cx:95,cy:95,r:80,stroke:red,'stroke-width':0.5,fill:'none',opacity:0.18},s);
+  const defs = el('defs',{},s);
+  el('path',{id:'arc'+id, d:'M95,95 m-70,0 a70,70 0 1,1 140,0 a70,70 0 1,1 -140,0', fill:'none'},defs);
+  const t = el('text',{'font-family':'Outfit,sans-serif','font-size':8.5,'font-weight':500,fill:fg+'77','letter-spacing':3.2},s,'');
+  const tp = el('textPath',{href:'#arc'+id,'startOffset':'7%'},t);
+  tp.textContent = 'REV & RACHEL  ·  FOUNDATION  ·  ARMENIA  ·';
+  arev(s, 95, 95, 15, 46, red, bg);
+}
+mkC('svgC1','#0A1520','#fff','#D90012');
+mkC('svgC2','#F4F1EC','#0D1B2A','#C8102E');
+
+// D: Nav horizontal
+function mkD(id, bg, fg, red, amp) {
+  const s = document.getElementById(id);
+  arev(s, 26, 32, 10, 22, red, bg, 8, 28, 14);
+  txt(s, 50, 26, `REV<tspan fill="${amp}">&amp;</tspan>RACHEL`, {a:'start',s:19,w:600,c:fg,ls:0.5});
+  el('line',{x1:50,y1:33,x2:278,y2:33,stroke:fg+'18','stroke-width':0.8},s);
+  txt(s, 50, 47, 'FOUNDATION', {a:'start',s:8,w:300,c:fg+'44',ls:5.2});
+}
+mkD('svgD1','#0A1520','#fff','#D90012','#F2A800');
+mkD('svgD2','#F4F1EC','#0D1B2A','#C8102E','#C8102E');
+
+// E: Bold stacked
+function mkE(id, bg, fg, red, amp) {
+  const s = document.getElementById(id);
+  el('path',{d:arevPath(80,72,32,76,8,32,16),fill:fg,opacity:'0.05'},s);
+  arev(s, 80, 30, 9, 20, red, bg, 8, 28, 14);
+  txt(s, 80, 96, `R<tspan fill="${amp}">&amp;</tspan>R`, {s:60,w:700,c:fg,ls:-1});
+  txt(s, 80, 118, 'FOUNDATION', {s:8,w:300,c:fg+'44',ls:5});
+}
+mkE('svgE1','#0A1520','#fff','#D90012','#F2A800');
+
+// F: icons
+[['svgF1',80],['svgF2',48],['svgF3',32]].forEach(([id,sz])=>{
+  const s = document.getElementById(id);
+  const c=sz/2, r1=sz*0.17, r2=sz*0.44;
+  el('circle',{cx:c,cy:c,r:c-0.5,fill:'#142230'},s);
+  arev(s,c,c,r1,r2,'#D90012','#142230');
+});
+</script>
+</body>
+</html>
