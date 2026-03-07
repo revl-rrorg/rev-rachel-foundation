@@ -756,6 +756,41 @@
       gap: 0;
       min-height: 640px;
     }
+    /* ── About Tabs ── */
+    .about-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 64px;
+      border-bottom: 2px solid rgba(0,0,0,0.08);
+    }
+    .about-tab-btn {
+      background: none;
+      border: none;
+      padding: 14px 32px 16px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.35);
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s;
+    }
+    .about-tab-btn::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      height: 2px;
+      background: var(--red);
+      transform: scaleX(0);
+      transition: transform 0.25s;
+    }
+    .about-tab-btn.active { color: var(--dark); }
+    .about-tab-btn.active::after { transform: scaleX(1); }
+    .about-tab-panel { display: none; }
+    .about-tab-panel.active { display: block; }
+
     .armenia-content {
       background: var(--off-white);
       padding: 100px 56px;
@@ -1487,6 +1522,17 @@
   <!-- ══════════ ABOUT ══════════ -->
   <section id="about" style="background:var(--white); padding: 100px 56px;">
 
+    <!-- Tab nav -->
+    <div style="max-width:1100px; margin:0 auto;">
+      <div class="about-tabs">
+        <button class="about-tab-btn active" onclick="switchAboutTab('who')">Who Are We</button>
+        <button class="about-tab-btn" onclick="switchAboutTab('armenia')">Why Armenia</button>
+      </div>
+    </div>
+
+    <!-- Tab: Who Are We -->
+    <div id="about-tab-who" class="about-tab-panel active">
+
     <!-- Origin Story -->
     <div style="max-width:860px; margin: 0 auto 88px;">
       <div class="eyebrow dark"><div class="eyebrow-line"></div><p>Who We Are</p></div>
@@ -1591,6 +1637,35 @@
       </div>
     </div>
 
+    </div><!-- /about-tab-who -->
+
+    <!-- Tab: Why Armenia -->
+    <div id="about-tab-armenia" class="about-tab-panel">
+      <div style="padding:0; margin: 0 -56px;">
+        <div class="armenia-content">
+          <div>
+            <h2 class="section-title">Why <em>Armenia</em><br>matters to us</h2>
+            <p class="section-body">
+              Armenia is one of the world's oldest civilizations — a culture that has survived
+              against extraordinary odds. Today it stands at a pivotal crossroads. We believe
+              in its people, its potential, and its future.
+            </p>
+            <div class="armenia-values">
+              <div class="value-item"><h4>Ancient Roots</h4><p>Over 3,000 years of history, language, and art — a heritage worth protecting.</p></div>
+              <div class="value-item"><h4>Diaspora Power</h4><p>Millions of Armenians worldwide carry the responsibility of bridging homeland and world.</p></div>
+              <div class="value-item"><h4>Modern Promise</h4><p>A generation ready to build world-class institutions, companies, and creative works.</p></div>
+              <div class="value-item"><h4>Human Capital</h4><p>Armenia's greatest resource — curious, resilient, committed to excellence.</p></div>
+              <div class="value-item"><h4>Tech Potential</h4><p>A growing reputation as a regional tech hub with world-class engineers and researchers.</p></div>
+              <div class="value-item"><h4>Cultural Vitality</h4><p>A thriving arts scene and musical tradition that continues to inspire globally.</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="armenia-photo">
+          <span class="armenia-photo-caption">Mount Ararat seen from Khor Virap, Armenia</span>
+        </div>
+      </div>
+    </div><!-- /about-tab-armenia -->
+
   </section>
 
   <!-- ══════════ NEWS (placeholder) ══════════ -->
@@ -1602,28 +1677,7 @@
     </div>
   </section>
 
-  <!-- ══════════ ARMENIA (embedded in About) ══════════ -->
-  <section style="padding:0;">
-    <div class="armenia-content">
-      <h2 class="section-title">Why <em>Armenia</em><br>matters to us</h2>
-      <p class="section-body">
-        Armenia is one of the world's oldest civilizations — a culture that has survived
-        against extraordinary odds. Today it stands at a pivotal crossroads. We believe
-        in its people, its potential, and its future.
-      </p>
-      <div class="armenia-values">
-        <div class="value-item"><h4>Ancient Roots</h4><p>Over 3,000 years of history, language, and art — a heritage worth protecting.</p></div>
-        <div class="value-item"><h4>Diaspora Power</h4><p>Millions of Armenians worldwide carry the responsibility of bridging homeland and world.</p></div>
-        <div class="value-item"><h4>Modern Promise</h4><p>A generation ready to build world-class institutions, companies, and creative works.</p></div>
-        <div class="value-item"><h4>Human Capital</h4><p>Armenia's greatest resource — curious, resilient, committed to excellence.</p></div>
-        <div class="value-item"><h4>Tech Potential</h4><p>A growing reputation as a regional tech hub with world-class engineers and researchers.</p></div>
-        <div class="value-item"><h4>Cultural Vitality</h4><p>A thriving arts scene and musical tradition that continues to inspire globally.</p></div>
-      </div>
-    </div>
-    <div class="armenia-photo">
-      <span class="armenia-photo-caption">Mount Ararat seen from Khor Virap, Armenia</span>
-    </div>
-  </section>
+
 
   <section id="contact">
     <div class="contact-info">
@@ -1778,6 +1832,12 @@
 
     // On load, show home only
     window.addEventListener('DOMContentLoaded', () => showSection('home'));
+  function switchAboutTab(tab) {
+    document.querySelectorAll('.about-tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.about-tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('about-tab-' + tab).classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
   </script>
 </body>
 </html>
