@@ -1668,12 +1668,50 @@
 
   </section>
 
-  <!-- ══════════ NEWS (placeholder) ══════════ -->
-  <section id="news" style="background:var(--dark); padding: 100px 56px; min-height:400px;">
-    <div style="max-width:860px; margin:0 auto;">
+  <!-- ══════════ NEWS ══════════ -->
+  <section id="news" style="background:var(--dark); padding: 100px 56px;">
+    <div style="max-width:1100px; margin:0 auto;">
+
       <div class="eyebrow light"><div class="eyebrow-line"></div><p style="color:rgba(255,255,255,0.5);">Latest</p></div>
-      <h2 class="section-title white" style="margin-top:8px; margin-bottom:40px;">News &amp; <em>Updates</em></h2>
-      <p style="font-size:1.05rem; line-height:1.8; color:rgba(255,255,255,0.45);">Stories, announcements, and updates from the Rev &amp; Rachel Foundation — coming soon.</p>
+      <h2 class="section-title white" style="margin-top:8px; margin-bottom:64px;">News &amp; <em>Updates</em></h2>
+
+      <!-- News grid -->
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:28px;">
+
+        <!-- Article 1 -->
+        <article style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; transition:transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(217,0,18,0.4)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(255,255,255,0.08)'">
+          <div style="height:180px; background:linear-gradient(135deg,rgba(217,0,18,0.2),rgba(0,40,104,0.3)); flex-shrink:0;"></div>
+          <div style="padding:28px; flex:1; display:flex; flex-direction:column;">
+            <p style="font-size:0.68rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--red); margin-bottom:12px;">March 2026</p>
+            <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:400; color:#fff; line-height:1.3; margin-bottom:14px; flex:1;">Foundation News Coming Soon</h3>
+            <p style="font-size:0.88rem; line-height:1.7; color:rgba(255,255,255,0.45); margin-bottom:24px;">Updates and stories from the Rev &amp; Rachel Foundation and our partners in Armenia will appear here.</p>
+            <a href="#" style="font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--red); text-decoration:none; display:flex; align-items:center; gap:6px;">Read More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; transition:transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(217,0,18,0.4)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(255,255,255,0.08)'">
+          <div style="height:180px; background:linear-gradient(135deg,rgba(0,40,104,0.3),rgba(242,168,0,0.2)); flex-shrink:0;"></div>
+          <div style="padding:28px; flex:1; display:flex; flex-direction:column;">
+            <p style="font-size:0.68rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--orange); margin-bottom:12px;">Coming Soon</p>
+            <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:400; color:#fff; line-height:1.3; margin-bottom:14px; flex:1;">Partner Spotlights &amp; Impact Stories</h3>
+            <p style="font-size:0.88rem; line-height:1.7; color:rgba(255,255,255,0.45); margin-bottom:24px;">Stories from TUMO, Teach For Armenia, AUA, and the organizations we proudly support.</p>
+            <a href="#" style="font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--orange); text-decoration:none; display:flex; align-items:center; gap:6px;">Read More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; transition:transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(217,0,18,0.4)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(255,255,255,0.08)'">
+          <div style="height:180px; background:linear-gradient(135deg,rgba(242,168,0,0.15),rgba(217,0,18,0.25)); flex-shrink:0;"></div>
+          <div style="padding:28px; flex:1; display:flex; flex-direction:column;">
+            <p style="font-size:0.68rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:12px;">Upcoming</p>
+            <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:400; color:#fff; line-height:1.3; margin-bottom:14px; flex:1;">Events, Announcements &amp; More</h3>
+            <p style="font-size:0.88rem; line-height:1.7; color:rgba(255,255,255,0.45); margin-bottom:24px;">Foundation events, grant announcements, and news from Armenia and our global community.</p>
+            <a href="#" style="font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.4); text-decoration:none; display:flex; align-items:center; gap:6px;">Read More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </article>
+
+      </div>
     </div>
   </section>
 
