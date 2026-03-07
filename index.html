@@ -6,7 +6,7 @@
   <title>Rev & Rachel Foundation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cormorant:ital,wght@1,700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@200;300;400;500;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cormorant:ital,wght@1,700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@200;300;400;500;800&family=Bebas+Neue&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -1119,19 +1119,20 @@
   <!-- NAV -->
   <nav>
     <a class="nav-logo" href="#">
-      <svg class="rr-logo-svg" width="72" height="36" viewBox="0 0 72 36" xmlns="http://www.w3.org/2000/svg">
+      <svg class="rr-logo-svg" width="110" height="40" viewBox="0 0 220 80" xmlns="http://www.w3.org/2000/svg">
         <!-- ᴚ mirrored R -->
-        <g transform="translate(36,0) scale(-1,1)">
-          <text x="0" y="28" text-anchor="start"
-            font-family="'Outfit',sans-serif" font-size="30" font-weight="800"
-            fill="currentColor">R</text>
+        <g transform="translate(88,0) scale(-1,1)">
+          <text x="0" y="68" text-anchor="start"
+            font-family="'Bebas Neue',sans-serif" font-size="72"
+            fill="white">R</text>
         </g>
+        <!-- Arevakhach wheel -->
+        <g id="nav-wheel"></g>
         <!-- R normal -->
-        <text x="37" y="28" text-anchor="start"
-          font-family="'Outfit',sans-serif" font-size="30" font-weight="800"
-          fill="currentColor">R</text>
+        <text x="134" y="68" text-anchor="start"
+          font-family="'Bebas Neue',sans-serif" font-size="72"
+          fill="white">R</text>
       </svg>
-      <span class="nav-logo-sub">Foundation</span>
     </a>
     <ul class="nav-links">
       <li><a href="#mission">Mission</a></li>
@@ -1748,17 +1749,26 @@
   <div class="flag-bar"></div>
   <footer>
     <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:8px;">
-      <svg width="80" height="40" viewBox="0 0 72 36" xmlns="http://www.w3.org/2000/svg" style="color:rgba(255,255,255,0.75);">
-        <g transform="translate(36,0) scale(-1,1)">
-          <text x="0" y="28" text-anchor="start"
-            font-family="'Outfit',sans-serif" font-size="30" font-weight="800"
-            fill="currentColor">R</text>
+      <svg id="footer-logo-svg" width="220" height="130" viewBox="0 0 340 200" xmlns="http://www.w3.org/2000/svg">
+        <!-- ᴚ mirrored R -->
+        <g transform="translate(136,0) scale(-1,1)">
+          <text x="0" y="120" text-anchor="start"
+            font-family="'Bebas Neue',sans-serif" font-size="128"
+            fill="white">R</text>
         </g>
-        <text x="37" y="28" text-anchor="start"
-          font-family="'Outfit',sans-serif" font-size="30" font-weight="800"
-          fill="currentColor">R</text>
+        <!-- Arevakhach wheel (center drawn by JS) -->
+        <g id="footer-wheel"></g>
+        <!-- R normal -->
+        <text x="206" y="120" text-anchor="start"
+          font-family="'Bebas Neue',sans-serif" font-size="128"
+          fill="white">R</text>
+        <!-- FOUNDATION -->
+        <text x="170" y="160"
+          text-anchor="middle"
+          font-family="'Outfit',sans-serif" font-size="13" font-weight="300"
+          letter-spacing="8"
+          fill="rgba(255,255,255,0.35)">FOUNDATION</text>
       </svg>
-      <span style="font-family:'Outfit',sans-serif;font-size:6.5px;font-weight:300;letter-spacing:0.38em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:2px;">Foundation</span>
     </div>
 
     <!-- Social Media Links -->
@@ -1841,6 +1851,42 @@
 
     // On load, show home only
     window.addEventListener('DOMContentLoaded', () => showSection('home'));
+  // ── Arevakhach wheel ──────────────────────────────────────────────
+  function drawWheel(containerId, cx, cy, r1, r2, fill, bg) {
+    const g = document.getElementById(containerId);
+    if (!g) return;
+    const ns = 'http://www.w3.org/2000/svg';
+    const n = 10, span = 22, offset = 11;
+    const deg = Math.PI / 180;
+
+    for (let i = 0; i < n; i++) {
+      const base = i * (360 / n) - 90;
+      const a1 = (base + offset) * deg;
+      const a2 = (base + offset + span) * deg;
+      const x1 = cx + r1 * Math.cos(a1), y1 = cy + r1 * Math.sin(a1);
+      const x2 = cx + r2 * Math.cos(a1), y2 = cy + r2 * Math.sin(a1);
+      const x3 = cx + r2 * Math.cos(a2), y3 = cy + r2 * Math.sin(a2);
+      const x4 = cx + r1 * Math.cos(a2), y4 = cy + r1 * Math.sin(a2);
+      const d = `M${x1},${y1} L${x2},${y2} A${r2},${r2},0,0,1,${x3},${y3} L${x4},${y4} A${r1},${r1},0,0,0,${x1},${y1} Z`;
+      const p = document.createElementNS(ns, 'path');
+      p.setAttribute('d', d); p.setAttribute('fill', fill);
+      g.appendChild(p);
+    }
+    // Center hub
+    const hub = document.createElementNS(ns, 'circle');
+    hub.setAttribute('cx', cx); hub.setAttribute('cy', cy);
+    hub.setAttribute('r', r1 * 0.85); hub.setAttribute('fill', fill);
+    g.appendChild(hub);
+    const dot = document.createElementNS(ns, 'circle');
+    dot.setAttribute('cx', cx); dot.setAttribute('cy', cy);
+    dot.setAttribute('r', r1 * 0.38); dot.setAttribute('fill', bg);
+    g.appendChild(dot);
+  }
+
+  // Nav wheel: cx=111, cy=36, r1=10, r2=38
+  drawWheel('nav-wheel',   111, 36, 10, 38, '#D90012', '#0A1520');
+  // Footer wheel: cx=170, cy=64, r1=16, r2=60
+  drawWheel('footer-wheel', 170, 62, 16, 60, '#D90012', '#0A1520');
   </script>
 </body>
 </html>
