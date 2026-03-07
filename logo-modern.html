@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #111318; font-family: 'Inter', sans-serif; padding: 56px; display: flex; flex-direction: column; gap: 6px; }
+  .row { display: flex; gap: 6px; }
+  .cell { padding: 44px 52px; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 20px; }
+  .label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(255,255,255,0.25); }
+  .w { background: #ffffff; }
+  .n { background: #002868; }
+  .b { background: #0A0A0A; }
+  .r { background: #D90012; }
+  .g { background: #F5F6FA; }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════
+  OPTION A — Bold geometric, back-to-back
+  Clean Montserrat 900, mirrored, tight
+════════════════════════════════════ -->
+<div class="label" style="color:rgba(255,255,255,0.3); padding:0 0 12px 0; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase;">A — Bold Geometric</div>
+<div class="row">
+
+  <div class="cell g" style="flex:2;">
+    <svg width="380" height="80" viewBox="0 0 420 80">
+      <!-- R -->
+      <text x="0" y="68" font-family="Montserrat" font-size="70" font-weight="900" fill="#002868">R</text>
+      <!-- mirrored R, tight -->
+      <g transform="translate(94,0) scale(-1,1) translate(-47,0)">
+        <text x="0" y="68" font-family="Montserrat" font-size="70" font-weight="900" fill="#002868">R</text>
+      </g>
+      <!-- divider line -->
+      <line x1="112" y1="8" x2="112" y2="72" stroke="#E0E2EA" stroke-width="1.5"/>
+      <!-- wordmark -->
+      <text x="126" y="36" font-family="Montserrat" font-size="15" font-weight="700" fill="#002868" letter-spacing="1">REV &amp; RACHEL</text>
+      <text x="126" y="58" font-family="Inter" font-size="9" font-weight="500" fill="#9CA3AF" letter-spacing="5">FOUNDATION</text>
+    </svg>
+  </div>
+
+  <div class="cell n" style="flex:2;">
+    <svg width="380" height="80" viewBox="0 0 420 80">
+      <text x="0" y="68" font-family="Montserrat" font-size="70" font-weight="900" fill="#ffffff">R</text>
+      <g transform="translate(94,0) scale(-1,1) translate(-47,0)">
+        <text x="0" y="68" font-family="Montserrat" font-size="70" font-weight="900" fill="#F2A800">R</text>
+      </g>
+      <line x1="112" y1="8" x2="112" y2="72" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+      <text x="126" y="36" font-family="Montserrat" font-size="15" font-weight="700" fill="#ffffff" letter-spacing="1">REV &amp; RACHEL</text>
+      <text x="126" y="58" font-family="Inter" font-size="9" font-weight="500" fill="rgba(255,255,255,0.35)" letter-spacing="5">FOUNDATION</text>
+    </svg>
+  </div>
+
+  <!-- icons -->
+  <div class="cell g" style="padding:28px;">
+    <svg width="76" height="76" viewBox="0 0 80 76">
+      <text x="0" y="64" font-family="Montserrat" font-size="64" font-weight="900" fill="#002868">R</text>
+      <g transform="translate(80,0) scale(-1,1) translate(-40,0)">
+        <text x="0" y="64" font-family="Montserrat" font-size="64" font-weight="900" fill="#002868">R</text>
+      </g>
+    </svg>
+  </div>
+  <div class="cell n" style="padding:28px;">
+    <svg width="76" height="76" viewBox="0 0 80 76">
+      <text x="0" y="64" font-family="Montserrat" font-size="64" font-weight="900" fill="#ffffff">R</text>
+      <g transform="translate(80,0) scale(-1,1) translate(-40,0)">
+        <text x="0" y="64" font-family="Montserrat" font-size="64" font-weight="900" fill="#F2A800">R</text>
+      </g>
+    </svg>
+  </div>
+  <div class="cell r" style="padding:28px;">
+    <svg width="76" height="76" viewBox="0 0 80 76">
+      <text x="0" y="64" font-family="Montserrat" font-size="64" font-weight="900" fill="#ffffff">R</text>
+      <g transform="translate(80,0) scale(-1,1) translate(-40,0)">
+        <text x="0" y="64" font-family="Montserrat" font-size="64" font-weight="900" fill="#ffffff">R</text>
+      </g>
+    </svg>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════════
+  OPTION B — Two-color split, overlapping
+  Red + Blue, modern contrast
+════════════════════════════════════ -->
+<div class="label" style="color:rgba(255,255,255,0.3); padding:20px 0 12px 0; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase;">B — Two-Color Split</div>
+<div class="row">
+
+  <div class="cell b" style="flex:2;">
+    <svg width="380" height="80" viewBox="0 0 420 80">
+      <text x="0" y="68" font-family="Montserrat" font-size="70" font-weight="900" fill="#D90012">R</text>
+      <g transform="translate(94,0) scale(-1,1) translate(-47,0)">
+        <text x="0" y="68" font-family="Montserrat" font-size="70" font-weight="900" fill="#002868">R</text>
+      </g>
+      <line x1="112" y1="8" x2="112" y2="72" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+      <text x="126" y="36" font-family="Montserrat" font-size="15" font-weight="700" fill="#ffffff" letter-spacing="1">REV &amp; RACHEL</text>
+      <text x="126" y="58" font-family="Inter" font-size="9" font-weight="500" fill="rgba(255,255,255,0.35)" letter-spacing="5">FOUNDATION</text>
+    </svg>
+  </div>
+
+  <div class="cell w" style="flex:2;">
+    <svg width="380" height="80" viewBox="0 0 420 80">
+      <text x="0" y="68" font-family="Montserrat" font-size="70" font-weight="900" fill="#D90012">R</text>
+      <g transform="translate(94,0) scale(-1,1) translate(-47,0)">
+        <text x="0" y="68" font-family="Montserrat" font-size="70" font-weight="900" fill="#002868">R</text>
+      </g>
+      <line x1="112" y1="8" x2="112" y2="72" stroke="#E0E2EA" stroke-width="1.5"/>
+      <text x="126" y="36" font-family="Montserrat" font-size="15" font-weight="700" fill="#002868" letter-spacing="1">REV &amp; RACHEL</text>
+      <text x="126" y="58" font-family="Inter" font-size="9" font-weight="500" fill="#9CA3AF" letter-spacing="5">FOUNDATION</text>
+    </svg>
+  </div>
+
+  <!-- icons -->
+  <div class="cell b" style="padding:28px;">
+    <svg width="76" height="76" viewBox="0 0 80 76">
+      <text x="0" y="64" font-family="Montserrat" font-size="64" font-weight="900" fill="#D90012">R</text>
+      <g transform="translate(80,0) scale(-1,1) translate(-40,0)">
+        <text x="0" y="64" font-family="Montserrat" font-size="64" font-weight="900" fill="#002868">R</text>
+      </g>
+    </svg>
+  </div>
+  <div class="cell w" style="padding:28px;">
+    <svg width="76" height="76" viewBox="0 0 80 76">
+      <text x="0" y="64" font-family="Montserrat" font-size="64" font-weight="900" fill="#D90012">R</text>
+      <g transform="translate(80,0) scale(-1,1) translate(-40,0)">
+        <text x="0" y="64" font-family="Montserrat" font-size="64" font-weight="900" fill="#002868">R</text>
+      </g>
+    </svg>
+  </div>
+  <div class="cell n" style="padding:28px;">
+    <svg width="76" height="76" viewBox="0 0 80 76">
+      <text x="0" y="64" font-family="Montserrat" font-size="64" font-weight="900" fill="#D90012">R</text>
+      <g transform="translate(80,0) scale(-1,1) translate(-40,0)">
+        <text x="0" y="64" font-family="Montserrat" font-size="64" font-weight="900" fill="#F2A800">R</text>
+      </g>
+    </svg>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════════
+  OPTION C — Stacked centered, monumental
+  Full caps, tight kerning, flag stripe
+════════════════════════════════════ -->
+<div class="label" style="color:rgba(255,255,255,0.3); padding:20px 0 12px 0; font-size:0.6rem; letter-spacing:0.2em; text-transform:uppercase;">C — Stacked Monumental</div>
+<div class="row">
+
+  <div class="cell b" style="flex:1; padding:40px 80px;">
+    <svg width="220" height="110" viewBox="0 0 220 110">
+      <text x="110" y="78" font-family="Montserrat" font-size="80" font-weight="900" fill="#D90012" text-anchor="middle" letter-spacing="-2">R</text>
+      <g transform="translate(220,0) scale(-1,1)">
+        <text x="110" y="78" font-family="Montserrat" font-size="80" font-weight="900" fill="#002868" text-anchor="middle" letter-spacing="-2">R</text>
+      </g>
+      <!-- full-width tricolor -->
+      <rect x="0" y="82" width="220" height="6" fill="#D90012"/>
+      <rect x="0" y="88" width="220" height="5" fill="#002868"/>
+      <rect x="0" y="93" width="220" height="5" fill="#F2A800"/>
+      <text x="110" y="108" font-family="Inter" font-size="8" font-weight="600" fill="rgba(255,255,255,0.35)" letter-spacing="5" text-anchor="middle">REV &amp; RACHEL FOUNDATION</text>
+    </svg>
+  </div>
+
+  <div class="cell w" style="flex:1; padding:40px 80px;">
+    <svg width="220" height="110" viewBox="0 0 220 110">
+      <text x="110" y="78" font-family="Montserrat" font-size="80" font-weight="900" fill="#D90012" text-anchor="middle" letter-spacing="-2">R</text>
+      <g transform="translate(220,0) scale(-1,1)">
+        <text x="110" y="78" font-family="Montserrat" font-size="80" font-weight="900" fill="#002868" text-anchor="middle" letter-spacing="-2">R</text>
+      </g>
+      <rect x="0" y="82" width="220" height="6" fill="#D90012"/>
+      <rect x="0" y="88" width="220" height="5" fill="#002868"/>
+      <rect x="0" y="93" width="220" height="5" fill="#F2A800"/>
+      <text x="110" y="108" font-family="Inter" font-size="8" font-weight="600" fill="#9CA3AF" letter-spacing="5" text-anchor="middle">REV &amp; RACHEL FOUNDATION</text>
+    </svg>
+  </div>
+
+  <div class="cell n" style="flex:1; padding:40px 80px;">
+    <svg width="220" height="110" viewBox="0 0 220 110">
+      <text x="110" y="78" font-family="Montserrat" font-size="80" font-weight="900" fill="#ffffff" text-anchor="middle" letter-spacing="-2">R</text>
+      <g transform="translate(220,0) scale(-1,1)">
+        <text x="110" y="78" font-family="Montserrat" font-size="80" font-weight="900" fill="#F2A800" text-anchor="middle" letter-spacing="-2">R</text>
+      </g>
+      <rect x="0" y="82" width="220" height="6" fill="#D90012"/>
+      <rect x="0" y="88" width="220" height="5" fill="rgba(255,255,255,0.2)"/>
+      <rect x="0" y="93" width="220" height="5" fill="#F2A800"/>
+      <text x="110" y="108" font-family="Inter" font-size="8" font-weight="600" fill="rgba(255,255,255,0.3)" letter-spacing="5" text-anchor="middle">REV &amp; RACHEL FOUNDATION</text>
+    </svg>
+  </div>
+
+</div>
+
+</body>
+</html>

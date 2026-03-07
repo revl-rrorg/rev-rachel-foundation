@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ᴚR Monogram — Font Options</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@800&family=Space+Grotesk:wght@700&family=Manrope:wght@800&family=Syne:wght@800&family=Plus+Jakarta+Sans:wght@800&family=Urbanist:wght@800&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#f5f2ee; font-family:'Outfit',sans-serif; padding:48px 32px; }
+h1 { color:rgba(0,0,0,0.2); font-size:0.68rem; letter-spacing:0.3em; text-transform:uppercase; text-align:center; margin-bottom:40px; }
+.grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; max-width:1080px; margin:0 auto; }
+.card { background:#fff; border-radius:14px; overflow:hidden; border:1px solid rgba(0,0,0,0.07); box-shadow:0 2px 12px rgba(0,0,0,0.06); }
+.card-header { padding:11px 18px; border-bottom:1px solid rgba(0,0,0,0.06); font-size:0.68rem; color:rgba(0,0,0,0.35); letter-spacing:0.1em; text-transform:uppercase; }
+.badge { background:rgba(217,0,18,0.1); color:#c8102e; font-size:0.6rem; padding:2px 7px; border-radius:20px; letter-spacing:0.08em; margin-left:6px; }
+.lt { background:#fff; padding:36px 24px; display:flex; flex-direction:column; align-items:center; }
+.dk { background:#0A1520; padding:36px 24px; display:flex; flex-direction:column; align-items:center; }
+</style>
+</head>
+<body>
+<h1>ᴚR Monogram · Font Options</h1>
+<div class="grid">
+
+  <div class="card">
+    <div class="card-header">B-4 · Outfit 800<span class="badge">YOUR PICK</span></div>
+    <div class="lt"><svg id="o_lt" width="240" height="120" viewBox="0 0 240 120"></svg></div>
+    <div class="dk"><svg id="o_dk" width="240" height="120" viewBox="0 0 240 120"></svg></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">Space Grotesk 700</div>
+    <div class="lt"><svg id="sg_lt" width="240" height="120" viewBox="0 0 240 120"></svg></div>
+    <div class="dk"><svg id="sg_dk" width="240" height="120" viewBox="0 0 240 120"></svg></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">Manrope 800</div>
+    <div class="lt"><svg id="mr_lt" width="240" height="120" viewBox="0 0 240 120"></svg></div>
+    <div class="dk"><svg id="mr_dk" width="240" height="120" viewBox="0 0 240 120"></svg></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">Syne 800</div>
+    <div class="lt"><svg id="sy_lt" width="240" height="120" viewBox="0 0 240 120"></svg></div>
+    <div class="dk"><svg id="sy_dk" width="240" height="120" viewBox="0 0 240 120"></svg></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">Plus Jakarta Sans 800</div>
+    <div class="lt"><svg id="pj_lt" width="240" height="120" viewBox="0 0 240 120"></svg></div>
+    <div class="dk"><svg id="pj_dk" width="240" height="120" viewBox="0 0 240 120"></svg></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">Urbanist 800</div>
+    <div class="lt"><svg id="ur_lt" width="240" height="120" viewBox="0 0 240 120"></svg></div>
+    <div class="dk"><svg id="ur_dk" width="240" height="120" viewBox="0 0 240 120"></svg></div>
+  </div>
+
+</div>
+<script>
+const ns = 'http://www.w3.org/2000/svg';
+
+function el(tag, attrs, parent, inner) {
+  const e = document.createElementNS(ns, tag);
+  for (const [k,v] of Object.entries(attrs)) e.setAttribute(k,v);
+  if (inner !== undefined) e.innerHTML = inner;
+  if (parent) parent.appendChild(e);
+  return e;
+}
+
+function buildRR(id, bg, fg, fontFamily, fontSize, fontWeight) {
+  const s = document.getElementById(id);
+  if (!s) return;
+  const cx = 120, cy = 52;
+  const gap = 1; // tiny gap between stems
+
+  // ── Main letters ─────────────────────────────────────────────────
+  // ᴚ: mirrored R, stem faces right (toward center)
+  //    translate(cx-gap, 0) scale(-1,1) → extends leftward from cx-gap
+  const gL = el('g', {transform:`translate(${cx - gap},0) scale(-1,1)`}, s);
+  el('text', {
+    x: 0, y: cy,
+    'text-anchor': 'start',
+    'font-family': fontFamily,
+    'font-size': fontSize,
+    'font-weight': fontWeight,
+    fill: fg
+  }, gL, 'R');
+
+  // R: normal, stem faces left (toward center), extends rightward from cx+gap
+  el('text', {
+    x: cx + gap, y: cy,
+    'text-anchor': 'start',
+    'font-family': fontFamily,
+    'font-size': fontSize,
+    'font-weight': fontWeight,
+    fill: fg
+  }, s, 'R');
+
+  // ── Reflection (faded, flipped vertically below baseline) ─────────
+  const reflY = cy + 8; // gap below baseline before reflection starts
+  // ᴚ reflection
+  const gLR = el('g', {
+    transform:`translate(${cx - gap}, ${2 * reflY}) scale(-1,-1)`,
+    opacity:'0.13'
+  }, s);
+  el('text', {
+    x: 0, y: cy,
+    'text-anchor': 'start',
+    'font-family': fontFamily,
+    'font-size': fontSize,
+    'font-weight': fontWeight,
+    fill: fg
+  }, gLR, 'R');
+
+  // R reflection
+  const gRR = el('g', {
+    transform:`translate(${2*(cx + gap)}, ${2 * reflY}) scale(-1,-1)`,
+    opacity:'0.13'
+  }, s);
+  el('text', {
+    x: cx + gap, y: cy,
+    'text-anchor': 'start',
+    'font-family': fontFamily,
+    'font-size': fontSize,
+    'font-weight': fontWeight,
+    fill: fg
+  }, gRR, 'R');
+
+  // ── FOUNDATION label ──────────────────────────────────────────────
+  el('text', {
+    x: cx, y: 112,
+    'text-anchor': 'middle',
+    'font-family': 'Outfit,sans-serif',
+    'font-size': 7,
+    'font-weight': 300,
+    'letter-spacing': 5,
+    fill: fg,
+    opacity: '0.35'
+  }, s, 'FOUNDATION');
+}
+
+// Light bg (dark text), Dark bg (white text)
+buildRR('o_lt',  '#fff',    '#0D1B2A', "'Outfit','sans-serif'",        72, 800);
+buildRR('o_dk',  '#0A1520', '#fff',    "'Outfit','sans-serif'",        72, 800);
+
+buildRR('sg_lt', '#fff',    '#0D1B2A', "'Space Grotesk','sans-serif'", 70, 700);
+buildRR('sg_dk', '#0A1520', '#fff',    "'Space Grotesk','sans-serif'", 70, 700);
+
+buildRR('mr_lt', '#fff',    '#0D1B2A', "'Manrope','sans-serif'",       70, 800);
+buildRR('mr_dk', '#0A1520', '#fff',    "'Manrope','sans-serif'",       70, 800);
+
+buildRR('sy_lt', '#fff',    '#0D1B2A', "'Syne','sans-serif'",          68, 800);
+buildRR('sy_dk', '#0A1520', '#fff',    "'Syne','sans-serif'",          68, 800);
+
+buildRR('pj_lt', '#fff',    '#0D1B2A', "'Plus Jakarta Sans','sans-serif'", 68, 800);
+buildRR('pj_dk', '#0A1520', '#fff',    "'Plus Jakarta Sans','sans-serif'", 68, 800);
+
+buildRR('ur_lt', '#fff',    '#0D1B2A', "'Urbanist','sans-serif'",      72, 800);
+buildRR('ur_dk', '#0A1520', '#fff',    "'Urbanist','sans-serif'",      72, 800);
+</script>
+</body>
+</html>

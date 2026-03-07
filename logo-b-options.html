@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logo B — Font Options</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@400;600;700&family=Playfair+Display:wght@700;900&family=DM+Serif+Display:ital@0;1&family=Libre+Baskerville:wght@700&family=Bodoni+Moda:opsz,wght@6..96,700;6..96,900&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#0A1520; font-family:'Outfit',sans-serif; padding:48px 32px; }
+h2 { color:rgba(255,255,255,0.25); font-size:0.7rem; letter-spacing:0.25em; text-transform:uppercase; text-align:center; margin-bottom:48px; }
+.grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; max-width:920px; margin:0 auto; }
+.card { background:#0D1B2A; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.06); }
+.card-header { padding:14px 20px; border-bottom:1px solid rgba(255,255,255,0.06); font-size:0.72rem; color:rgba(255,255,255,0.4); letter-spacing:0.12em; text-transform:uppercase; }
+.dk { background:#0A1520; padding:36px 24px; display:flex; flex-direction:column; align-items:center; gap:20px; }
+.lt { background:#F4F1EC; padding:36px 24px; display:flex; flex-direction:column; align-items:center; }
+</style>
+</head>
+<body>
+<h2>Concept B — Closer R's · Font Options</h2>
+<div class="grid">
+
+  <div class="card">
+    <div class="card-header">1 — Playfair Display (high contrast serif)</div>
+    <div class="dk">
+      <svg id="b1d" width="260" height="96" viewBox="0 0 260 96"></svg>
+      <svg id="b1l_wrap" width="260" height="96" viewBox="0 0 260 96" style="display:none"></svg>
+    </div>
+    <div class="lt"><svg id="b1l" width="260" height="96" viewBox="0 0 260 96"></svg></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">2 — Bodoni Moda (fashion serif)</div>
+    <div class="dk"><svg id="b2d" width="260" height="96" viewBox="0 0 260 96"></svg></div>
+    <div class="lt"><svg id="b2l" width="260" height="96" viewBox="0 0 260 96"></svg></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">3 — DM Serif Display (editorial)</div>
+    <div class="dk"><svg id="b3d" width="260" height="96" viewBox="0 0 260 96"></svg></div>
+    <div class="lt"><svg id="b3l" width="260" height="96" viewBox="0 0 260 96"></svg></div>
+  </div>
+
+  <div class="card">
+    <div class="card-header">4 — Outfit 800 (bold sans)</div>
+    <div class="dk"><svg id="b4d" width="260" height="96" viewBox="0 0 260 96"></svg></div>
+    <div class="lt"><svg id="b4l" width="260" height="96" viewBox="0 0 260 96"></svg></div>
+  </div>
+
+</div>
+
+<script>
+const deg = Math.PI / 180;
+const ns = 'http://www.w3.org/2000/svg';
+
+function arevPath(cx, cy, r1, r2, n=8, span=30, offset=15) {
+  let d='';
+  const step=360/n;
+  for(let i=0;i<n;i++){
+    const base=i*step-90;
+    const ia1=base, ia2=base+span, oa1=base+offset, oa2=base+offset+span;
+    const fi=a=>[cx+r1*Math.cos(a*deg), cy+r1*Math.sin(a*deg)];
+    const fo=a=>[cx+r2*Math.cos(a*deg), cy+r2*Math.sin(a*deg)];
+    const [ix1,iy1]=fi(ia1),[ix2,iy2]=fi(ia2);
+    const [ox1,oy1]=fo(oa1),[ox2,oy2]=fo(oa2);
+    d+=`M${ix1},${iy1} L${ox1},${oy1} A${r2},${r2},0,0,1,${ox2},${oy2} L${ix2},${iy2} A${r1},${r1},0,0,0,${ix1},${iy1} Z `;
+  }
+  return d;
+}
+
+function el(tag, attrs, parent, inner) {
+  const e=document.createElementNS(ns,tag);
+  for(const [k,v] of Object.entries(attrs)) e.setAttribute(k,v);
+  if(inner!==undefined) e.innerHTML=inner;
+  if(parent) parent.appendChild(e);
+  return e;
+}
+
+function arev(svg, cx, cy, r1, r2, fill, bg) {
+  el('path',{d:arevPath(cx,cy,r1,r2),fill},svg);
+  el('circle',{cx,cy,r:r1*0.72,fill:bg},svg);
+  el('circle',{cx,cy,r:r1*0.36,fill},svg);
+}
+
+// B variant: cx=130 (center), r2=28 (outer radius)
+// Left R: text-anchor=end, x = 130-28-4 = 98
+// Right R: text-anchor=start, x = 130+28+4 = 162
+function buildB(id, bg, fg, red, amp, fontFamily, fontSize, fontWeight, yOffset=0) {
+  const s = document.getElementById(id);
+  const cx=130, cy=44, r1=12, r2=30;
+  const lx = cx-r2-3, rx = cx+r2+3;
+  const ty = cy+fontSize*0.35+yOffset;
+
+  el('text',{x:lx,y:ty,'text-anchor':'end','font-family':fontFamily,
+    'font-size':fontSize,'font-weight':fontWeight,fill:fg},s,'R');
+  arev(s,cx,cy,r1,r2,red,bg);
+  el('text',{x:rx,y:ty,'text-anchor':'start','font-family':fontFamily,
+    'font-size':fontSize,'font-weight':fontWeight,fill:fg},s,'R');
+  el('line',{x1:40,y1:80,x2:220,y2:80,stroke:fg+'18','stroke-width':0.8},s);
+  el('text',{x:130,y:91,'text-anchor':'middle','font-family':'Outfit,sans-serif',
+    'font-size':7.5,'font-weight':300,'letter-spacing':5.5,fill:fg+'44'},s,'FOUNDATION');
+}
+
+// 1 — Playfair Display
+buildB('b1d','#0A1520','#fff','#D90012','#F2A800',"'Playfair Display',serif",68,700);
+buildB('b1l','#F4F1EC','#0D1B2A','#C8102E','#C8102E',"'Playfair Display',serif",68,700);
+
+// 2 — Bodoni Moda
+buildB('b2d','#0A1520','#fff','#D90012','#F2A800',"'Bodoni Moda',serif",66,700);
+buildB('b2l','#F4F1EC','#0D1B2A','#C8102E','#C8102E',"'Bodoni Moda',serif",66,700);
+
+// 3 — DM Serif Display
+buildB('b3d','#0A1520','#fff','#D90012','#F2A800',"'DM Serif Display',serif",68,400);
+buildB('b3l','#F4F1EC','#0D1B2A','#C8102E','#C8102E',"'DM Serif Display',serif",68,400);
+
+// 4 — Outfit 800 bold sans
+buildB('b4d','#0A1520','#fff','#D90012','#F2A800',"'Outfit',sans-serif",62,800);
+buildB('b4l','#F4F1EC','#0D1B2A','#C8102E','#C8102E',"'Outfit',sans-serif",62,800);
+</script>
+</body>
+</html>

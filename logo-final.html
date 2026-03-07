@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #EDEEF2; font-family: 'Inter', sans-serif; padding: 48px; display: flex; flex-direction: column; gap: 32px; }
+  .row-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: #9CA3AF; margin-bottom: 18px; }
+  .swatch-row { display: flex; gap: 20px; flex-wrap: wrap; align-items: center; }
+
+  /* ── Swatch cards ── */
+  .sw { border-radius: 12px; padding: 36px 44px; display: flex; align-items: center; justify-content: center; }
+  .sw-white   { background: #ffffff; }
+  .sw-navy    { background: #002868; }
+  .sw-red     { background: #D90012; }
+  .sw-black   { background: #0A0A0A; }
+  .sw-orange  { background: #F2A800; }
+  .sw-offwhite{ background: #F5F6FA; border: 1px solid #E0E2EA; }
+
+  /* ── MARK only ── */
+  .sw-mark { padding: 28px; }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════
+     FULL LOCKUP — COLOR
+════════════════════════════════ -->
+<div>
+  <div class="row-label">Full Lockup — Color</div>
+  <div class="swatch-row">
+
+    <!-- White bg -->
+    <div class="sw sw-white">
+      <svg width="280" height="72" viewBox="0 0 280 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- RR mark -->
+        <text x="0" y="58" font-family="Cormorant Garamond, serif" font-size="60" font-weight="600" fill="#002868" letter-spacing="-6">RR</text>
+        <!-- Three-stripe bar: red / blue / orange -->
+        <rect x="0" y="62" width="76" height="4" fill="#D90012"/>
+        <rect x="0" y="66" width="76" height="3" fill="#002868"/>
+        <rect x="0" y="69" width="76" height="3" fill="#F2A800"/>
+        <!-- Divider -->
+        <line x1="96" y1="8" x2="96" y2="64" stroke="#D5D8E0" stroke-width="1"/>
+        <!-- Wordmark -->
+        <text x="112" y="34" font-family="Cormorant Garamond, serif" font-size="22" font-weight="300" fill="#002868" letter-spacing="1.5">Rev <tspan font-style="italic" fill="#D90012">&amp;</tspan> Rachel</text>
+        <text x="112" y="55" font-family="Inter, sans-serif" font-size="8.5" font-weight="600" fill="#9CA3AF" letter-spacing="5">FOUNDATION</text>
+      </svg>
+    </div>
+
+    <!-- Navy bg -->
+    <div class="sw sw-navy">
+      <svg width="280" height="72" viewBox="0 0 280 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="58" font-family="Cormorant Garamond, serif" font-size="60" font-weight="600" fill="#ffffff" letter-spacing="-6">RR</text>
+        <rect x="0" y="62" width="76" height="4" fill="#D90012"/>
+        <rect x="0" y="66" width="76" height="3" fill="#ffffff" fill-opacity="0.3"/>
+        <rect x="0" y="69" width="76" height="3" fill="#F2A800"/>
+        <line x1="96" y1="8" x2="96" y2="64" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+        <text x="112" y="34" font-family="Cormorant Garamond, serif" font-size="22" font-weight="300" fill="#ffffff" letter-spacing="1.5">Rev <tspan font-style="italic" fill="#F2A800">&amp;</tspan> Rachel</text>
+        <text x="112" y="55" font-family="Inter, sans-serif" font-size="8.5" font-weight="600" fill="rgba(255,255,255,0.38)" letter-spacing="5">FOUNDATION</text>
+      </svg>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     FULL LOCKUP — MONOCHROME
+════════════════════════════════ -->
+<div>
+  <div class="row-label">Full Lockup — Monochrome</div>
+  <div class="swatch-row">
+
+    <!-- Black on white -->
+    <div class="sw sw-offwhite">
+      <svg width="280" height="72" viewBox="0 0 280 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="58" font-family="Cormorant Garamond, serif" font-size="60" font-weight="600" fill="#0A0A0A" letter-spacing="-6">RR</text>
+        <rect x="0" y="62" width="76" height="10" fill="#0A0A0A"/>
+        <line x1="96" y1="8" x2="96" y2="64" stroke="#C8CBD6" stroke-width="1"/>
+        <text x="112" y="34" font-family="Cormorant Garamond, serif" font-size="22" font-weight="300" fill="#0A0A0A" letter-spacing="1.5">Rev <tspan font-style="italic">&amp;</tspan> Rachel</text>
+        <text x="112" y="55" font-family="Inter, sans-serif" font-size="8.5" font-weight="600" fill="#9CA3AF" letter-spacing="5">FOUNDATION</text>
+      </svg>
+    </div>
+
+    <!-- White on black -->
+    <div class="sw sw-black">
+      <svg width="280" height="72" viewBox="0 0 280 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="58" font-family="Cormorant Garamond, serif" font-size="60" font-weight="600" fill="#ffffff" letter-spacing="-6">RR</text>
+        <rect x="0" y="62" width="76" height="10" fill="#ffffff"/>
+        <line x1="96" y1="8" x2="96" y2="64" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+        <text x="112" y="34" font-family="Cormorant Garamond, serif" font-size="22" font-weight="300" fill="#ffffff" letter-spacing="1.5">Rev <tspan font-style="italic">&amp;</tspan> Rachel</text>
+        <text x="112" y="55" font-family="Inter, sans-serif" font-size="8.5" font-weight="600" fill="rgba(255,255,255,0.38)" letter-spacing="5">FOUNDATION</text>
+      </svg>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     ICON MARK — All colorways
+════════════════════════════════ -->
+<div>
+  <div class="row-label">Icon Mark — All Colorways</div>
+  <div class="swatch-row">
+
+    <!-- Color on white -->
+    <div class="sw sw-white sw-mark">
+      <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="2" y="60" font-family="Cormorant Garamond, serif" font-size="58" font-weight="600" fill="#002868" letter-spacing="-8">RR</text>
+        <rect x="2" y="63" width="68" height="4" fill="#D90012"/>
+        <rect x="2" y="67" width="68" height="3" fill="#002868"/>
+        <rect x="2" y="70" width="68" height="2" fill="#F2A800"/>
+      </svg>
+    </div>
+
+    <!-- White on navy square -->
+    <div class="sw sw-mark" style="background:#002868; border-radius:16px; padding:18px;">
+      <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="2" y="60" font-family="Cormorant Garamond, serif" font-size="58" font-weight="600" fill="#ffffff" letter-spacing="-8">RR</text>
+        <rect x="2" y="63" width="68" height="4" fill="#D90012"/>
+        <rect x="2" y="67" width="68" height="3" fill="rgba(255,255,255,0.4)"/>
+        <rect x="2" y="70" width="68" height="2" fill="#F2A800"/>
+      </svg>
+    </div>
+
+    <!-- White on red square -->
+    <div class="sw sw-mark" style="background:#D90012; border-radius:16px; padding:18px;">
+      <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="2" y="60" font-family="Cormorant Garamond, serif" font-size="58" font-weight="600" fill="#ffffff" letter-spacing="-8">RR</text>
+        <rect x="2" y="63" width="68" height="4" fill="#ffffff"/>
+        <rect x="2" y="67" width="68" height="3" fill="rgba(255,255,255,0.4)"/>
+        <rect x="2" y="70" width="68" height="2" fill="#F2A800"/>
+      </svg>
+    </div>
+
+    <!-- Orange on black square -->
+    <div class="sw sw-mark" style="background:#0A0A0A; border-radius:16px; padding:18px;">
+      <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="2" y="60" font-family="Cormorant Garamond, serif" font-size="58" font-weight="600" fill="#F2A800" letter-spacing="-8">RR</text>
+        <rect x="2" y="63" width="68" height="4" fill="#D90012"/>
+        <rect x="2" y="67" width="68" height="3" fill="rgba(255,255,255,0.15)"/>
+        <rect x="2" y="70" width="68" height="2" fill="#F2A800"/>
+      </svg>
+    </div>
+
+    <!-- Black on white square -->
+    <div class="sw sw-mark" style="background:#ffffff; border-radius:16px; padding:18px; border: 1px solid #E5E7EB;">
+      <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="2" y="60" font-family="Cormorant Garamond, serif" font-size="58" font-weight="600" fill="#0A0A0A" letter-spacing="-8">RR</text>
+        <rect x="2" y="63" width="68" height="9" fill="#0A0A0A"/>
+      </svg>
+    </div>
+
+    <!-- White on white/outline -->
+    <div class="sw sw-mark" style="background:#F2A800; border-radius:16px; padding:18px;">
+      <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="2" y="60" font-family="Cormorant Garamond, serif" font-size="58" font-weight="600" fill="#ffffff" letter-spacing="-8">RR</text>
+        <rect x="2" y="63" width="68" height="4" fill="#D90012"/>
+        <rect x="2" y="67" width="68" height="5" fill="#002868"/>
+      </svg>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     STACKED / CENTERED VERSION
+════════════════════════════════ -->
+<div>
+  <div class="row-label">Stacked / Centered</div>
+  <div class="swatch-row">
+
+    <div class="sw sw-white" style="padding: 36px 56px;">
+      <svg width="180" height="100" viewBox="0 0 180 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Centered RR -->
+        <text x="90" y="66" font-family="Cormorant Garamond, serif" font-size="64" font-weight="600" fill="#002868" letter-spacing="-8" text-anchor="middle">RR</text>
+        <!-- Tricolor bar centered -->
+        <rect x="22" y="70" width="136" height="4" fill="#D90012"/>
+        <rect x="22" y="74" width="136" height="3" fill="#002868"/>
+        <rect x="22" y="77" width="136" height="3" fill="#F2A800"/>
+        <!-- Centered text -->
+        <text x="90" y="94" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="#9CA3AF" letter-spacing="5" text-anchor="middle">REV &amp; RACHEL FOUNDATION</text>
+      </svg>
+    </div>
+
+    <div class="sw sw-navy" style="padding: 36px 56px;">
+      <svg width="180" height="100" viewBox="0 0 180 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="90" y="66" font-family="Cormorant Garamond, serif" font-size="64" font-weight="600" fill="#ffffff" letter-spacing="-8" text-anchor="middle">RR</text>
+        <rect x="22" y="70" width="136" height="4" fill="#D90012"/>
+        <rect x="22" y="74" width="136" height="3" fill="rgba(255,255,255,0.25)"/>
+        <rect x="22" y="77" width="136" height="3" fill="#F2A800"/>
+        <text x="90" y="94" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="rgba(255,255,255,0.4)" letter-spacing="5" text-anchor="middle">REV &amp; RACHEL FOUNDATION</text>
+      </svg>
+    </div>
+
+    <div class="sw sw-red" style="padding: 36px 56px;">
+      <svg width="180" height="100" viewBox="0 0 180 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="90" y="66" font-family="Cormorant Garamond, serif" font-size="64" font-weight="600" fill="#ffffff" letter-spacing="-8" text-anchor="middle">RR</text>
+        <rect x="22" y="70" width="136" height="4" fill="#ffffff"/>
+        <rect x="22" y="74" width="136" height="3" fill="rgba(255,255,255,0.3)"/>
+        <rect x="22" y="77" width="136" height="3" fill="#F2A800"/>
+        <text x="90" y="94" font-family="Inter, sans-serif" font-size="8" font-weight="600" fill="rgba(255,255,255,0.6)" letter-spacing="5" text-anchor="middle">REV &amp; RACHEL FOUNDATION</text>
+      </svg>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

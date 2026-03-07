@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { background: #1a1a2e; display: flex; gap: 40px; padding: 60px; flex-wrap: wrap; align-items: center; justify-content: center; font-family: 'Outfit', sans-serif; }
+  .label { color: rgba(255,255,255,0.4); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; text-align: center; margin-top: 12px; }
+  .card { display: flex; flex-direction: column; align-items: center; }
+</style>
+</head>
+<body>
+
+<!-- A: Tight inline on dark pill -->
+<div class="card">
+  <svg width="120" height="48" viewBox="0 0 120 48">
+    <rect width="120" height="48" rx="4" fill="#0D1B2A"/>
+    <text x="60" y="31" font-family="Outfit,sans-serif" font-size="22" font-weight="400" fill="white" text-anchor="middle" letter-spacing="2">R<tspan fill="#F2A800" font-style="italic">&amp;</tspan>R</text>
+  </svg>
+  <div class="label">A — Pill</div>
+</div>
+
+<!-- B: Square badge -->
+<div class="card">
+  <svg width="60" height="60" viewBox="0 0 60 60">
+    <rect width="60" height="60" rx="6" fill="#0D1B2A"/>
+    <rect x="0" y="0" width="60" height="3" fill="#C8102E" rx="1"/>
+    <text x="30" y="36" font-family="Outfit,sans-serif" font-size="20" font-weight="300" fill="white" text-anchor="middle" letter-spacing="1">R<tspan fill="#F2A800" font-style="italic">&amp;</tspan>R</text>
+  </svg>
+  <div class="label">B — Square</div>
+</div>
+
+<!-- C: Just the mark, no bg, big -->
+<div class="card">
+  <svg width="120" height="60" viewBox="0 0 120 60">
+    <text x="60" y="44" font-family="Outfit,sans-serif" font-size="38" font-weight="200" fill="white" text-anchor="middle" letter-spacing="-1">R<tspan fill="#F2A800">&amp;</tspan>R</text>
+  </svg>
+  <div class="label">C — Open</div>
+</div>
+
+<!-- D: Stacked R&R / FOUNDATION -->
+<div class="card">
+  <svg width="110" height="52" viewBox="0 0 110 52">
+    <rect width="110" height="52" rx="4" fill="#0D1B2A"/>
+    <text x="55" y="26" font-family="Outfit,sans-serif" font-size="18" font-weight="400" fill="white" text-anchor="middle" letter-spacing="3">R<tspan fill="#F2A800" font-style="italic">&amp;</tspan>R</text>
+    <line x1="14" y1="32" x2="96" y2="32" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"/>
+    <text x="55" y="44" font-family="Outfit,sans-serif" font-size="6" font-weight="500" fill="rgba(255,255,255,0.4)" text-anchor="middle" letter-spacing="4">FOUNDATION</text>
+  </svg>
+  <div class="label">D — Stacked</div>
+</div>
+
+<!-- E: Circle mark -->
+<div class="card">
+  <svg width="60" height="60" viewBox="0 0 60 60">
+    <circle cx="30" cy="30" r="29" fill="#0D1B2A" stroke="#C8102E" stroke-width="1.5"/>
+    <text x="30" y="36" font-family="Outfit,sans-serif" font-size="18" font-weight="300" fill="white" text-anchor="middle" letter-spacing="1">R<tspan fill="#F2A800">&amp;</tspan>R</text>
+  </svg>
+  <div class="label">E — Circle</div>
+</div>
+
+<!-- F: Letterpress feel, heavy weight -->
+<div class="card">
+  <svg width="110" height="52" viewBox="0 0 110 52">
+    <rect width="110" height="52" rx="4" fill="#0D1B2A"/>
+    <rect x="0" y="49" width="110" height="3" fill="#C8102E" rx="1"/>
+    <text x="55" y="33" font-family="Outfit,sans-serif" font-size="22" font-weight="500" fill="white" text-anchor="middle" letter-spacing="4">R<tspan fill="#F2A800">&amp;</tspan>R</text>
+  </svg>
+  <div class="label">F — Bold + red bar</div>
+</div>
+
+</body>
+</html>

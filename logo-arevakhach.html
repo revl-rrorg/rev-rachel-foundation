@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RRF Logo — Arevakhach Concepts</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#0D1B2A; font-family:'Outfit',sans-serif; padding:48px 32px; }
+  h1 { color:rgba(255,255,255,0.35); font-size:0.72rem; letter-spacing:0.28em; text-transform:uppercase; text-align:center; margin-bottom:48px; }
+  .grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:28px; max-width:1100px; margin:0 auto; }
+  .card { background:#0F1E2E; border-radius:16px; padding:40px 28px 32px; display:flex; flex-direction:column; align-items:center; gap:20px; border:1px solid rgba(255,255,255,0.06); }
+  .label { font-size:0.67rem; color:rgba(255,255,255,0.28); letter-spacing:0.2em; text-transform:uppercase; text-align:center; }
+  .dk { background:#0D1B2A; border-radius:12px; padding:36px 24px; display:flex; align-items:center; justify-content:center; width:100%; }
+  .lt { background:#F4F1EC; border-radius:12px; padding:36px 24px; display:flex; align-items:center; justify-content:center; width:100%; }
+</style>
+</head>
+<body>
+<h1>Rev &amp; Rachel Foundation — Arevakhach Logo Concepts</h1>
+
+<div class="grid">
+
+  <!-- A -->
+  <div class="card">
+    <div class="label">A — Symbol + Wordmark</div>
+    <div class="dk"><svg id="svgA1" width="160" height="190" viewBox="0 0 160 190"></svg></div>
+    <div class="label">Dark</div>
+    <div class="lt"><svg id="svgA2" width="160" height="190" viewBox="0 0 160 190"></svg></div>
+    <div class="label">Light</div>
+  </div>
+
+  <!-- B -->
+  <div class="card">
+    <div class="label">B — R ☸ R Inline</div>
+    <div class="dk"><svg id="svgB1" width="240" height="110" viewBox="0 0 240 110"></svg></div>
+    <div class="label">Dark</div>
+    <div class="lt"><svg id="svgB2" width="240" height="110" viewBox="0 0 240 110"></svg></div>
+    <div class="label">Light</div>
+  </div>
+
+  <!-- C -->
+  <div class="card">
+    <div class="label">C — Circular Seal</div>
+    <div class="dk"><svg id="svgC1" width="200" height="200" viewBox="0 0 200 200"></svg></div>
+    <div class="label">Seal / Stamp Style</div>
+    <div class="lt"><svg id="svgC2" width="200" height="200" viewBox="0 0 200 200"></svg></div>
+    <div class="label">Light</div>
+  </div>
+
+  <!-- D -->
+  <div class="card">
+    <div class="label">D — Nav Horizontal</div>
+    <div class="dk"><svg id="svgD1" width="260" height="64" viewBox="0 0 260 64"></svg></div>
+    <div class="label">Dark (nav use)</div>
+    <div class="lt"><svg id="svgD2" width="260" height="64" viewBox="0 0 260 64"></svg></div>
+    <div class="label">Light</div>
+  </div>
+
+  <!-- E -->
+  <div class="card">
+    <div class="label">E — Bold Stacked</div>
+    <div class="dk"><svg id="svgE1" width="160" height="160" viewBox="0 0 160 160"></svg></div>
+    <div class="label">Dark</div>
+  </div>
+
+  <!-- F: icon sizes -->
+  <div class="card">
+    <div class="label">F — Icon / Favicon</div>
+    <div class="dk" style="gap:28px; flex-wrap:wrap; flex-direction:row;">
+      <svg id="svgF1" width="80" height="80" viewBox="0 0 80 80"></svg>
+      <svg id="svgF2" width="48" height="48" viewBox="0 0 48 48"></svg>
+      <svg id="svgF3" width="32" height="32" viewBox="0 0 32 32"></svg>
+    </div>
+    <div class="label">80px · 48px · 32px</div>
+  </div>
+
+</div>
+
+<script>
+// ── Core generator ──────────────────────────────────────────────────────────
+// Draws the Arevakhach (Armenian Eternity Sun Cross) as 8 curved hook-arms
+// r1 = inner radius, r2 = outer radius
+// armSpan = degrees each arm spans (< 45° for gaps)
+// hookOffset = outer-edge rotational offset in degrees (creates the spiral)
+function arevPath(cx, cy, r1, r2, n=8, armSpan=30, hookOffset=15) {
+  const deg = Math.PI / 180;
+  const step = 360 / n;
+  let d = '';
+  for (let i = 0; i < n; i++) {
+    const base = i * step - 90; // start from 12 o'clock
+    const ia1 = base, ia2 = base + armSpan;
+    const oa1 = base + hookOffset, oa2 = base + hookOffset + armSpan;
+    const f = a => [cx + r1*Math.cos(a*deg), cy + r1*Math.sin(a*deg)];
+    const g = a => [cx + r2*Math.cos(a*deg), cy + r2*Math.sin(a*deg)];
+    const [ix1,iy1]=f(ia1), [ix2,iy2]=f(ia2);
+    const [ox1,oy1]=g(oa1), [ox2,oy2]=g(oa2);
+    const laf = armSpan > 180 ? 1 : 0;
+    d += `M${ix1},${iy1} L${ox1},${oy1} A${r2},${r2},0,${laf},1,${ox2},${oy2} L${ix2},${iy2} A${r1},${r1},0,${laf},0,${ix1},${iy1} Z `;
+  }
+  return d;
+}
+
+function svgNS(tag, attrs, parent) {
+  const el = document.createElementNS('http://www.w3.org/2000/svg', tag);
+  for (const [k,v] of Object.entries(attrs)) el.setAttribute(k, v);
+  if (parent) parent.appendChild(el);
+  return el;
+}
+
+function addArev(svg, cx, cy, r1, r2, fill, bg, n=8, armSpan=30, hookOffset=15) {
+  const path = svgNS('path', {d: arevPath(cx,cy,r1,r2,n,armSpan,hookOffset), fill}, svg);
+  // center hub
+  svgNS('circle', {cx, cy, r: r1*0.7, fill: bg}, svg);
+  svgNS('circle', {cx, cy, r: r1*0.35, fill}, svg);
+  return path;
+}
+
+function addText(svg, x, y, text, opts={}) {
+  const t = svgNS('text', {
+    x, y,
+    'text-anchor': opts.anchor || 'middle',
+    'font-family': opts.font || 'Outfit, sans-serif',
+    'font-size': opts.size || 14,
+    'font-weight': opts.weight || 400,
+    'letter-spacing': opts.ls || 0,
+    fill: opts.fill || 'white'
+  }, svg);
+  t.innerHTML = text;
+  return t;
+}
+
+// ── A: Symbol + stacked wordmark ─────────────────────────────────────────────
+function buildA(id, bg, fg, red, orange) {
+  const s = document.getElementById(id);
+  addArev(s, 80, 72, 14, 42, red, bg);
+  addText(s, 80, 116, `R<tspan fill="${orange}">&amp;</tspan>R`, {size:30,weight:700,fill:fg,ls:1});
+  svgNS('line', {x1:44,y1:126,x2:116,y2:126,stroke:'rgba(128,128,128,0.25)','stroke-width':1}, s);
+  addText(s, 80, 140, 'FOUNDATION', {size:8.5,weight:300,fill:fg+'66',ls:4.5});
+}
+buildA('svgA1','#0D1B2A','#ffffff','#D90012','#F2A800');
+buildA('svgA2','#F4F1EC','#0D1B2A','#C8102E','#C8102E');
+
+// ── B: R ☸ R Inline ──────────────────────────────────────────────────────────
+function buildB(id, bg, fg, red) {
+  const s = document.getElementById(id);
+  addText(s, 14, 82, 'R', {anchor:'start', font:"'Cormorant Garamond',serif", size:82, weight:700, fill:fg, ls:-2});
+  addArev(s, 120, 52, 13, 38, red, bg);
+  addText(s, 225, 82, 'R', {anchor:'end', font:"'Cormorant Garamond',serif", size:82, weight:700, fill:fg, ls:-2});
+  addText(s, 120, 103, 'FOUNDATION', {size:7.5, weight:300, fill:fg+'55', ls:5.5});
+}
+buildB('svgB1','#0D1B2A','#ffffff','#D90012');
+buildB('svgB2','#F4F1EC','#0D1B2A','#C8102E');
+
+// ── C: Circular Seal ─────────────────────────────────────────────────────────
+function buildC(id, bg, fg, red) {
+  const s = document.getElementById(id);
+  // outer rings
+  svgNS('circle',{cx:100,cy:100,r:91,stroke:red,'stroke-width':1.5,fill:'none',opacity:0.4}, s);
+  svgNS('circle',{cx:100,cy:100,r:83,stroke:red,'stroke-width':0.5,fill:'none',opacity:0.18}, s);
+  // arc text
+  const defs = svgNS('defs',{},s);
+  const pathEl = svgNS('path',{id:'cArc'+id, d:'M100,100 m-72,0 a72,72 0 1,1 144,0 a72,72 0 1,1 -144,0', fill:'none'}, defs);
+  const textEl = svgNS('text',{'font-family':'Outfit,sans-serif','font-size':8.8,'font-weight':500,fill:fg+'88','letter-spacing':3.5},s);
+  const tp = svgNS('textPath',{href:'#cArc'+id,'startOffset':'9%'},textEl);
+  tp.textContent = 'REV & RACHEL  ·  FOUNDATION  ·  ARMENIA';
+  // symbol
+  addArev(s, 100, 100, 16, 48, red, bg);
+}
+buildC('svgC1','#0D1B2A','#ffffff','#D90012');
+buildC('svgC2','#F4F1EC','#0D1B2A','#C8102E');
+
+// ── D: Nav horizontal ────────────────────────────────────────────────────────
+function buildD(id, bg, fg, red, orange) {
+  const s = document.getElementById(id);
+  addArev(s, 26, 32, 11, 22, red, bg, 8, 28, 14);
+  addText(s, 52, 26, `REV<tspan fill="${orange}">&amp;</tspan>RACHEL`, {anchor:'start',size:18,weight:600,fill:fg,ls:0.5});
+  svgNS('line',{x1:52,y1:33,x2:256,y2:33,stroke:'rgba(128,128,128,0.18)','stroke-width':0.8}, s);
+  addText(s, 52, 46, 'FOUNDATION', {anchor:'start',size:8,weight:300,fill:fg+'44',ls:4.8});
+}
+buildD('svgD1','#0D1B2A','#ffffff','#D90012','#F2A800');
+buildD('svgD2','#F4F1EC','#0D1B2A','#C8102E','#C8102E');
+
+// ── E: Bold stacked ──────────────────────────────────────────────────────────
+function buildE(id, bg, fg, red, orange) {
+  const s = document.getElementById(id);
+  // faint watermark
+  const p = svgNS('path',{d:arevPath(80,72,34,78,8,32,16), fill:fg, opacity:'0.05'}, s);
+  addArev(s, 80, 32, 10, 20, red, bg, 8, 28, 14);
+  addText(s, 80, 98, `R<tspan fill="${orange}">&amp;</tspan>R`, {size:62,weight:700,fill:fg,ls:-1});
+  addText(s, 80, 120, 'FOUNDATION', {size:8,weight:300,fill:fg+'44',ls:5});
+}
+buildE('svgE1','#0D1B2A','#ffffff','#D90012','#F2A800');
+
+// ── F: Icon sizes ─────────────────────────────────────────────────────────────
+[['svgF1',80],['svgF2',48],['svgF3',32]].forEach(([id,sz]) => {
+  const s = document.getElementById(id);
+  const c = sz/2;
+  const r1 = sz*0.17, r2 = sz*0.45;
+  svgNS('circle',{cx:c,cy:c,r:c-1,fill:'#1a2a3a'}, s);
+  addArev(s, c, c, r1, r2, '#D90012', '#1a2a3a');
+});
+</script>
+</body>
+</html>

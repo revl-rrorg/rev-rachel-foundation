@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=Bodoni+Moda:opsz,wght@6..96,900&family=Cormorant:ital,wght@1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #0A0A0A; font-family: 'Inter', sans-serif; padding: 64px; display: flex; flex-direction: column; gap: 4px; }
+  .option { padding: 72px 80px; display: flex; flex-direction: column; gap: 20px; }
+  .opt-1 { background: #ffffff; }
+  .opt-2 { background: #060B19; }
+  .opt-3 { background: #f5f6fa; }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0,0,0,0.06);
+    border-radius: 100px;
+    padding: 5px 14px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 8px;
+    width: fit-content;
+  }
+  .opt-2 .badge { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.35); }
+</style>
+</head>
+<body>
+
+<!-- ══════ OPTION 1: PLAYFAIR ══════ -->
+<div class="option opt-1">
+  <div class="badge">01 — Playfair Display</div>
+  <svg width="520" height="130" viewBox="0 0 520 130">
+    <text x="0" y="110" font-family="Playfair Display" font-size="112" font-weight="900" fill="#002868">R</text>
+    <g transform="translate(156,0) scale(-1,1) translate(-78,0)">
+      <text x="0" y="110" font-family="Playfair Display" font-size="112" font-weight="900" fill="#002868">R</text>
+    </g>
+    <rect x="0" y="116" width="156" height="6" fill="#D90012"/>
+    <rect x="0" y="122" width="156" height="4" fill="#002868"/>
+    <rect x="0" y="126" width="156" height="4" fill="#F2A800"/>
+    <line x1="184" y1="16" x2="184" y2="112" stroke="#E0E2EA" stroke-width="1.5"/>
+    <text x="204" y="60" font-family="Cormorant" font-size="28" font-weight="400" fill="#002868" letter-spacing="1.5">Rev <tspan font-style="italic" fill="#D90012">&amp;</tspan> Rachel</text>
+    <text x="205" y="88" font-family="Inter" font-size="10" font-weight="600" fill="#B0B4C0" letter-spacing="6">FOUNDATION</text>
+  </svg>
+</div>
+
+<!-- ══════ OPTION 2: BODONI ══════ -->
+<div class="option opt-2">
+  <div class="badge">02 — Bodoni Moda</div>
+  <svg width="520" height="130" viewBox="0 0 520 130">
+    <text x="0" y="110" font-family="Bodoni Moda" font-size="112" font-weight="900" fill="#F2A800">R</text>
+    <g transform="translate(152,0) scale(-1,1) translate(-76,0)">
+      <text x="0" y="110" font-family="Bodoni Moda" font-size="112" font-weight="900" fill="#F2A800">R</text>
+    </g>
+    <rect x="0" y="116" width="152" height="6" fill="#D90012"/>
+    <rect x="0" y="122" width="152" height="4" fill="rgba(255,255,255,0.12)"/>
+    <rect x="0" y="126" width="152" height="4" fill="#F2A800"/>
+    <line x1="180" y1="16" x2="180" y2="112" stroke="rgba(255,255,255,0.1)" stroke-width="1.5"/>
+    <text x="200" y="60" font-family="Cormorant" font-size="28" font-weight="400" fill="#fff" letter-spacing="1.5">Rev <tspan font-style="italic" fill="#F2A800">&amp;</tspan> Rachel</text>
+    <text x="201" y="88" font-family="Inter" font-size="10" font-weight="600" fill="rgba(255,255,255,0.3)" letter-spacing="6">FOUNDATION</text>
+  </svg>
+</div>
+
+<!-- ══════ OPTION 3: CORMORANT ITALIC ══════ -->
+<div class="option opt-3">
+  <div class="badge">03 — Cormorant Italic</div>
+  <svg width="520" height="130" viewBox="0 0 520 130">
+    <text x="0" y="110" font-family="Cormorant" font-size="118" font-weight="700" font-style="italic" fill="#002868">R</text>
+    <g transform="translate(154,0) scale(-1,1) translate(-77,0)">
+      <text x="0" y="110" font-family="Cormorant" font-size="118" font-weight="700" font-style="italic" fill="#D90012">R</text>
+    </g>
+    <rect x="0" y="116" width="154" height="6" fill="#D90012"/>
+    <rect x="0" y="122" width="154" height="4" fill="#002868"/>
+    <rect x="0" y="126" width="154" height="4" fill="#F2A800"/>
+    <line x1="182" y1="16" x2="182" y2="112" stroke="#D8DADF" stroke-width="1.5"/>
+    <text x="202" y="60" font-family="Cormorant" font-size="28" font-weight="400" fill="#002868" letter-spacing="1.5">Rev <tspan font-style="italic" fill="#D90012">&amp;</tspan> Rachel</text>
+    <text x="203" y="88" font-family="Inter" font-size="10" font-weight="600" fill="#B0B4C0" letter-spacing="6">FOUNDATION</text>
+  </svg>
+</div>
+
+</body>
+</html>

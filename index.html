@@ -6,7 +6,7 @@
   <title>Rev & Rachel Foundation</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cormorant:ital,wght@1,700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cormorant:ital,wght@1,700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@200;300;400;500;800&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -73,63 +73,25 @@
       text-decoration: none;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+      color: #fff;
     }
-    .nav-logo-mark {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-      flex-shrink: 0;
-    }
-    .nav-logo-mark span {
-      display: block;
-      height: 2px;
-      border-radius: 2px;
-      background: var(--red);
-      transition: width 0.3s ease;
-    }
-    .nav-logo-mark span:nth-child(1) { width: 18px; }
-    .nav-logo-mark span:nth-child(2) { width: 12px; }
-    .nav-logo-mark span:nth-child(3) { width: 6px; }
     .nav-links a.nav-active { color: #fff; opacity: 1; border-bottom: 1px solid var(--orange); padding-bottom: 2px; }
-    .nav-logo:hover .nav-logo-mark span:nth-child(1) { width: 6px; }
-    .nav-logo:hover .nav-logo-mark span:nth-child(3) { width: 18px; }
-    .nav-logo-text {
-      display: flex;
-      flex-direction: column;
-      gap: 0px;
+    .rr-logo-svg {
+      display: block;
+      flex-shrink: 0;
+      transition: opacity 0.2s;
     }
-    .nav-logo-name {
+    .nav-logo:hover .rr-logo-svg { opacity: 0.85; }
+    .nav-logo-sub {
       font-family: 'Outfit', sans-serif;
-      font-size: 18px;
-      font-weight: 400;
-      color: #ffffff;
-      letter-spacing: 0.02em;
+      font-size: 6.5px;
+      font-weight: 300;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.38);
       line-height: 1;
       white-space: nowrap;
-      text-transform: uppercase;
-      word-spacing: 0;
-    }
-    .nav-logo-name .logo-amp {
-      font-weight: 600;
-      color: var(--orange);
-      margin: 0 -1px;
-      letter-spacing: 0;
-    }
-    .nav-logo-divider {
-      width: 100%;
-      height: 1px;
-      background: rgba(255,255,255,0.18);
-      margin: 4px 0 3px;
-    }
-    .nav-logo-sub {
-      font-family: 'Inter', sans-serif;
-      font-size: 6px;
-      font-weight: 700;
-      letter-spacing: 0.32em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.4);
-      line-height: 1;
     }
 
     .nav-links {
@@ -1121,8 +1083,8 @@
       nav { height: 56px; padding: 0 16px; }
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
-      .nav-logo-name { font-size: 15px; }
-      .nav-logo-sub { font-size: 5px; letter-spacing: 0.22em; }
+      .rr-logo-svg { width: 60px; height: 30px; }
+      .nav-logo-sub { font-size: 5.5px; letter-spacing: 0.28em; }
       .flag-bar { height: 2px; }
       section { padding: 48px 16px; }
       .hero { min-height: calc(100vh - 56px); padding: 0 16px; }
@@ -1157,14 +1119,19 @@
   <!-- NAV -->
   <nav>
     <a class="nav-logo" href="#">
-      <div class="nav-logo-mark">
-        <span></span><span></span><span></span>
-      </div>
-      <div class="nav-logo-text">
-        <div class="nav-logo-name">Rev<span class="logo-amp">&amp;</span>Rachel</div>
-        <div class="nav-logo-divider"></div>
-        <div class="nav-logo-sub">Foundation</div>
-      </div>
+      <svg class="rr-logo-svg" width="72" height="36" viewBox="0 0 72 36" xmlns="http://www.w3.org/2000/svg">
+        <!-- ᴚ mirrored R -->
+        <g transform="translate(36,0) scale(-1,1)">
+          <text x="0" y="28" text-anchor="start"
+            font-family="'Outfit',sans-serif" font-size="30" font-weight="800"
+            fill="currentColor">R</text>
+        </g>
+        <!-- R normal -->
+        <text x="37" y="28" text-anchor="start"
+          font-family="'Outfit',sans-serif" font-size="30" font-weight="800"
+          fill="currentColor">R</text>
+      </svg>
+      <span class="nav-logo-sub">Foundation</span>
     </a>
     <ul class="nav-links">
       <li><a href="#mission">Mission</a></li>
@@ -1780,6 +1747,19 @@
   <!-- ══════════ FOOTER ══════════ -->
   <div class="flag-bar"></div>
   <footer>
+    <div style="display:flex;flex-direction:column;align-items:center;margin-bottom:8px;">
+      <svg width="80" height="40" viewBox="0 0 72 36" xmlns="http://www.w3.org/2000/svg" style="color:rgba(255,255,255,0.75);">
+        <g transform="translate(36,0) scale(-1,1)">
+          <text x="0" y="28" text-anchor="start"
+            font-family="'Outfit',sans-serif" font-size="30" font-weight="800"
+            fill="currentColor">R</text>
+        </g>
+        <text x="37" y="28" text-anchor="start"
+          font-family="'Outfit',sans-serif" font-size="30" font-weight="800"
+          fill="currentColor">R</text>
+      </svg>
+      <span style="font-family:'Outfit',sans-serif;font-size:6.5px;font-weight:300;letter-spacing:0.38em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:2px;">Foundation</span>
+    </div>
 
     <!-- Social Media Links -->
     <div style="display:flex; gap:16px; margin:20px 0; align-items:center; justify-content:center;">

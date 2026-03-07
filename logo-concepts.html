@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; background: #F4F6FF; font-family: 'Inter', sans-serif; padding: 60px; display: flex; flex-direction: column; gap: 60px; }
+  .concept { background: #fff; border-radius: 16px; padding: 48px; box-shadow: 0 4px 24px rgba(0,40,104,0.08); }
+  .concept-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #9CA3AF; margin-bottom: 32px; }
+  .logo-row { display: flex; align-items: center; gap: 48px; flex-wrap: wrap; }
+  .logo-dark { background: #060B19; border-radius: 12px; padding: 32px; }
+  .logo-light { background: #fff; border-radius: 12px; padding: 32px; border: 1px solid #E5E7EB; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════
+  CONCEPT A — Mountain Monogram
+  Ararat peak inside the shield, red top stripe
+══════════════════════════════════ -->
+<div class="concept">
+  <div class="concept-label">Concept A — The Ararat Monogram</div>
+  <div class="logo-row">
+
+    <!-- Light version -->
+    <div class="logo-light">
+      <svg width="230" height="80" viewBox="0 0 230 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g>
+          <!-- Shield base navy -->
+          <path d="M10 8 L10 50 Q10 70 32 74 Q54 70 54 50 L54 8 Z" fill="#002868"/>
+          <!-- Red top band (Armenian flag top stripe) -->
+          <path d="M10 8 L54 8 L54 24 L10 24 Z" fill="#D90012" clip-path="url(#shieldClipA)"/>
+          <clipPath id="shieldClipA">
+            <path d="M10 8 L10 50 Q10 70 32 74 Q54 70 54 50 L54 8 Z"/>
+          </clipPath>
+          <!-- Mountain peak -->
+          <polyline points="16,54 32,24 48,54" stroke="#F2A800" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+          <polygon points="22,54 32,36 42,54" fill="#F2A800" fill-opacity="0.22"/>
+          <text x="32" y="66" font-family="Cormorant Garamond, serif" font-size="10" font-weight="600" fill="rgba(255,255,255,0.45)" text-anchor="middle">RRF</text>
+        </g>
+        <text x="68" y="32" font-family="Cormorant Garamond, serif" font-size="22" font-weight="400" fill="#002868" letter-spacing="1">Rev <tspan font-style="italic" fill="#D90012">&amp;</tspan> Rachel</text>
+        <text x="68" y="52" font-family="Inter, sans-serif" font-size="9.5" font-weight="600" fill="#9CA3AF" letter-spacing="3.5">FOUNDATION</text>
+        <line x1="68" y1="59" x2="222" y2="59" stroke="#D90012" stroke-width="2"/>
+        <text x="68" y="72" font-family="Inter, sans-serif" font-size="7.5" font-weight="400" fill="#C8D0E0" letter-spacing="2">YEREVAN · LOS ANGELES</text>
+      </svg>
+    </div>
+
+    <!-- Dark version -->
+    <div class="logo-dark">
+      <svg width="230" height="80" viewBox="0 0 230 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 8 L10 50 Q10 70 32 74 Q54 70 54 50 L54 8 Z" fill="#F2A800"/>
+        <path d="M10 8 L54 8 L54 24 L10 24 Z" fill="#D90012" clip-path="url(#shieldClipAD)"/>
+        <clipPath id="shieldClipAD">
+          <path d="M10 8 L10 50 Q10 70 32 74 Q54 70 54 50 L54 8 Z"/>
+        </clipPath>
+        <polyline points="16,54 32,24 48,54" stroke="#002868" stroke-width="2.5" fill="none" stroke-linejoin="round"/>
+        <polygon points="22,54 32,36 42,54" fill="#002868" fill-opacity="0.25"/>
+        <text x="32" y="66" font-family="Cormorant Garamond, serif" font-size="10" font-weight="600" fill="rgba(0,40,104,0.45)" text-anchor="middle">RRF</text>
+        <text x="68" y="32" font-family="Cormorant Garamond, serif" font-size="22" font-weight="400" fill="#FFFFFF" letter-spacing="1">Rev <tspan font-style="italic" fill="#F2A800">&amp;</tspan> Rachel</text>
+        <text x="68" y="52" font-family="Inter, sans-serif" font-size="9.5" font-weight="600" fill="rgba(255,255,255,0.4)" letter-spacing="3.5">FOUNDATION</text>
+        <line x1="68" y1="59" x2="222" y2="59" stroke="#D90012" stroke-width="2"/>
+        <text x="68" y="72" font-family="Inter, sans-serif" font-size="7.5" font-weight="400" fill="rgba(255,255,255,0.25)" letter-spacing="2">YEREVAN · LOS ANGELES</text>
+      </svg>
+    </div>
+
+    <!-- Mark only -->
+    <div>
+      <svg width="70" height="82" viewBox="0 0 60 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 6 L4 50 Q4 72 30 76 Q56 72 56 50 L56 6 Z" fill="#002868"/>
+        <path d="M4 6 L56 6 L56 24 L4 24 Z" fill="#D90012" clip-path="url(#shieldClipMark)"/>
+        <clipPath id="shieldClipMark">
+          <path d="M4 6 L4 50 Q4 72 30 76 Q56 72 56 50 L56 6 Z"/>
+        </clipPath>
+        <polyline points="11,56 30,22 49,56" stroke="#F2A800" stroke-width="3" fill="none" stroke-linejoin="round"/>
+        <polygon points="18,56 30,38 42,56" fill="#F2A800" fill-opacity="0.2"/>
+        <text x="30" y="68" font-family="Cormorant Garamond, serif" font-size="11" font-weight="600" fill="rgba(255,255,255,0.4)" text-anchor="middle">RRF</text>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+  CONCEPT B — RR Ligature with red stripe
+══════════════════════════════════ -->
+<div class="concept">
+  <div class="concept-label">Concept B — The RR Ligature</div>
+  <div class="logo-row">
+
+    <div class="logo-light">
+      <svg width="250" height="80" viewBox="0 0 250 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- RR in navy -->
+        <text x="4" y="64" font-family="Cormorant Garamond, serif" font-size="62" font-weight="600" fill="#002868" letter-spacing="-8">RR</text>
+        <!-- Triple stripe: red / navy / orange (Armenian flag) -->
+        <rect x="4" y="68" width="72" height="4" fill="#D90012"/>
+        <rect x="4" y="73" width="72" height="3" fill="#002868"/>
+        <rect x="4" y="77" width="72" height="3" fill="#F2A800"/>
+        <!-- Divider -->
+        <line x1="92" y1="10" x2="92" y2="70" stroke="#E5E7EB" stroke-width="1"/>
+        <!-- Wordmark -->
+        <text x="106" y="36" font-family="Cormorant Garamond, serif" font-size="20" font-weight="300" fill="#002868" letter-spacing="2">Rev <tspan font-style="italic" fill="#D90012">&amp;</tspan> Rachel</text>
+        <text x="106" y="56" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#9CA3AF" letter-spacing="4">FOUNDATION</text>
+        <!-- Flag dots -->
+        <circle cx="106" cy="70" r="3.5" fill="#D90012"/>
+        <circle cx="117" cy="70" r="3.5" fill="#003087"/>
+        <circle cx="128" cy="70" r="3.5" fill="#F2A800"/>
+      </svg>
+    </div>
+
+    <div class="logo-dark">
+      <svg width="250" height="80" viewBox="0 0 250 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="4" y="64" font-family="Cormorant Garamond, serif" font-size="62" font-weight="600" fill="#F2A800" letter-spacing="-8">RR</text>
+        <rect x="4" y="68" width="72" height="4" fill="#D90012"/>
+        <rect x="4" y="73" width="72" height="3" fill="#002868"/>
+        <rect x="4" y="77" width="72" height="3" fill="#F2A800"/>
+        <line x1="92" y1="10" x2="92" y2="70" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <text x="106" y="36" font-family="Cormorant Garamond, serif" font-size="20" font-weight="300" fill="#FFFFFF" letter-spacing="2">Rev <tspan font-style="italic" fill="#D90012">&amp;</tspan> Rachel</text>
+        <text x="106" y="56" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="rgba(255,255,255,0.35)" letter-spacing="4">FOUNDATION</text>
+        <circle cx="106" cy="70" r="3.5" fill="#D90012"/>
+        <circle cx="117" cy="70" r="3.5" fill="#003087"/>
+        <circle cx="128" cy="70" r="3.5" fill="#F2A800"/>
+      </svg>
+    </div>
+
+    <!-- Mark only -->
+    <div>
+      <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="80" height="80" rx="16" fill="#002868"/>
+        <text x="6" y="66" font-family="Cormorant Garamond, serif" font-size="62" font-weight="600" fill="#F2A800" letter-spacing="-10">RR</text>
+        <rect x="6" y="68" width="68" height="4" rx="0" fill="#D90012"/>
+        <rect x="6" y="73" width="68" height="3" fill="#F2A800"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+  CONCEPT C — Armenian Knot with red core
+══════════════════════════════════ -->
+<div class="concept">
+  <div class="concept-label">Concept C — The Armenian Knot</div>
+  <div class="logo-row">
+
+    <div class="logo-light">
+      <svg width="250" height="80" viewBox="0 0 250 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(6, 8)">
+          <!-- Outer ring navy -->
+          <circle cx="32" cy="32" r="30" stroke="#002868" stroke-width="3" fill="none"/>
+          <!-- Red inner ring -->
+          <circle cx="32" cy="32" r="20" stroke="#D90012" stroke-width="2" fill="none"/>
+          <!-- Cross arms -->
+          <line x1="32" y1="4" x2="32" y2="18" stroke="#002868" stroke-width="3" stroke-linecap="round"/>
+          <line x1="32" y1="46" x2="32" y2="60" stroke="#002868" stroke-width="3" stroke-linecap="round"/>
+          <line x1="4" y1="32" x2="18" y2="32" stroke="#002868" stroke-width="3" stroke-linecap="round"/>
+          <line x1="46" y1="32" x2="60" y2="32" stroke="#002868" stroke-width="3" stroke-linecap="round"/>
+          <!-- Orange center diamond -->
+          <rect x="26" y="26" width="12" height="12" rx="1.5" fill="#F2A800" transform="rotate(45 32 32)"/>
+          <!-- Red center dot -->
+          <circle cx="32" cy="32" r="4" fill="#D90012"/>
+        </g>
+        <text x="92" y="34" font-family="Cormorant Garamond, serif" font-size="21" font-weight="400" fill="#002868" letter-spacing="1">Rev <tspan font-style="italic" fill="#D90012">&amp;</tspan> Rachel</text>
+        <text x="92" y="55" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="#9CA3AF" letter-spacing="4">FOUNDATION</text>
+        <!-- Red rule -->
+        <line x1="92" y1="62" x2="244" y2="62" stroke="#D90012" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <div class="logo-dark">
+      <svg width="250" height="80" viewBox="0 0 250 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(6, 8)">
+          <circle cx="32" cy="32" r="30" stroke="#F2A800" stroke-width="3" fill="none"/>
+          <circle cx="32" cy="32" r="20" stroke="#D90012" stroke-width="2" fill="none"/>
+          <line x1="32" y1="4" x2="32" y2="18" stroke="#F2A800" stroke-width="3" stroke-linecap="round"/>
+          <line x1="32" y1="46" x2="32" y2="60" stroke="#F2A800" stroke-width="3" stroke-linecap="round"/>
+          <line x1="4" y1="32" x2="18" y2="32" stroke="#F2A800" stroke-width="3" stroke-linecap="round"/>
+          <line x1="46" y1="32" x2="60" y2="32" stroke="#F2A800" stroke-width="3" stroke-linecap="round"/>
+          <rect x="26" y="26" width="12" height="12" rx="1.5" fill="#F2A800" transform="rotate(45 32 32)"/>
+          <circle cx="32" cy="32" r="4" fill="#D90012"/>
+        </g>
+        <text x="92" y="34" font-family="Cormorant Garamond, serif" font-size="21" font-weight="400" fill="#FFFFFF" letter-spacing="1">Rev <tspan font-style="italic" fill="#D90012">&amp;</tspan> Rachel</text>
+        <text x="92" y="55" font-family="Inter, sans-serif" font-size="9" font-weight="600" fill="rgba(255,255,255,0.35)" letter-spacing="4">FOUNDATION</text>
+        <line x1="92" y1="62" x2="244" y2="62" stroke="#D90012" stroke-width="2"/>
+      </svg>
+    </div>
+
+    <!-- Mark only -->
+    <div>
+      <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="36" stroke="#002868" stroke-width="3.5" fill="none"/>
+        <circle cx="40" cy="40" r="24" stroke="#D90012" stroke-width="2.5" fill="none"/>
+        <line x1="40" y1="6" x2="40" y2="22" stroke="#002868" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="40" y1="58" x2="40" y2="74" stroke="#002868" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="6" y1="40" x2="22" y2="40" stroke="#002868" stroke-width="3.5" stroke-linecap="round"/>
+        <line x1="58" y1="40" x2="74" y2="40" stroke="#002868" stroke-width="3.5" stroke-linecap="round"/>
+        <rect x="32" y="32" width="16" height="16" rx="2" fill="#F2A800" transform="rotate(45 40 40)"/>
+        <circle cx="40" cy="40" r="5" fill="#D90012"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

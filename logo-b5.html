@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logo B — Font Options</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@800&family=Space+Grotesk:wght@700&family=Manrope:wght@800&family=Syne:wght@800&family=Plus+Jakarta+Sans:wght@800&family=Urbanist:wght@800&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:#0A1520; font-family:'Outfit',sans-serif; padding:48px 32px; }
+h1 { color:rgba(255,255,255,0.18); font-size:0.68rem; letter-spacing:0.3em; text-transform:uppercase; text-align:center; margin-bottom:40px; }
+.grid { display:grid; grid-template-columns:1fr 1fr; gap:20px; max-width:960px; margin:0 auto; }
+.card { background:#0D1B2A; border-radius:14px; overflow:hidden; border:1px solid rgba(255,255,255,0.06); }
+.card-header { padding:12px 20px; border-bottom:1px solid rgba(255,255,255,0.06); font-size:0.7rem; color:rgba(255,255,255,0.38); letter-spacing:0.1em; text-transform:uppercase; display:flex; align-items:center; gap:8px; }
+.badge { background:rgba(217,0,18,0.18); color:#f87171; font-size:0.6rem; padding:2px 7px; border-radius:20px; letter-spacing:0.08em; }
+.dk { background:#0A1520; padding:32px 24px; display:flex; flex-direction:column; align-items:center; gap:16px; }
+.lt { background:#F4F1EC; padding:32px 24px; display:flex; flex-direction:column; align-items:center; }
+</style>
+</head>
+<body>
+<h1>Concept B — Modern Clean Fonts</h1>
+<div class="grid">
+
+  <!-- B-4 REFERENCE (mirrored) -->
+  <div class="card">
+    <div class="card-header">B-4 · Outfit 800 <span class="badge">YOUR PICK → MIRRORED</span></div>
+    <div class="dk"><svg id="b4d" width="280" height="100" viewBox="0 0 280 100"></svg></div>
+    <div class="lt"><svg id="b4l" width="280" height="100" viewBox="0 0 280 100"></svg></div>
+  </div>
+
+  <!-- OPTION 5 — Space Grotesk -->
+  <div class="card">
+    <div class="card-header">B-5 · Space Grotesk 700</div>
+    <div class="dk"><svg id="b5d" width="280" height="100" viewBox="0 0 280 100"></svg></div>
+    <div class="lt"><svg id="b5l" width="280" height="100" viewBox="0 0 280 100"></svg></div>
+  </div>
+
+  <!-- OPTION 6 — Manrope -->
+  <div class="card">
+    <div class="card-header">B-6 · Manrope 800</div>
+    <div class="dk"><svg id="b6d" width="280" height="100" viewBox="0 0 280 100"></svg></div>
+    <div class="lt"><svg id="b6l" width="280" height="100" viewBox="0 0 280 100"></svg></div>
+  </div>
+
+  <!-- OPTION 7 — Syne -->
+  <div class="card">
+    <div class="card-header">B-7 · Syne 800</div>
+    <div class="dk"><svg id="b7d" width="280" height="100" viewBox="0 0 280 100"></svg></div>
+    <div class="lt"><svg id="b7l" width="280" height="100" viewBox="0 0 280 100"></svg></div>
+  </div>
+
+  <!-- OPTION 8 — Plus Jakarta Sans -->
+  <div class="card">
+    <div class="card-header">B-8 · Plus Jakarta Sans 800</div>
+    <div class="dk"><svg id="b8d" width="280" height="100" viewBox="0 0 280 100"></svg></div>
+    <div class="lt"><svg id="b8l" width="280" height="100" viewBox="0 0 280 100"></svg></div>
+  </div>
+
+  <!-- OPTION 9 — Urbanist -->
+  <div class="card">
+    <div class="card-header">B-9 · Urbanist 800</div>
+    <div class="dk"><svg id="b9d" width="280" height="100" viewBox="0 0 280 100"></svg></div>
+    <div class="lt"><svg id="b9l" width="280" height="100" viewBox="0 0 280 100"></svg></div>
+  </div>
+
+</div>
+
+<script>
+const deg = Math.PI / 180;
+const ns = 'http://www.w3.org/2000/svg';
+
+function arevPath(cx, cy, r1, r2, n=8, span=30, offset=15) {
+  let d='';
+  const step=360/n;
+  for(let i=0;i<n;i++){
+    const base=i*step-90;
+    const ia1=base, ia2=base+span, oa1=base+offset, oa2=base+offset+span;
+    const fi=a=>[cx+r1*Math.cos(a*deg), cy+r1*Math.sin(a*deg)];
+    const fo=a=>[cx+r2*Math.cos(a*deg), cy+r2*Math.sin(a*deg)];
+    const [ix1,iy1]=fi(ia1),[ix2,iy2]=fi(ia2);
+    const [ox1,oy1]=fo(oa1),[ox2,oy2]=fo(oa2);
+    d+=`M${ix1},${iy1} L${ox1},${oy1} A${r2},${r2},0,0,1,${ox2},${oy2} L${ix2},${iy2} A${r1},${r1},0,0,0,${ix1},${iy1} Z `;
+  }
+  return d;
+}
+
+function el(tag, attrs, parent, inner) {
+  const e=document.createElementNS(ns,tag);
+  for(const [k,v] of Object.entries(attrs)) e.setAttribute(k,v);
+  if(inner!==undefined) e.innerHTML=inner;
+  if(parent) parent.appendChild(e);
+  return e;
+}
+
+function arev(svg, cx, cy, r1, r2, fill, bg) {
+  el('path',{d:arevPath(cx,cy,r1,r2),fill},svg);
+  el('circle',{cx,cy,r:r1*0.72,fill:bg},svg);
+  el('circle',{cx,cy,r:r1*0.36,fill},svg);
+}
+
+/**
+ * Build logo variant B with mirrored left R.
+ * The left R is flipped horizontally (ᴚ shape) using an SVG transform.
+ */
+function buildB(id, bg, fg, red, fontFamily, fontSize, fontWeight, yOffset=0) {
+  const s = document.getElementById(id);
+  if (!s) return;
+  const cx=140, cy=46, r1=12, r2=30;
+  const gap = 4;
+  const lx = cx - r2 - gap;   // right edge of left R area
+  const rx = cx + r2 + gap;   // left edge of right R area
+  const ty = cy + fontSize * 0.36 + yOffset;
+
+  // ── Mirrored left R (ᴚ) — horizontal flip only ───────────────────
+  // translate(lx,0) scale(-1,1): flips X axis so glyph extends leftward
+  const gMirror = el('g', {transform:`translate(${lx},0) scale(-1,1)`}, s);
+  el('text',{
+    x:0, y:ty,
+    'text-anchor':'start',
+    'font-family':fontFamily,
+    'font-size':fontSize,
+    'font-weight':fontWeight,
+    fill:fg
+  }, gMirror, 'R');
+
+  // ── Center arev symbol ────────────────────────────────────────────
+  arev(s, cx, cy, r1, r2, red, bg);
+
+  // ── Normal right R ────────────────────────────────────────────────
+  el('text',{
+    x:rx, y:ty,
+    'text-anchor':'start',
+    'font-family':fontFamily,
+    'font-size':fontSize,
+    'font-weight':fontWeight,
+    fill:fg
+  }, s, 'R');
+
+  // ── Hairline rule + FOUNDATION wordmark ──────────────────────────
+  el('line',{x1:44,y1:83,x2:236,y2:83,stroke:fg+'18','stroke-width':0.8},s);
+  el('text',{
+    x:140, y:94,
+    'text-anchor':'middle',
+    'font-family':'Outfit,sans-serif',
+    'font-size':7.5,
+    'font-weight':300,
+    'letter-spacing':5.5,
+    fill:fg+'44'
+  }, s, 'FOUNDATION');
+}
+
+// ── B-4 reference — Outfit 800 (mirrored) ─────────────────────────
+buildB('b4d','#0A1520','#fff',  '#D90012',"'Outfit',sans-serif",64,800);
+buildB('b4l','#F4F1EC','#0D1B2A','#C8102E',"'Outfit',sans-serif",64,800);
+
+// ── B-5 — Space Grotesk 700 ───────────────────────────────────────
+buildB('b5d','#0A1520','#fff',  '#D90012',"'Space Grotesk',sans-serif",62,700);
+buildB('b5l','#F4F1EC','#0D1B2A','#C8102E',"'Space Grotesk',sans-serif",62,700);
+
+// ── B-6 — Manrope 800 ─────────────────────────────────────────────
+buildB('b6d','#0A1520','#fff',  '#D90012',"'Manrope',sans-serif",62,800);
+buildB('b6l','#F4F1EC','#0D1B2A','#C8102E',"'Manrope',sans-serif",62,800);
+
+// ── B-7 — Syne 800 ────────────────────────────────────────────────
+buildB('b7d','#0A1520','#fff',  '#D90012',"'Syne',sans-serif",60,800);
+buildB('b7l','#F4F1EC','#0D1B2A','#C8102E',"'Syne',sans-serif",60,800);
+
+// ── B-8 — Plus Jakarta Sans 800 ───────────────────────────────────
+buildB('b8d','#0A1520','#fff',  '#D90012',"'Plus Jakarta Sans',sans-serif",60,800);
+buildB('b8l','#F4F1EC','#0D1B2A','#C8102E',"'Plus Jakarta Sans',sans-serif",60,800);
+
+// ── B-9 — Urbanist 800 ────────────────────────────────────────────
+buildB('b9d','#0A1520','#fff',  '#D90012',"'Urbanist',sans-serif",64,800);
+buildB('b9l','#F4F1EC','#0D1B2A','#C8102E',"'Urbanist',sans-serif",64,800);
+</script>
+</body>
+</html>
