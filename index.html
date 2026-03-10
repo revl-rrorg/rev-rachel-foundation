@@ -792,6 +792,39 @@
     .about-tab-panel { display: none; }
     .about-tab-panel.active { display: block; }
 
+    /* Mission tabs — same style as about tabs but inverted for dark bg */
+    .mission-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 64px;
+      border-bottom: 2px solid rgba(255,255,255,0.12);
+    }
+    .mission-tab-btn {
+      background: none;
+      border: none;
+      padding: 14px 32px 16px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s;
+    }
+    .mission-tab-btn::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0; right: 0;
+      height: 2px;
+      background: var(--red);
+      transform: scaleX(0);
+      transition: transform 0.25s;
+    }
+    .mission-tab-btn.active { color: #fff; }
+    .mission-tab-btn.active::after { transform: scaleX(1); }
+
     .armenia-content {
       background: var(--off-white);
       padding: 100px 56px;
@@ -1199,9 +1232,9 @@
   <section id="mission">
 
     <!-- Mission Tabs -->
-    <div style="max-width:1100px; margin:0 auto 56px; display:flex; gap:32px; border-bottom:1px solid rgba(255,255,255,0.12); padding-bottom:0;">
-      <button id="mtab-focus-btn" onclick="switchMissionTab('focus')" style="font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:400; color:#fff; background:none; border:none; padding:0 0 18px; cursor:pointer; position:relative; opacity:1; border-bottom:2px solid var(--red); margin-bottom:-1px; letter-spacing:0.01em;">Focus</button>
-      <button id="mtab-armenia-btn" onclick="switchMissionTab('armenia')" style="font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:400; color:rgba(255,255,255,0.45); background:none; border:none; padding:0 0 18px; cursor:pointer; position:relative; border-bottom:2px solid transparent; margin-bottom:-1px; letter-spacing:0.01em;">Why Armenia</button>
+    <div class="mission-tabs">
+      <button id="mtab-focus-btn" class="mission-tab-btn active" onclick="switchMissionTab('focus')">Focus</button>
+      <button id="mtab-armenia-btn" class="mission-tab-btn" onclick="switchMissionTab('armenia')">Why Armenia</button>
     </div>
 
     <!-- Tab: Focus -->
@@ -1844,12 +1877,9 @@
   }
 
   function switchMissionTab(tab) {
-    const tabs = ['focus', 'armenia'];
-    tabs.forEach(t => {
+    ['focus','armenia'].forEach(t => {
       document.getElementById('mtab-' + t).style.display = (t === tab) ? '' : 'none';
-      const btn = document.getElementById('mtab-' + t + '-btn');
-      btn.style.color = (t === tab) ? '#fff' : 'rgba(255,255,255,0.45)';
-      btn.style.borderBottom = (t === tab) ? '2px solid var(--red)' : '2px solid transparent';
+      document.getElementById('mtab-' + t + '-btn').classList.toggle('active', t === tab);
     });
   }
   </script>
