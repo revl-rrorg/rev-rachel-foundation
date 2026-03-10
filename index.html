@@ -386,10 +386,7 @@
     ════════════════════════════════════ */
     #mission {
       background: var(--dark);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
+      display: block;
       padding: 100px 56px;
     }
 
@@ -1091,7 +1088,7 @@
     @media (max-width: 900px) {
       nav { padding: 0 20px; }
       section { padding: 60px 20px; }
-      #mission { grid-template-columns: 1fr; gap: 40px; }
+      #mtab-focus { grid-template-columns: 1fr; gap: 40px; }
       .mission-left { position: static; }
       #armenia { grid-template-columns: 1fr; }
       .armenia-photo { min-height: 280px; }
@@ -1208,7 +1205,7 @@
     </div>
 
     <!-- Tab: Focus -->
-    <div id="mtab-focus">
+    <div id="mtab-focus" style="display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start;">
       <div class="mission-left">
         <h2 class="section-title white">A <em>foundation</em><br>for nation<br>building</h2>
         <p class="section-body light" style="margin-top:18px;">
