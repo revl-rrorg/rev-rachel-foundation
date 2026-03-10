@@ -418,52 +418,55 @@
 
     .pillars { display: flex; flex-direction: column; gap: 3px; }
 
+    .pillars { display: flex; flex-direction: column; gap: 16px; }
     .pillar {
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.13);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
       padding: 32px 36px;
-      display: flex;
+      display: grid;
+      grid-template-columns: 56px 1fr;
       gap: 24px;
-      align-items: flex-start;
-      transition: background 0.2s;
+      align-items: start;
+      transition: background 0.2s, transform 0.2s;
       cursor: default;
+      position: relative;
+      overflow: hidden;
     }
-    .pillar:hover { background: rgba(242,168,0,0.1); }
+    .pillar::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 4px; height: 100%;
+      border-radius: 16px 0 0 16px;
+    }
+    .pillar:nth-child(1)::before { background: var(--orange); }
+    .pillar:nth-child(2)::before { background: var(--red); }
+    .pillar:nth-child(3)::before { background: rgba(255,255,255,0.3); }
+    .pillar:hover { background: rgba(255,255,255,0.08); transform: translateX(4px); }
 
-    .pillar-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.75rem;
-      font-weight: 800;
-      color: rgba(200,16,46,0.75);
-      line-height: 1;
+    .pillar-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
-      width: 40px;
     }
+    .pillar:nth-child(1) .pillar-icon { background: rgba(242,168,0,0.15); color: var(--orange); }
+    .pillar:nth-child(2) .pillar-icon { background: rgba(217,0,18,0.15); color: #ff6b7a; }
+    .pillar:nth-child(3) .pillar-icon { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); }
 
     .pillar-content h3 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem;
+      font-size: 1.35rem;
       font-weight: 700;
       color: var(--white);
       margin-bottom: 8px;
       letter-spacing: -0.01em;
     }
-    .pillar-tag {
-      display: inline-block;
-      background: rgba(242,168,0,0.15);
-      color: var(--orange);
-      font-size: 0.65rem;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 2px 8px;
-      border-radius: 3px;
-      margin-bottom: 10px;
-    }
     .pillar-content p {
-      color: rgba(255,255,255,0.72);
-      font-size: 0.88rem;
-      line-height: 1.65;
+      color: rgba(255,255,255,0.58);
+      font-size: 0.9rem;
+      line-height: 1.7;
     }
 
     /* ════════════════════════════════════
@@ -1254,18 +1257,27 @@
       </div>
       <div class="pillars">
         <div class="pillar">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
           <div class="pillar-content">
             <h3>Education</h3>
             <p>From early learning to higher education and professional development — equipping Armenia's next generation with world-class skills and critical thinking.</p>
           </div>
         </div>
         <div class="pillar">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/><path d="M2 12h2M20 12h2M12 2v2M12 20v2"/></svg>
+          </div>
           <div class="pillar-content">
             <h3>Culture &amp; Arts</h3>
             <p>Preserving a 3,000-year heritage while creating space for contemporary Armenian expression to reach and inspire global audiences.</p>
           </div>
         </div>
         <div class="pillar">
+          <div class="pillar-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
           <div class="pillar-content">
             <h3>Technology &amp; Innovation</h3>
             <p>Positioning Armenia as a hub for innovation, entrepreneurship, and applied research that creates both economic opportunity and national resilience.</p>
