@@ -1366,7 +1366,7 @@
           <img src="logos/tfa.png" alt="Teach for Armenia">
         </div>
         <div class="org-name">Teach for Armenia</div>
-        <p style="font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--red); margin-bottom:12px;">Rachel Lebaredian · FOTFA Board Member</p>
+
         <div class="org-tags">
           <span class="org-tag">Education</span>
           <span class="org-tag">Leadership</span>
@@ -1679,7 +1679,7 @@
           <span style="font-size:0.68rem; font-weight:700; letter-spacing:0.16em; color:var(--red); text-transform:uppercase;">Co-Founder</span>
         </div>
         <p style="font-size:0.78rem; font-weight:600; color:var(--blue-mid); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:16px;">Co-Founder &amp; Director · Rev &amp; Rachel Foundation</p>
-        <p style="font-size:0.78rem; font-weight:600; color:var(--blue-mid); letter-spacing:0.08em; text-transform:uppercase; margin-bottom:16px;">Board Member · FOTFA (Friends of Teach For Armenia)</p>
+
         <p style="font-size:0.95rem; line-height:1.78; color:var(--gray); margin-bottom:14px;">
           Rachel Lebaredian is the heart of the foundation — a passionate advocate for Armenia's cultural heritage, educational equity, and the potential of the Armenian people. Though not Armenian by birth, her love for Armenia and its people is genuine, deep, and unconditional, shaped by decades of living, traveling, and raising a family with Armenian roots at the center.
         </p>
@@ -1881,10 +1881,10 @@
   }
 
   function switchMissionTab(tab) {
-    ['focus','armenia'].forEach(t => {
-      document.getElementById('mtab-' + t).style.display = (t === tab) ? '' : 'none';
-      document.getElementById('mtab-' + t + '-btn').classList.toggle('active', t === tab);
-    });
+    document.getElementById('mtab-focus').style.display = (tab === 'focus') ? 'grid' : 'none';
+    document.getElementById('mtab-armenia').style.display = (tab === 'armenia') ? 'block' : 'none';
+    document.getElementById('mtab-focus-btn').classList.toggle('active', tab === 'focus');
+    document.getElementById('mtab-armenia-btn').classList.toggle('active', tab === 'armenia');
   }
   </script>
 </body>
