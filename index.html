@@ -60,6 +60,7 @@
 
     html { scroll-behavior: smooth; }
 
+    html { height: 100%; }
     body {
       font-family: 'Inter', sans-serif;
       background: var(--white);
@@ -67,6 +68,9 @@
       overflow-x: hidden;
       -webkit-text-size-adjust: 100%;
       text-size-adjust: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     /* ════════════════════════════════════
@@ -147,6 +151,7 @@
       position: relative;
       display: flex;
       align-items: center;
+      flex: 1;
       background:
         linear-gradient(135deg, rgba(0,40,104,0.88) 0%, rgba(6,11,25,0.80) 55%, rgba(200,16,46,0.35) 100%),
         url('https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Tatev_monastery_in_2020.jpg/1280px-Tatev_monastery_in_2020.jpg') center/cover no-repeat;
