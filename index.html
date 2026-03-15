@@ -545,130 +545,94 @@
     }
 
     .org-card {
-      background: var(--white);
-      border-radius: 14px;
-      padding: 14px 12px 16px;
-      transition: transform 0.25s, box-shadow 0.25s;
+      background: #0d1c2e;
+      border-radius: 3px;
+      padding: 0 0 28px;
+      transition: transform 0.25s, border-color 0.25s;
       position: relative;
       overflow: hidden;
-      border: none;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.18), 0 1px 4px rgba(0,0,0,0.1);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-top: 2px solid var(--red);
       text-align: left;
     }
     .org-card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.28), 0 2px 8px rgba(0,0,0,0.12);
+      border-color: rgba(255,255,255,0.16);
+      border-top-color: var(--red);
     }
-    .org-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 4px;
-      background: linear-gradient(to right, var(--red), #FF4D6A);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s;
-    }
-    .org-card:hover::after { transform: scaleX(1); }
-    .org-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 24px 60px rgba(0,40,104,0.12);
-    }
-
-    /* Uniform hover bar for all cards */
-    .org-grid .org-card::after { background: var(--blue); }
 
     .org-logo-wrap {
-      height: 72px;
+      height: 88px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 0 22px;
-      border-radius: 10px;
-      background: #f5f5f5;
-      border: 1px solid rgba(0,0,0,0.06);
-      padding: 14px 20px;
+      margin: 0 0 28px;
+      border-radius: 0;
+      background: rgba(255,255,255,0.96);
+      border: none;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 16px 28px;
       overflow: hidden;
     }
     .org-logo-wrap.dark-bg {
-      background: #1C2B3A;
-      border-color: transparent;
+      background: rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
     }
     .org-logo-wrap img {
       max-height: 48px;
-      max-width: 180px;
+      max-width: 190px;
       width: auto;
       object-fit: contain;
       transition: opacity 0.2s;
     }
-    .org-card:hover .org-logo-wrap img { opacity: 0.85; }
+    .org-card:hover .org-logo-wrap img { opacity: 0.9; }
 
     /* fallback icon wrap (AIF) */
     .org-icon-wrap {
       width: 52px; height: 52px;
-      border-radius: 12px;
-      background: var(--off-white);
+      border-radius: 3px;
+      background: rgba(255,255,255,0.05);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 22px;
-      color: var(--blue);
+      margin: 28px 28px 22px;
+      color: rgba(255,255,255,0.5);
       transition: background 0.2s;
     }
-    .org-card:hover .org-icon-wrap { background: rgba(0,40,104,0.08); }
+    .org-card:hover .org-icon-wrap { background: rgba(255,255,255,0.09); }
     .org-icon-wrap svg { width: 26px; height: 26px; }
 
     .org-name {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.55rem;
       font-weight: 400;
-      color: var(--dark);
-      margin-bottom: 6px;
+      color: var(--white);
+      margin: 0 28px 8px;
       letter-spacing: -0.01em;
       line-height: 1.2;
-      min-height: 2.4em;
-      display: flex;
-      align-items: center;
     }
-    .org-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      margin-bottom: 16px;
-    }
-    .org-tag {
-      display: inline-block;
-      font-size: 0.63rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--blue-mid);
-      background: rgba(27,79,156,0.1);
-      padding: 3px 9px;
-      border-radius: 100px;
-    }
-    /* Uniform tag color */
+    .org-tags { display: none; }
 
     .org-desc {
-      color: var(--gray);
-      font-size: 0.88rem;
-      line-height: 1.68;
-      margin-bottom: 22px;
+      color: rgba(255,255,255,0.52);
+      font-size: 0.875rem;
+      line-height: 1.72;
+      margin: 0 28px 24px;
     }
     .org-link {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      color: var(--blue);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
+      margin: 0 28px;
+      color: rgba(255,255,255,0.38);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       text-decoration: none;
       transition: gap 0.2s, color 0.2s;
     }
-    /* Uniform link color */
-    .org-link:hover { gap: 10px; }
+    .org-link:hover { gap: 10px; color: var(--white); }
     .org-link svg { width: 14px; height: 14px; transition: transform 0.2s; }
     .org-link:hover svg { transform: translateX(3px); }
 
@@ -1353,7 +1317,7 @@
           <img src="logos/tumo.png" alt="TUMO" style="filter:invert(1);">
         </div>
         <div class="org-name">TUMO</div>
-        <p style="font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--red); margin-bottom:12px;">Rev Lebaredian · Board Member</p>
+        <p style="font-size:0.68rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin: 0 28px 10px;">Rev Lebaredian · Board Member</p>
         <div class="org-tags">
           <span class="org-tag">Education</span>
           <span class="org-tag">Technology</span>
@@ -1375,7 +1339,7 @@
           <img src="logos/tfa.png" alt="Teach for Armenia">
         </div>
         <div class="org-name">Teach for Armenia</div>
-        <p style="font-size:0.7rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--red);margin-bottom:10px;">Rachel Lebaredian · FOTFA Board Member</p>
+        <p style="font-size:0.68rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin: 0 28px 10px;">Rachel Lebaredian · FOTFA Board Member</p>
 
         <div class="org-tags">
           <span class="org-tag">Education</span>
@@ -1398,7 +1362,7 @@
           <img src="logos/aua.svg" alt="American University of Armenia">
         </div>
         <div class="org-name">American University of Armenia</div>
-        <p style="font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--red); margin-bottom:12px;">Rev Lebaredian · Board Member</p>
+        <p style="font-size:0.68rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin: 0 28px 10px;">Rev Lebaredian · Board Member</p>
         <div class="org-tags">
           <span class="org-tag">Higher Education</span>
           <span class="org-tag">Research</span>
@@ -1485,7 +1449,7 @@
           <img src="logos/aif.png" alt="Armenian Innovation Foundation" style="filter:invert(1);">
         </div>
         <div class="org-name">Armenian Innovation Foundation</div>
-        <p style="font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--red); margin-bottom:12px;">Rev Lebaredian · Board Member</p>
+        <p style="font-size:0.68rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin: 0 28px 10px;">Rev Lebaredian · Board Member</p>
         <div class="org-tags">
           <span class="org-tag">Innovation</span>
           <span class="org-tag">Ecosystem</span>
@@ -1548,7 +1512,7 @@
           <img src="logos/armsymphony.png" alt="Armenian State Symphony Orchestra" style="filter:invert(1);">
         </div>
         <div class="org-name">Armenian State Symphony Orchestra</div>
-        <p style="font-size:0.7rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--red); margin-bottom:12px;">Rev Lebaredian · Board Member</p>
+        <p style="font-size:0.68rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin: 0 28px 10px;">Rev Lebaredian · Board Member</p>
         <div class="org-tags">
           <span class="org-tag">Music</span>
           <span class="org-tag">Culture</span>
