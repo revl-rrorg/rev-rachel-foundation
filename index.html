@@ -542,6 +542,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
+      align-items: stretch;
     }
 
     .org-card {
@@ -554,6 +555,8 @@
       border: 1px solid rgba(255,255,255,0.07);
       border-top: 2px solid var(--red);
       text-align: left;
+      display: flex;
+      flex-direction: column;
     }
     .org-card:hover {
       transform: translateY(-4px);
@@ -562,7 +565,7 @@
     }
 
     .org-logo-wrap {
-      height: 88px;
+      height: 120px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -573,14 +576,15 @@
       border-bottom: 1px solid rgba(0,0,0,0.08);
       padding: 16px 28px;
       overflow: hidden;
+      flex-shrink: 0;
     }
     .org-logo-wrap.dark-bg {
       background: rgba(255,255,255,0.05);
       border-bottom: 1px solid rgba(255,255,255,0.07);
     }
     .org-logo-wrap img {
-      max-height: 48px;
-      max-width: 190px;
+      max-height: 88px;
+      max-width: 200px;
       width: auto;
       object-fit: contain;
       transition: opacity 0.2s;
@@ -1508,8 +1512,8 @@
 
       <!-- Armenian Symphony Orchestra -->
       <div class="org-card">
-        <div class="org-logo-wrap" style="height:120px; padding:12px 20px;">
-          <img src="logos/armsymphony-ig.jpg" alt="Armenian State Symphony Orchestra" style="max-height:96px; max-width:220px;">
+        <div class="org-logo-wrap">
+          <img src="logos/armsymphony-ig.jpg" alt="Armenian State Symphony Orchestra">
         </div>
         <div class="org-name">Armenian State Symphony Orchestra</div>
         <p style="font-size:0.68rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.35); margin: 0 28px 10px;">Rev Lebaredian · Board Member</p>
