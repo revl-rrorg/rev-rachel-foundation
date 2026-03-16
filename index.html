@@ -67,6 +67,7 @@
       color: var(--dark);
       overflow-x: hidden;
       -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
       text-size-adjust: 100%;
       min-height: 100vh;
       display: flex;
@@ -1123,6 +1124,48 @@
       .footer-flags { justify-content: center; }
       footer p { text-align: center; }
     }
+    /* ════════════════════════════════════
+       NEWS SECTION — responsive grids
+    ════════════════════════════════════ */
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    /* About section inline grids */
+    .about-story-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 64px;
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .about-bios-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .about-members-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    @media (max-width: 1024px) {
+      .news-grid { grid-template-columns: repeat(2, 1fr); }
+      #news { padding: 80px 32px; }
+      .news-archive-wrapper { margin-top: 56px !important; }
+    }
+    @media (max-width: 900px) {
+      .about-story-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-story-grid .sticky-photo { position: static !important; }
+      .about-bios-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-members-grid { grid-template-columns: 1fr; gap: 40px; }
+    }
+
     @media (max-width: 600px) {
       nav { height: 56px; padding: 0 16px; }
       .nav-links { display: none; }
@@ -1140,6 +1183,8 @@
       .value-item:nth-child(odd) { padding-right: 0; border-right: none; }
       .value-item:nth-child(even) { padding-left: 0; }
       .form-row { grid-template-columns: 1fr; }
+      .news-grid { grid-template-columns: 1fr; }
+      #news { padding: 48px 16px !important; }
       .impact-stories { grid-template-columns: 1fr; }
       .logos-strip { flex-direction: column; align-items: flex-start; gap: 16px; padding: 24px 20px; }
       .logo-items { justify-content: flex-start; gap: 20px; flex-wrap: wrap; }
@@ -1567,7 +1612,7 @@
 
     <!-- Tab: Our Story -->
     <div id="about-tab-story" class="about-tab-panel active">
-      <div style="display:grid; grid-template-columns:1fr 340px; gap:64px; align-items:start; max-width:1100px; margin:0 auto;">
+      <div class="about-story-grid">
       <div>
         <p style="font-size:1.08rem; line-height:1.85; color:var(--gray); margin-bottom:20px;">
           Rev and Rachel's journey began in 1996 at a costume party in Santa Cruz, California, where a film student and a young computer graphics engineer met and quickly connected over creativity, technology, and a shared curiosity about the world. After graduation, Rachel moved to Los Angeles to join Rev, and together they immersed themselves in projects that fused storytelling with emerging visual technologies — the earliest expression of a partnership that would come to unite imagination, innovation, and purpose.
@@ -1584,7 +1629,7 @@
         <div style="width:60px; height:3px; background:var(--red); margin-top:40px;"></div>
       </div>
       <!-- Photo -->
-      <div style="position:sticky; top:120px;">
+      <div class="sticky-photo" style="position:sticky; top:120px;">
         <img src="logos/rev-rachel-together.jpg" alt="Rev and Rachel Lebaredian" style="width:100%; border-radius:16px; box-shadow:0 8px 40px rgba(0,0,0,0.13);">
       </div>
       </div>
@@ -1594,7 +1639,7 @@
     <div id="about-tab-who" class="about-tab-panel">
 
     <!-- Bios -->
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:48px; max-width:1100px; margin:0 auto;">
+    <div class="about-bios-grid">
 
       <!-- Rev -->
       <div style="display:flex; flex-direction:column; gap:0;">
@@ -1655,7 +1700,7 @@
         <div style="width:28px; height:2px; background:var(--red); border-radius:2px;"></div>
         <p style="font-size:0.72rem; font-weight:700; letter-spacing:0.22em; text-transform:uppercase; color:var(--red);">Foundation Members</p>
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px;">
+      <div class="about-members-grid">
 
         <!-- Daron Lebaredian -->
         <div>
@@ -1697,7 +1742,7 @@
       <h2 class="section-title white" style="margin-top:8px; margin-bottom:64px;">News &amp; <em>Updates</em></h2>
 
       <!-- ── Latest: 2026 + Dec 2025 ── -->
-      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:28px;">
+      <div class="news-grid">
 
         <!-- YSU AI Conf 2026 — Upcoming -->
         <article style="background:rgba(255,255,255,0.04); border:1px solid rgba(242,168,0,0.3); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; transition:transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(242,168,0,0.6)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(242,168,0,0.3)'">
@@ -1774,9 +1819,9 @@
       </div><!-- /latest grid -->
 
       <!-- ── Archive ── -->
-      <div style="margin-top:80px;">
+      <div class="news-archive-wrapper" style="margin-top:80px;">
         <div class="eyebrow light" style="margin-bottom:32px;"><div class="eyebrow-line"></div><p style="color:rgba(255,255,255,0.35);">Archive</p></div>
-        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:28px;">
+        <div class="news-grid">
 
         <!-- DigiTec 2025 Keynote — Oct 2025 -->
         <article style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; transition:transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(217,0,18,0.4)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(255,255,255,0.08)'">
