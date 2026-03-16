@@ -815,6 +815,8 @@
     }
     .mission-tab-btn.active { color: #fff; }
     .mission-tab-btn.active::after { transform: scaleX(1); }
+    .news-tab-panel { display: none; }
+    .news-tab-panel.active { display: block; }
 
     .armenia-content {
       background: var(--off-white);
@@ -1738,9 +1740,16 @@
   <section id="news" style="background:var(--dark);">
     <div style="max-width:1100px; margin:0 auto;">
 
-      <div class="eyebrow light"><div class="eyebrow-line"></div><p style="color:rgba(255,255,255,0.5);">Latest</p></div>
-      <h2 class="section-title white" style="margin-top:8px; margin-bottom:64px;">News &amp; <em>Updates</em></h2>
+      <h2 class="section-title white" style="margin-top:0; margin-bottom:48px;">News &amp; <em>Updates</em></h2>
 
+      <!-- News Tabs -->
+      <div class="mission-tabs">
+        <button id="ntab-latest-btn" class="mission-tab-btn active" onclick="switchNewsTab('latest')">Latest</button>
+        <button id="ntab-archive-btn" class="mission-tab-btn" onclick="switchNewsTab('archive')">Archive</button>
+      </div>
+
+      <!-- News tab: Latest -->
+      <div id="news-tab-latest" class="news-tab-panel active">
       <!-- ── Latest: 2026 + Dec 2025 ── -->
       <div class="news-grid">
 
@@ -1817,11 +1826,11 @@
         </article>
 
       </div><!-- /latest grid -->
+      </div><!-- /news-tab-latest -->
 
-      <!-- ── Archive ── -->
-      <div class="news-archive-wrapper" style="margin-top:80px;">
-        <div class="eyebrow light" style="margin-bottom:32px;"><div class="eyebrow-line"></div><p style="color:rgba(255,255,255,0.35);">Archive</p></div>
-        <div class="news-grid">
+      <!-- News tab: Archive -->
+      <div id="news-tab-archive" class="news-tab-panel">
+      <div class="news-grid">
 
         <!-- DigiTec 2025 Keynote — Oct 2025 -->
         <article style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; transition:transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(217,0,18,0.4)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(255,255,255,0.08)'">
@@ -1953,8 +1962,8 @@
           </div>
         </article>
 
-        </div><!-- /archive grid -->
-      </div><!-- /archive wrapper -->
+      </div><!-- /archive grid -->
+      </div><!-- /news-tab-archive -->
 
     </div>
   </section>
@@ -2076,6 +2085,13 @@
         btn.disabled = false;
       }
     });
+  }
+
+  function switchNewsTab(tab) {
+    document.getElementById('news-tab-latest').classList.toggle('active', tab === 'latest');
+    document.getElementById('news-tab-archive').classList.toggle('active', tab === 'archive');
+    document.getElementById('ntab-latest-btn').classList.toggle('active', tab === 'latest');
+    document.getElementById('ntab-archive-btn').classList.toggle('active', tab === 'archive');
   }
 
   function switchMissionTab(tab) {
