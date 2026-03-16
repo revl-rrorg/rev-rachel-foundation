@@ -175,6 +175,27 @@
       letter-spacing: -0.05em;
     }
 
+    .hero-ararat {
+      position: absolute;
+      inset: 0;
+      right: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .hero-ararat img {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      width: 55%;
+      object-fit: cover;
+      object-position: center top;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0.85) 100%);
+      mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 30%, rgba(0,0,0,0.85) 100%);
+      mix-blend-mode: luminosity;
+      opacity: 0.35;
+    }
+
     .hero-inner {
       max-width: 740px;
       padding-top: 68px;
@@ -1235,6 +1256,10 @@
   <!-- ══════════ HERO ══════════ -->
   <section class="hero" id="home">
 
+    <div class="hero-ararat" aria-hidden="true">
+      <img src="ararat.jpg" alt="">
+    </div>
+
     <div class="hero-inner">
 
       <h1>
@@ -1268,7 +1293,7 @@
     <!-- Tab: Focus -->
     <div id="mtab-focus" style="display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start;">
       <div class="mission-left">
-        <h2 style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:#fff;line-height:1.15;letter-spacing:-0.02em;margin-bottom:20px;">A <em style="color:var(--orange);font-style:italic;">foundation</em><br>for nation<br>building</h2>
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:#fff;line-height:1.15;letter-spacing:-0.02em;margin-bottom:20px;">A <em style="color:var(--orange);font-style:italic;">foundation</em><br>for nation<br>building</h2>
         <p class="section-body light" style="margin-top:18px;">
           Armenia stands at a defining moment. We believe lasting change happens
           when exceptional people and institutions are given the resources and
@@ -1315,7 +1340,7 @@
       <div style="display:grid; grid-template-columns:1fr 2fr; gap:80px; align-items:start;">
         <!-- Left: title + intro -->
         <div style="position:sticky; top:120px;">
-          <h2 style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:#fff;line-height:1.15;letter-spacing:-0.02em;margin-bottom:20px;">Why <em style="font-style:italic;color:var(--orange);">Armenia</em><br>matters to us</h2>
+          <h2 style="font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:700;color:#fff;line-height:1.15;letter-spacing:-0.02em;margin-bottom:20px;">Why <em style="font-style:italic;color:var(--orange);">Armenia</em><br>matters to us</h2>
           <p style="font-size:1rem;line-height:1.7;color:rgba(255,255,255,0.65);">One of the world's oldest civilizations — a culture that has survived against extraordinary odds. Today it stands at a pivotal crossroads. We believe in its people, its potential, and its future.</p>
         </div>
         <!-- Right: value cards grid -->
@@ -1354,9 +1379,11 @@
 
   <!-- ══════════ ORGANIZATIONS ══════════ -->
   <section id="organizations">
+    <div class="mission-tabs">
+      <button class="mission-tab-btn active">Who We Support</button>
+    </div>
     <div class="org-header">
       <div>
-        <div class="eyebrow dark"><div class="eyebrow-line"></div><p style="color:rgba(255,255,255,0.5);">Who We Support</p></div>
         <h2 class="section-title" style="color:var(--white);">Our <em style="color:var(--orange);font-style:italic;">partner</em><br>organizations</h2>
       </div>
     </div>
