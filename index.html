@@ -2079,7 +2079,7 @@
       const target = document.getElementById(id);
       if (target) {
         target.style.display = 'block';
-        window.scrollTo({top: 0, left: 0, behavior: 'instant'});
+        requestAnimationFrame(() => { window.scrollTo(0, 0); });
       }
       document.querySelectorAll('.nav-links a').forEach(a => {
         a.classList.toggle('nav-active', a.getAttribute('href') === '#' + id || (id === 'home' && a.getAttribute('href') === '#'));
