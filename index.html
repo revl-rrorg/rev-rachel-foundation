@@ -180,6 +180,7 @@
       padding-top: 68px;
       position: relative;
       z-index: 1;
+      flex: 1;
     }
 
     .hero-badge {
@@ -1124,7 +1125,8 @@
       .armenia-content { padding: 56px 24px; }
       .org-grid { grid-template-columns: 1fr 1fr; }
       #contact { grid-template-columns: 1fr; gap: 40px; }
-      .hero { padding: 140px 20px 80px; }
+      .hero { padding: 140px 20px 80px; flex-direction:column; }
+      .hero-spotlight-wrap { flex:0 0 auto; width:100%; max-width:420px; margin-top:40px; }
       footer { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
       .footer-flags { justify-content: center; }
       footer p { text-align: center; margin-left: 0; }
@@ -1180,9 +1182,12 @@
       .nav-logo-sub { font-size: 5.5px; letter-spacing: 0.28em; }
       .flag-bar { height: 2px; }
       section { padding-top: 160px; padding-left: 16px; padding-right: 16px; padding-bottom: 60px; }
-      .hero { padding: 90px 16px 60px; }
+      .hero { padding: 90px 16px 60px; flex-direction:column; }
       .hero h1 { font-size: clamp(2rem, 10vw, 3.5rem); }
       .hero-sub { font-size: 0.9rem; }
+      .hero-spotlight-wrap { flex:0 0 auto; width:100%; max-width:100%; margin-top:32px; }
+      .spotlight { height:280px; }
+      .spotlight-title { font-size:1.3rem; }
       .org-grid { grid-template-columns: 1fr; }
       .stats-grid { grid-template-columns: 1fr 1fr; }
       .armenia-values { grid-template-columns: 1fr; }
@@ -1216,26 +1221,25 @@
     /* ════════════════════════════════════
        SPOTLIGHT CAROUSEL
     ════════════════════════════════════ */
-    .spotlight { position:relative; width:100%; height:420px; overflow:hidden; background:var(--dark-2); }
+    .hero-spotlight-wrap { position:relative; z-index:1; flex:0 0 420px; align-self:center; }
+    .hero-spotlight-label { font-size:0.62rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:rgba(255,255,255,0.45); margin-bottom:12px; padding-left:4px; }
+    .spotlight { position:relative; width:100%; height:360px; overflow:hidden; border-radius:10px; background:var(--dark-2); }
     .spotlight-slide { position:absolute; inset:0; opacity:0; transition:opacity 1s ease; }
     .spotlight-slide.active { opacity:1; z-index:1; }
     .spotlight-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; filter:brightness(0.35); }
-    .spotlight-gradient { position:absolute; inset:0; background:linear-gradient(90deg, rgba(6,11,25,0.92) 0%, rgba(6,11,25,0.75) 40%, rgba(6,11,25,0.2) 100%); z-index:1; }
-    .spotlight-content { position:relative; z-index:2; max-width:680px; padding:60px 80px; display:flex; flex-direction:column; justify-content:center; gap:16px; height:100%; }
-    .spotlight-label { font-size:0.68rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--red); display:flex; align-items:center; gap:10px; }
+    .spotlight-gradient { position:absolute; inset:0; background:linear-gradient(0deg, rgba(6,11,25,0.92) 0%, rgba(6,11,25,0.6) 50%, rgba(6,11,25,0.2) 100%); z-index:1; }
+    .spotlight-content { position:relative; z-index:2; max-width:100%; padding:0 32px 32px; display:flex; flex-direction:column; justify-content:flex-end; gap:10px; height:100%; }
+    .spotlight-label { font-size:0.62rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--red); display:flex; align-items:center; gap:10px; }
     .spotlight-label::before { content:''; display:inline-block; width:24px; height:2px; background:var(--red); }
-    .spotlight-title { font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:400; line-height:1.2; color:#fff; }
-    .spotlight-desc { font-size:0.92rem; line-height:1.7; color:rgba(255,255,255,0.5); max-width:520px; }
-    .spotlight-cta { margin-top:8px; display:inline-flex; align-items:center; gap:8px; font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--red); text-decoration:none; transition:color 0.2s; }
+    .spotlight-title { font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:400; line-height:1.2; color:#fff; }
+    .spotlight-desc { font-size:0.82rem; line-height:1.6; color:rgba(255,255,255,0.5); }
+    .spotlight-cta { margin-top:4px; display:inline-flex; align-items:center; gap:8px; font-size:0.68rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--red); text-decoration:none; transition:color 0.2s; }
     .spotlight-cta:hover { color:#fff; }
-    .spotlight-dots { position:absolute; bottom:28px; left:80px; z-index:3; display:flex; gap:10px; }
+    .spotlight-dots { position:absolute; bottom:20px; left:32px; z-index:3; display:flex; gap:10px; }
     .spotlight-dot { width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.2); cursor:pointer; transition:background 0.3s, transform 0.3s; border:none; padding:0; }
     .spotlight-dot.active { background:var(--red); transform:scale(1.3); }
-    .spotlight-progress { position:absolute; bottom:0; left:0; height:3px; background:var(--red); z-index:3; transition:width 0.1s linear; }
-    .spotlight-source { position:absolute; top:28px; right:40px; z-index:3; font-size:0.62rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.3); background:rgba(255,255,255,0.06); padding:6px 14px; border-radius:3px; backdrop-filter:blur(8px); }
-    .spotlight-heading { text-align:center; padding:48px 24px 0; background:var(--dark); }
-    .spotlight-heading h2 { font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:400; color:#fff; margin-bottom:0; }
-    .spotlight-heading h2 em { font-style:italic; color:rgba(255,255,255,0.5); }
+    .spotlight-progress { position:absolute; bottom:0; left:0; height:3px; background:var(--red); z-index:3; transition:width 0.1s linear; border-radius:0 0 10px 10px; }
+    .spotlight-source { position:absolute; top:20px; right:24px; z-index:3; font-size:0.58rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.3); background:rgba(255,255,255,0.06); padding:5px 12px; border-radius:3px; backdrop-filter:blur(8px); }
 
     @media (max-width:768px) {
       .spotlight { height:360px; }
@@ -1300,11 +1304,10 @@
 
     </div>
 
-  </section>
-
-  <!-- ══════════ SPOTLIGHT CAROUSEL ══════════ -->
-  <div class="spotlight-heading"><h2>In the <em>News</em></h2></div>
-  <div class="spotlight" id="spotlight">
+    <!-- ══════════ SPOTLIGHT CAROUSEL (in hero) ══════════ -->
+    <div class="hero-spotlight-wrap">
+      <div class="hero-spotlight-label">In the News</div>
+      <div class="spotlight" id="spotlight">
 
     <!-- Slide 1: Fox Business -->
     <div class="spotlight-slide active">
@@ -1347,7 +1350,10 @@
 
     <div class="spotlight-dots" id="spotlight-dots"></div>
     <div class="spotlight-progress" id="spotlight-progress"></div>
-  </div>
+      </div>
+    </div>
+
+  </section>
 
   <!-- ══════════ MISSION ══════════ -->
   <section id="mission">
