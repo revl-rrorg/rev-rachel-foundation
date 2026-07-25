@@ -1212,6 +1212,40 @@
       .org-desc { margin-left: 16px !important; margin-right: 16px !important; }
       .org-link { margin-left: 16px !important; margin-right: 16px !important; }
     }
+
+    /* ════════════════════════════════════
+       SPOTLIGHT CAROUSEL
+    ════════════════════════════════════ */
+    .spotlight { position:relative; width:100%; height:420px; overflow:hidden; background:var(--dark-2); }
+    .spotlight-slide { position:absolute; inset:0; opacity:0; transition:opacity 1s ease; }
+    .spotlight-slide.active { opacity:1; z-index:1; }
+    .spotlight-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; filter:brightness(0.35); }
+    .spotlight-gradient { position:absolute; inset:0; background:linear-gradient(90deg, rgba(6,11,25,0.92) 0%, rgba(6,11,25,0.75) 40%, rgba(6,11,25,0.2) 100%); z-index:1; }
+    .spotlight-content { position:relative; z-index:2; max-width:680px; padding:60px 80px; display:flex; flex-direction:column; justify-content:center; gap:16px; height:100%; }
+    .spotlight-label { font-size:0.68rem; font-weight:600; letter-spacing:0.22em; text-transform:uppercase; color:var(--red); display:flex; align-items:center; gap:10px; }
+    .spotlight-label::before { content:''; display:inline-block; width:24px; height:2px; background:var(--red); }
+    .spotlight-title { font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:400; line-height:1.2; color:#fff; }
+    .spotlight-desc { font-size:0.92rem; line-height:1.7; color:rgba(255,255,255,0.5); max-width:520px; }
+    .spotlight-cta { margin-top:8px; display:inline-flex; align-items:center; gap:8px; font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--red); text-decoration:none; transition:color 0.2s; }
+    .spotlight-cta:hover { color:#fff; }
+    .spotlight-dots { position:absolute; bottom:28px; left:80px; z-index:3; display:flex; gap:10px; }
+    .spotlight-dot { width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.2); cursor:pointer; transition:background 0.3s, transform 0.3s; border:none; padding:0; }
+    .spotlight-dot.active { background:var(--red); transform:scale(1.3); }
+    .spotlight-progress { position:absolute; bottom:0; left:0; height:3px; background:var(--red); z-index:3; transition:width 0.1s linear; }
+    .spotlight-source { position:absolute; top:28px; right:40px; z-index:3; font-size:0.62rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.3); background:rgba(255,255,255,0.06); padding:6px 14px; border-radius:3px; backdrop-filter:blur(8px); }
+    .spotlight-heading { text-align:center; padding:48px 24px 0; background:var(--dark); }
+    .spotlight-heading h2 { font-family:'Cormorant Garamond',serif; font-size:1.8rem; font-weight:400; color:#fff; margin-bottom:0; }
+    .spotlight-heading h2 em { font-style:italic; color:rgba(255,255,255,0.5); }
+
+    @media (max-width:768px) {
+      .spotlight { height:360px; }
+      .spotlight-content { padding:40px 24px; }
+      .spotlight-title { font-size:1.6rem; }
+      .spotlight-dots { left:24px; bottom:20px; }
+      .spotlight-source { display:none; }
+      .spotlight-heading { padding:32px 16px 0; }
+    }
+
   </style>
 </head>
 <body>
@@ -1268,7 +1302,52 @@
 
   </section>
 
+  <!-- ══════════ SPOTLIGHT CAROUSEL ══════════ -->
+  <div class="spotlight-heading"><h2>In the <em>News</em></h2></div>
+  <div class="spotlight" id="spotlight">
 
+    <!-- Slide 1: Fox Business -->
+    <div class="spotlight-slide active">
+      <img class="spotlight-img" src="images/fox-mornings-maria-physical-ai.jpg" alt="Rev Lebaredian on Mornings with Maria">
+      <div class="spotlight-gradient"></div>
+      <div class="spotlight-content">
+        <span class="spotlight-label">July 2026 · Video</span>
+        <h3 class="spotlight-title">AI's Greatest Impact Is in the 'Physical World'</h3>
+        <p class="spotlight-desc">Rev Lebaredian discusses the future of physical AI, digital twins, and the infrastructure behind humanoid robots on Fox Business' Mornings with Maria.</p>
+        <a href="https://www.foxbusiness.com/video/6402001535112" class="spotlight-cta" target="_blank">Watch Video <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <span class="spotlight-source">Fox Business</span>
+    </div>
+
+    <!-- Slide 2: AGBU Diaspora Imprints -->
+    <div class="spotlight-slide">
+      <img class="spotlight-img" src="images/agbu-diaspora-imprints.jpg" alt="AGBU Diaspora Imprints">
+      <div class="spotlight-gradient"></div>
+      <div class="spotlight-content">
+        <span class="spotlight-label">June 2026 · Feature</span>
+        <h3 class="spotlight-title">Diaspora Imprints — Armenians from America Bearing Gifts</h3>
+        <p class="spotlight-desc">AGBU profiles pioneering Armenian-American tech leaders — including Rev Lebaredian — who are bringing deep expertise in AI, robotics, and innovation to their ancestral homeland.</p>
+        <a href="https://agbu.org/reality-humanity-identity-age-ai/diaspora-imprints" class="spotlight-cta" target="_blank">Read More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <span class="spotlight-source">AGBU</span>
+    </div>
+
+    <!-- Slide 3: Firebird / JD Vance -->
+    <div class="spotlight-slide">
+      <img class="spotlight-img" src="images/firebird-vance.jpg" alt="Firebird AI expansion">
+      <div class="spotlight-gradient"></div>
+      <div class="spotlight-content">
+        <span class="spotlight-label">February 2026 · News</span>
+        <h3 class="spotlight-title">VP Vance Visits Armenia — Firebird Scales to $4 Billion</h3>
+        <p class="spotlight-desc">During an official visit to Yerevan, U.S. Vice President JD Vance announced the expansion of the Firebird AI megaproject with NVIDIA Blackwell GPU infrastructure.</p>
+        <a href="https://www.civilnet.am/en/news/1001816/firebird-ai-touts-4-billion-megaproject-with-u-s-support-in-armenia/" class="spotlight-cta" target="_blank">Read More <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <span class="spotlight-source">CivilNet</span>
+    </div>
+
+    <div class="spotlight-dots" id="spotlight-dots"></div>
+    <div class="spotlight-progress" id="spotlight-progress"></div>
+  </div>
 
   <!-- ══════════ MISSION ══════════ -->
   <section id="mission">
@@ -1769,16 +1848,15 @@
       <!-- ── Latest: 2026 + Dec 2025 ── -->
       <div class="news-grid">
 
-
         <!-- Fox Business: Mornings with Maria — July 2026 -->
         <article style="background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:14px; overflow:hidden; display:flex; flex-direction:column; transition:transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(217,0,18,0.4)'" onmouseout="this.style.transform='';this.style.borderColor='rgba(255,255,255,0.08)'">
           <div style="height:180px; flex-shrink:0; overflow:hidden;">
             <img src="images/fox-mornings-maria-physical-ai.jpg" alt="Rev Lebaredian on Mornings with Maria" style="width:100%; height:100%; object-fit:cover; object-position:center;">
           </div>
           <div style="padding:28px; flex:1; display:flex; flex-direction:column;">
-            <p style="font-size:0.68rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--red); margin-bottom:12px;">July 2026 &middot; Video</p>
-            <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:400; color:#fff; line-height:1.3; margin-bottom:14px; flex:1;">AI&rsquo;s Greatest Impact Is in the &lsquo;Physical World&rsquo;</h3>
-            <p style="font-size:0.88rem; line-height:1.7; color:rgba(255,255,255,0.45); margin-bottom:24px;">Rev Lebaredian discusses the future of physical AI, digital twins, and the infrastructure behind humanoid robots on Fox Business&rsquo; Mornings with Maria.</p>
+            <p style="font-size:0.68rem; font-weight:600; letter-spacing:0.18em; text-transform:uppercase; color:var(--red); margin-bottom:12px;">July 2026 · Video</p>
+            <h3 style="font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:400; color:#fff; line-height:1.3; margin-bottom:14px; flex:1;">AI's Greatest Impact Is in the 'Physical World'</h3>
+            <p style="font-size:0.88rem; line-height:1.7; color:rgba(255,255,255,0.45); margin-bottom:24px;">Rev Lebaredian discusses the future of physical AI, digital twins, and the infrastructure behind humanoid robots on Fox Business' Mornings with Maria.</p>
             <a href="https://www.foxbusiness.com/video/6402001535112" target="_blank" style="font-size:0.72rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:var(--red); text-decoration:none; display:flex; align-items:center; gap:6px;">Watch Video <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
         </article>
@@ -2129,6 +2207,12 @@
         const el = document.getElementById(s);
         if (el) el.style.display = 'none';
       });
+      // Show/hide spotlight carousel with home
+      const spotH = document.querySelector('.spotlight-heading');
+      const spotC = document.getElementById('spotlight');
+      if (spotH) spotH.style.display = (id === 'home') ? '' : 'none';
+      if (spotC) spotC.style.display = (id === 'home') ? '' : 'none';
+
       const target = document.getElementById(id);
       if (target) {
         target.style.display = 'block';
@@ -2218,6 +2302,33 @@
       }
     });
   }
+
+  // ── Spotlight Carousel ──
+  (function() {
+    const slides = document.querySelectorAll('.spotlight-slide');
+    const dotsC = document.getElementById('spotlight-dots');
+    const progBar = document.getElementById('spotlight-progress');
+    if (!slides.length || !dotsC) return;
+    let cur = 0, timer, startT;
+    const INT = 8000;
+    slides.forEach((_, i) => {
+      const d = document.createElement('button');
+      d.className = 'spotlight-dot' + (i === 0 ? ' active' : '');
+      d.onclick = () => goTo(i);
+      dotsC.appendChild(d);
+    });
+    function goTo(i) {
+      slides[cur].classList.remove('active');
+      dotsC.children[cur].classList.remove('active');
+      cur = i;
+      slides[cur].classList.add('active');
+      dotsC.children[cur].classList.add('active');
+      resetT();
+    }
+    function resetT() { clearInterval(timer); startT = Date.now(); timer = setInterval(() => goTo((cur+1)%slides.length), INT); }
+    function prog() { const p = Math.min((Date.now()-startT)/INT*100,100); progBar.style.width = p+'%'; requestAnimationFrame(prog); }
+    resetT(); prog();
+  })();
 
   function switchNewsTab(tab) {
     document.getElementById('news-tab-latest').classList.toggle('active', tab === 'latest');
